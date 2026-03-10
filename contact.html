@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Peace Alliance Network (PAN) Foundation</title>
+<meta name="description" content="Get in touch with PAN Foundation. Whether you want to volunteer, partner, donate, or ask a question — we'd love to hear from you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1A4D2E;--green-deep:#0f2e1a;--green-mid:#255e3a;--green-light:#2e7048;
+  --gold:#C9882A;--gold-light:#dba048;--gold-pale:#e8c07a;
+  --ivory:#F5F0E8;--ivory-dark:#ede7d8;
+  --charcoal:#2C2C2C;--charcoal-light:#555;
+  --sage:#EAF0E6;--sage-mid:#d4e0cc;--white:#fff;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'DM Sans',system-ui,sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--charcoal);background:var(--ivory);overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:72px;transition:all .4s;background:rgba(26,77,46,.97);backdrop-filter:blur(12px)}
+nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.2)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-icon{width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;font-size:15px;color:var(--green-deep)}
+.nav-logo-text .brand{font-family:var(--font-display);font-weight:700;font-size:15px;color:#fff}
+.nav-logo-text .sub{font-size:10px;color:var(--gold-pale);letter-spacing:1.5px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:13.5px;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-pale)}
+.nav-cta{background:var(--gold);color:var(--green-deep);padding:10px 22px;border-radius:100px;font-weight:600;font-size:13px;text-decoration:none;transition:all .25s}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+
+.page-hero{position:relative;padding:130px 5% 90px;background:var(--green-deep);overflow:hidden;min-height:440px;display:flex;align-items:center}
+.page-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 80% 50%,rgba(201,136,42,.1) 0%,transparent 60%),linear-gradient(135deg,#0a1f10 0%,#1A4D2E 50%,#0f2e1a 100%)}
+.page-hero-texture{position:absolute;inset:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E")}
+.hero-geo{position:absolute;right:7%;top:50%;transform:translateY(-50%);width:260px;height:260px;opacity:.15}
+.hero-geo svg{width:100%;height:100%}
+.page-hero-content{position:relative;z-index:2;max-width:640px}
+.page-breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px}
+.page-breadcrumb a,.page-breadcrumb span{font-size:12px;color:rgba(255,255,255,.45);text-decoration:none}
+.page-breadcrumb a:hover{color:var(--gold-pale)}
+.page-breadcrumb .sep{color:rgba(255,255,255,.2)}
+.page-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(201,136,42,.15);border:1px solid rgba(201,136,42,.3);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold-pale);margin-bottom:20px;animation:fadeUp .7s ease .1s both}
+.page-title{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,3.8rem);font-weight:900;color:#fff;line-height:1.05;margin-bottom:18px;animation:fadeUp .7s ease .2s both}
+.page-title em{font-style:italic;color:var(--gold)}
+.page-subtitle{font-size:1.05rem;line-height:1.8;color:rgba(255,255,255,.65);max-width:520px;animation:fadeUp .7s ease .3s both}
+.hero-contact-chips{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;animation:fadeUp .7s ease .4s both}
+.hero-chip{display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:100px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);font-size:12px;color:rgba(255,255,255,.7);transition:all .25s;text-decoration:none}
+.hero-chip:hover{background:rgba(201,136,42,.2);border-color:rgba(201,136,42,.3);color:var(--gold-pale)}
+.hero-chip span{font-size:1rem}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+.container{max-width:1200px;margin:0 auto;padding:0 5%}
+.section-label{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.section-label::before{content:'';display:block;width:24px;height:1.5px;background:var(--gold)}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+/* ── MAIN CONTACT ── */
+#contact-main{padding:100px 0;background:var(--ivory)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:64px;align-items:start}
+
+.contact-info-col .section-label{margin-bottom:24px}
+.ci-heading{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;color:var(--green-deep);line-height:1.2;margin-bottom:14px}
+.ci-heading em{font-style:italic;color:var(--gold)}
+.ci-body{font-size:.93rem;line-height:1.85;color:var(--charcoal-light);margin-bottom:36px}
+
+.contact-cards{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+.contact-card{display:flex;align-items:flex-start;gap:16px;padding:20px 22px;border-radius:16px;background:white;border:1px solid var(--sage-mid);transition:all .3s}
+.contact-card:hover{border-color:var(--green);transform:translateX(4px);box-shadow:0 8px 30px rgba(26,77,46,.08)}
+.cc-icon{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.cc-icon-green{background:var(--sage)}
+.cc-icon-gold{background:rgba(201,136,42,.1)}
+.cc-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.cc-value{font-size:.9rem;font-weight:500;color:var(--charcoal);line-height:1.5}
+.cc-sub{font-size:.78rem;color:var(--charcoal-light);margin-top:2px}
+
+.social-section{margin-top:4px}
+.social-heading{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--charcoal-light);margin-bottom:14px}
+.social-links{display:flex;flex-direction:column;gap:10px}
+.social-link{display:flex;align-items:center;gap:14px;padding:13px 16px;border-radius:12px;background:white;border:1px solid var(--sage-mid);text-decoration:none;transition:all .25s}
+.social-link:hover{border-color:var(--green);background:var(--sage)}
+.sl-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.sl-twitter{background:#000;color:white}
+.sl-facebook{background:#1877F2;color:white}
+.sl-instagram{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:white}
+.sl-linkedin{background:#0A66C2;color:white}
+.sl-youtube{background:#FF0000;color:white}
+.sl-name{font-size:.875rem;font-weight:600;color:var(--charcoal)}
+.sl-handle{font-size:.78rem;color:var(--charcoal-light)}
+
+/* FORM */
+.contact-form-col{background:white;border-radius:28px;padding:48px;border:1px solid var(--sage-mid);box-shadow:0 8px 50px rgba(26,77,46,.06)}
+.cf-heading{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--green-deep);margin-bottom:6px}
+.cf-sub{font-size:.88rem;color:var(--charcoal-light);margin-bottom:32px;line-height:1.6}
+
+.reason-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.rtab{padding:7px 16px;border-radius:100px;border:1.5px solid var(--sage-mid);background:transparent;cursor:pointer;font-size:12px;font-weight:600;color:var(--charcoal-light);transition:all .25s;font-family:var(--font-body)}
+.rtab.active,.rtab:hover{background:var(--green);border-color:var(--green);color:white}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.form-group label{font-size:12px;font-weight:600;color:var(--charcoal);letter-spacing:.3px}
+.form-group input,.form-group select,.form-group textarea{padding:12px 16px;border-radius:12px;border:1.5px solid var(--sage-mid);font-size:14px;font-family:var(--font-body);color:var(--charcoal);background:var(--ivory);outline:none;transition:border-color .2s,box-shadow .2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,77,46,.07)}
+.form-group textarea{height:110px;resize:none}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(44,44,44,.35)}
+.form-check{display:flex;align-items:flex-start;gap:10px;margin-bottom:24px}
+.form-check input[type="checkbox"]{width:16px;height:16px;accent-color:var(--green);margin-top:2px;flex-shrink:0}
+.form-check label{font-size:12.5px;color:var(--charcoal-light);line-height:1.6}
+.form-check a{color:var(--green)}
+.form-submit{width:100%;padding:15px;border-radius:100px;background:var(--green);color:white;border:none;cursor:pointer;font-size:14px;font-weight:700;font-family:var(--font-body);transition:all .3s;display:flex;align-items:center;justify-content:center;gap:8px}
+.form-submit:hover{background:var(--green-mid);transform:translateY(-1px);box-shadow:0 8px 30px rgba(26,77,46,.3)}
+.form-success{display:none;text-align:center;padding:40px 20px}
+.fs-icon{font-size:3rem;margin-bottom:16px}
+.fs-title{font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--green-deep);margin-bottom:8px}
+.fs-body{font-size:.9rem;color:var(--charcoal-light);line-height:1.7}
+
+/* ── OFFICE MAP ── */
+#offices{padding:100px 0;background:var(--sage)}
+.offices-header{text-align:center;margin-bottom:60px}
+.offices-heading{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,2.6rem);font-weight:700;color:var(--green-deep);line-height:1.2}
+.offices-heading em{font-style:italic;color:var(--gold)}
+.offices-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
+.office-card{background:white;border-radius:20px;overflow:hidden;border:1px solid var(--sage-mid);transition:all .35s}
+.office-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(26,77,46,.1);border-color:var(--green)}
+.oc-top{height:120px;display:flex;align-items:center;justify-content:center;position:relative}
+.oc-hq .oc-top{background:linear-gradient(135deg,var(--green),var(--green-mid))}
+.oc-north .oc-top{background:linear-gradient(135deg,#8B5E0A,var(--gold))}
+.oc-east .oc-top{background:linear-gradient(135deg,#1e2a5c,#2e4aad)}
+.oc-icon{font-size:2.5rem;opacity:.8}
+.oc-badge{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:3px 10px;font-size:10px;font-weight:600;color:white;letter-spacing:1px}
+.oc-body{padding:24px}
+.oc-title{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--green-deep);margin-bottom:4px}
+.oc-role{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.oc-address{font-size:.83rem;color:var(--charcoal-light);line-height:1.7;margin-bottom:12px}
+.oc-contact{font-size:.83rem;color:var(--green);font-weight:500}
+
+.map-placeholder{border-radius:20px;overflow:hidden;height:340px;background:linear-gradient(135deg,var(--green-deep) 0%,var(--green) 40%,var(--green-mid) 100%);display:flex;align-items:center;justify-content:center;position:relative;border:1px solid var(--sage-mid)}
+.map-placeholder::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='20' cy='30' r='2' fill='rgba(201,136,42,0.4)'/%3E%3Ccircle cx='60' cy='20' r='1.5' fill='rgba(201,136,42,0.3)'/%3E%3Ccircle cx='80' cy='60' r='2' fill='rgba(201,136,42,0.4)'/%3E%3Ccircle cx='40' cy='70' r='1.5' fill='rgba(201,136,42,0.3)'/%3E%3Ccircle cx='70' cy='80' r='2' fill='rgba(201,136,42,0.5)'/%3E%3Ccircle cx='15' cy='60' r='1.5' fill='rgba(201,136,42,0.3)'/%3E%3Ccircle cx='50' cy='45' r='3' fill='rgba(201,136,42,0.6)'/%3E%3C/svg%3E") repeat;opacity:.5}
+.map-inner{position:relative;z-index:1;text-align:center}
+.map-pin-icon{font-size:3rem;margin-bottom:12px;animation:bounce 2s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.map-label{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:white;margin-bottom:6px}
+.map-sub{font-size:.85rem;color:rgba(255,255,255,.5)}
+.map-pins{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.map-pin{padding:5px 14px;border-radius:100px;background:rgba(201,136,42,.2);border:1px solid rgba(201,136,42,.3);font-size:11px;color:var(--gold-pale);font-weight:500}
+
+/* ── FAQ ── */
+#faq{padding:100px 0;background:var(--ivory)}
+.faq-inner{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
+.faq-text .section-label{margin-bottom:16px}
+.faq-heading{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;color:var(--green-deep);line-height:1.2;margin-bottom:14px}
+.faq-heading em{font-style:italic;color:var(--gold)}
+.faq-body{font-size:.9rem;line-height:1.85;color:var(--charcoal-light);margin-bottom:24px}
+.faq-cta{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:white;padding:12px 24px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none;transition:all .3s}
+.faq-cta:hover{background:var(--green-mid);transform:translateY(-1px)}
+
+.faq-list{display:flex;flex-direction:column;gap:0}
+.faq-item{border-bottom:1px solid var(--sage-mid);overflow:hidden}
+.faq-item:first-child{border-top:1px solid var(--sage-mid)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:22px 4px;cursor:pointer;gap:16px;transition:color .2s}
+.faq-q:hover .faq-q-text{color:var(--green)}
+.faq-q-text{font-size:.95rem;font-weight:600;color:var(--charcoal);line-height:1.4;transition:color .2s}
+.faq-q-icon{width:28px;height:28px;border-radius:50%;background:var(--sage);border:1px solid var(--sage-mid);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;transition:all .3s;font-weight:300;color:var(--green)}
+.faq-item.open .faq-q-icon{background:var(--green);color:white;transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:20px}
+.faq-a-text{font-size:.875rem;line-height:1.8;color:var(--charcoal-light);padding:0 4px}
+
+footer{background:var(--green-deep);padding:60px 0 0}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;padding-bottom:48px}
+.footer-logo-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.fl-icon{width:44px;height:44px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;font-size:15px;color:var(--green-deep)}
+.fl-brand{font-family:var(--font-display);font-size:15px;font-weight:700;color:white}
+.fl-sub{font-size:10px;color:var(--gold-pale);letter-spacing:1.5px;text-transform:uppercase}
+.footer-tagline{font-size:.85rem;line-height:1.75;color:rgba(255,255,255,.45);max-width:280px;margin-bottom:20px}
+.footer-social{display:flex;gap:8px}
+.sb{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;color:white;font-size:.9rem;transition:all .25s}
+.sb:hover{background:var(--gold);border-color:var(--gold);color:var(--green-deep)}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{color:rgba(255,255,255,.45);text-decoration:none;font-size:13.5px;transition:color .2s}
+.footer-links a:hover{color:var(--gold-pale)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom-left{font-size:12px;color:rgba(255,255,255,.3)}
+.footer-bottom-right{display:flex;gap:20px}
+.footer-bottom-right a{font-size:12px;color:rgba(255,255,255,.3);text-decoration:none}
+.footer-bottom-right a:hover{color:var(--gold-pale)}
+
+@media(max-width:900px){
+  .contact-grid,.faq-inner,.footer-inner{grid-template-columns:1fr}
+  .offices-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .hero-contact-chips{display:none}
+}
+@media(max-width:600px){
+  .form-row{grid-template-columns:1fr}
+  .offices-grid{grid-template-columns:1fr}
+  .reason-tabs{gap:6px}
+}
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <a href="pan-foundation.html" class="nav-logo">
+    <div class="nav-logo-icon">PAN</div>
+    <div class="nav-logo-text">
+      <div class="brand">Peace Alliance Network</div>
+      <div class="sub">PAN Foundation</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="what-we-do.html">What We Do</a></li>
+    <li><a href="get-involved.html">Get Involved</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <a href="pan-foundation.html#donate" class="nav-cta">Donate</a>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-texture"></div>
+  <div class="hero-geo">
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="90" stroke="rgba(201,136,42,1)" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="65" stroke="rgba(201,136,42,1)" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="40" stroke="rgba(201,136,42,1)" stroke-width="0.5"/>
+      <line x1="10" y1="100" x2="190" y2="100" stroke="rgba(201,136,42,0.5)" stroke-width="0.5"/>
+      <line x1="100" y1="10" x2="100" y2="190" stroke="rgba(201,136,42,0.5)" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="6" fill="rgba(201,136,42,1)"/>
+      <circle cx="140" cy="70" r="3" fill="rgba(201,136,42,0.6)"/>
+      <circle cx="70" cy="130" r="3" fill="rgba(201,136,42,0.6)"/>
+      <circle cx="60" cy="60" r="2" fill="rgba(201,136,42,0.4)"/>
+      <circle cx="150" cy="140" r="2" fill="rgba(201,136,42,0.4)"/>
+    </svg>
+  </div>
+  <div class="page-hero-content">
+    <div class="page-breadcrumb"><a href="pan-foundation.html">Home</a><span class="sep">/</span><span>Contact</span></div>
+    <div class="page-eyebrow">Get in Touch</div>
+    <h1 class="page-title">Let's Build <em>Peace</em><br>Together</h1>
+    <p class="page-subtitle">Whether you're a journalist, potential partner, volunteer, donor, or simply someone who believes in peace — we want to hear from you. Every conversation could plant a seed.</p>
+    <div class="hero-contact-chips">
+      <a href="mailto:info@peacealliancenetwork.org" class="hero-chip"><span>✉️</span> info@peacealliancenetwork.org</a>
+      <a href="tel:+234" class="hero-chip"><span>📞</span> +234 (0) 800 PAN PEACE</a>
+      <a href="#" class="hero-chip"><span>📍</span> Abuja, Nigeria</a>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTACT -->
+<section id="contact-main">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- LEFT INFO COL -->
+      <div>
+        <div class="section-label reveal">Contact Information</div>
+        <h2 class="ci-heading reveal d1">We're <em>Here</em> for You</h2>
+        <p class="ci-body reveal d2">Our team responds to all enquiries within 2–3 working days. For urgent matters related to conflict situations or humanitarian needs, please mark your email as URGENT.</p>
+
+        <div class="contact-cards reveal d3">
+          <div class="contact-card">
+            <div class="cc-icon cc-icon-green">📍</div>
+            <div>
+              <div class="cc-label">Head Office</div>
+              <div class="cc-value">Peace Alliance Network (PAN) Foundation</div>
+              <div class="cc-sub">Abuja, Federal Capital Territory, Nigeria</div>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="cc-icon cc-icon-gold">✉️</div>
+            <div>
+              <div class="cc-label">Email</div>
+              <div class="cc-value">info@peacealliancenetwork.org</div>
+              <div class="cc-sub">General enquiries & partnerships</div>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="cc-icon cc-icon-green">✉️</div>
+            <div>
+              <div class="cc-label">Media & Press</div>
+              <div class="cc-value">media@peacealliancenetwork.org</div>
+              <div class="cc-sub">Journalists, interview requests, press releases</div>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="cc-icon cc-icon-gold">📞</div>
+            <div>
+              <div class="cc-label">Phone</div>
+              <div class="cc-value">+234 (0) 800 PAN PEACE</div>
+              <div class="cc-sub">Mon–Fri, 8:00am – 5:00pm WAT</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-section reveal d4">
+          <div class="social-heading">Follow Us on Social Media</div>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <div class="sl-icon sl-twitter">𝕏</div>
+              <div><div class="sl-name">Twitter / X</div><div class="sl-handle">@PANFoundationNG</div></div>
+            </a>
+            <a href="#" class="social-link">
+              <div class="sl-icon sl-facebook">f</div>
+              <div><div class="sl-name">Facebook</div><div class="sl-handle">Peace Alliance Network Nigeria</div></div>
+            </a>
+            <a href="#" class="social-link">
+              <div class="sl-icon sl-instagram">📷</div>
+              <div><div class="sl-name">Instagram</div><div class="sl-handle">@panfoundation.ng</div></div>
+            </a>
+            <a href="#" class="social-link">
+              <div class="sl-icon sl-linkedin">in</div>
+              <div><div class="sl-name">LinkedIn</div><div class="sl-handle">Peace Alliance Network Foundation</div></div>
+            </a>
+            <a href="#" class="social-link">
+              <div class="sl-icon sl-youtube">▶</div>
+              <div><div class="sl-name">YouTube</div><div class="sl-handle">PAN Foundation Nigeria</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT FORM COL -->
+      <div class="contact-form-col reveal d2">
+        <div id="form-wrap">
+          <div class="cf-heading">Send Us a Message</div>
+          <p class="cf-sub">Fill in the form below and our team will get back to you within 2–3 working days.</p>
+
+          <div class="reason-tabs">
+            <button class="rtab active" onclick="setReason(this)">General Enquiry</button>
+            <button class="rtab" onclick="setReason(this)">Volunteer</button>
+            <button class="rtab" onclick="setReason(this)">Partnership</button>
+            <button class="rtab" onclick="setReason(this)">Donation</button>
+            <button class="rtab" onclick="setReason(this)">Media / Press</button>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group"><label>First Name *</label><input type="text" placeholder="Aminu"></div>
+            <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Ibrahim"></div>
+          </div>
+          <div class="form-group"><label>Email Address *</label><input type="email" placeholder="aminu@email.com"></div>
+          <div class="form-row">
+            <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+234 800 000 0000"></div>
+            <div class="form-group"><label>Organization (Optional)</label><input type="text" placeholder="Your organization name"></div>
+          </div>
+          <div class="form-group"><label>State / Country</label><input type="text" placeholder="Lagos, Nigeria"></div>
+          <div class="form-group"><label>Your Message *</label><textarea placeholder="How can we help you? Tell us what you'd like to discuss, ask, or explore together..."></textarea></div>
+          <div class="form-check">
+            <input type="checkbox" id="privacy" checked>
+            <label for="privacy">I agree to PAN Foundation's <a href="#">Privacy Policy</a>. I understand my information will be used to respond to my enquiry and may be used to send relevant updates about PAN's work (you can opt out at any time).</label>
+          </div>
+          <button class="form-submit" onclick="handleSubmit()">Send Message →</button>
+        </div>
+
+        <div class="form-success" id="form-success">
+          <div class="fs-icon">💚</div>
+          <div class="fs-title">Message Received!</div>
+          <p class="fs-body">Thank you for reaching out to PAN Foundation. Our team will review your message and get back to you within 2–3 working days.<br><br>In the meantime, follow us on social media to stay connected with our peacebuilding work across Nigeria.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFICES -->
+<section id="offices">
+  <div class="container">
+    <div class="offices-header">
+      <div class="section-label reveal" style="justify-content:center">Our Offices</div>
+      <h2 class="offices-heading reveal d1">Find <em>PAN Near You</em></h2>
+    </div>
+    <div class="offices-grid">
+      <div class="office-card oc-hq reveal">
+        <div class="oc-top"><div class="oc-icon">🏛️</div><div class="oc-badge">HEADQUARTERS</div></div>
+        <div class="oc-body">
+          <div class="oc-title">PAN Foundation HQ</div>
+          <div class="oc-role">National Office</div>
+          <div class="oc-address">Abuja, Federal Capital Territory, Nigeria.<br>P.O. Box XXXXX, Central Area, Abuja.</div>
+          <div class="oc-contact">info@peacealliancenetwork.org</div>
+        </div>
+      </div>
+      <div class="office-card oc-north reveal d1">
+        <div class="oc-top"><div class="oc-icon">🕌</div><div class="oc-badge">REGIONAL</div></div>
+        <div class="oc-body">
+          <div class="oc-title">Northern Field Office</div>
+          <div class="oc-role">Northeast & Northwest Region</div>
+          <div class="oc-address">Maiduguri, Borno State, Nigeria.<br>Serving Borno, Adamawa, Yobe, Kano, Kaduna & more.</div>
+          <div class="oc-contact">north@peacealliancenetwork.org</div>
+        </div>
+      </div>
+      <div class="office-card oc-east reveal d2">
+        <div class="oc-top"><div class="oc-icon">🌳</div><div class="oc-badge">REGIONAL</div></div>
+        <div class="oc-body">
+          <div class="oc-title">Middle Belt Field Office</div>
+          <div class="oc-role">Middle Belt Region</div>
+          <div class="oc-address">Jos, Plateau State, Nigeria.<br>Serving Plateau, Taraba, Benue, Niger, Nasarawa & more.</div>
+          <div class="oc-contact">middlebelt@peacealliancenetwork.org</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-placeholder reveal d2">
+      <div class="map-inner">
+        <div class="map-pin-icon">📍</div>
+        <div class="map-label">PAN Foundation — Active Across Nigeria</div>
+        <div class="map-sub">19 states, 120+ communities, one mission</div>
+        <div class="map-pins">
+          <div class="map-pin">Abuja HQ</div>
+          <div class="map-pin">Maiduguri</div>
+          <div class="map-pin">Jos</div>
+          <div class="map-pin">Kaduna</div>
+          <div class="map-pin">Kano</div>
+          <div class="map-pin">+ 14 States</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-inner">
+      <div>
+        <div class="section-label reveal">FAQs</div>
+        <h2 class="faq-heading reveal d1">Common <em>Questions</em></h2>
+        <p class="faq-body reveal d2">Can't find your answer here? Send us a message using the form above and we'll get back to you within 2–3 working days.</p>
+        <a href="#contact-main" class="faq-cta reveal d3">Send a Message →</a>
+      </div>
+      <div class="faq-list reveal d1">
+        <div class="faq-item open">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">How can I volunteer with PAN Foundation?</span>
+            <span class="faq-q-icon">+</span>
+          </div>
+          <div class="faq-a"><p class="faq-a-text">Visit our Get Involved page and complete the volunteer application form. We welcome people with a wide range of skills — from facilitation and counseling to communications, research, and legal support. Our team will review your application and contact you within 5 working days.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Where does my donation go?</span>
+            <span class="faq-q-icon">+</span>
+          </div>
+          <div class="faq-a"><p class="faq-a-text">78% of every donation goes directly to our field programs — community peacebuilding, conflict victims support, and youth reintegration. 12% funds policy advocacy work, 7% goes to capacity building, and just 3% covers administration. We publish annual financial reports for full transparency.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Can my organization partner with PAN?</span>
+            <span class="faq-q-icon">+</span>
+          </div>
+          <div class="faq-a"><p class="faq-a-text">Yes — we actively seek partnerships with governments, INGOs, faith institutions, corporations, and universities. We offer joint program design, co-implementation, rigorous M&E, and full transparency. Use the contact form above, select "Partnership," and our partnerships team will be in touch.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">How do I request a speaker or field visit?</span>
+            <span class="faq-q-icon">+</span>
+          </div>
+          <div class="faq-a"><p class="faq-a-text">PAN staff and leadership speak at conferences, universities, and events on peacebuilding, conflict resolution, and Nigeria's security situation. For speaking requests or organized field visits, email us at media@peacealliancenetwork.org with your event details and at least 4 weeks notice.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">How can I get help if my community is in conflict?</span>
+            <span class="faq-q-icon">+</span>
+          </div>
+          <div class="faq-a"><p class="faq-a-text">Contact us immediately at info@peacealliancenetwork.org and mark your email URGENT. Include the state and community name, a brief description of the situation, and a contact number. Our Field Operations team will assess and respond within 24 hours for active conflict situations.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Is PAN registered and officially recognized?</span>
+            <span class="faq-q-icon">+</span>
+          </div>
+          <div class="faq-a"><p class="faq-a-text">Yes. PAN Foundation is a registered NGO in Nigeria with the Corporate Affairs Commission (CAC) and is in compliance with all relevant NGO regulations. We are also registered with the Special Control Unit Against Money Laundering (SCUML). Our registration details are available on request.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo-row">
+          <div class="fl-icon">PAN</div>
+          <div><div class="fl-brand">Peace Alliance Network</div><div class="fl-sub">PAN Foundation — Nigeria</div></div>
+        </div>
+        <p class="footer-tagline">Building a culture of peace across Nigeria and beyond — community by community, voice by voice.</p>
+        <div class="footer-social"><a href="#" class="sb">𝕏</a><a href="#" class="sb">f</a><a href="#" class="sb">📷</a><a href="#" class="sb">in</a></div>
+      </div>
+      <div>
+        <div class="footer-col-title">Pages</div>
+        <ul class="footer-links">
+          <li><a href="pan-foundation.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Take Action</div>
+        <ul class="footer-links">
+          <li><a href="get-involved.html">Volunteer</a></li>
+          <li><a href="pan-foundation.html#donate">Donate</a></li>
+          <li><a href="get-involved.html#partner">Partner With Us</a></li>
+          <li><a href="contact.html">Get in Touch</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">© 2025 Peace Alliance Network (PAN) Foundation. All rights reserved.</div>
+      <div class="footer-bottom-right"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Annual Report</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('main-nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+function setReason(btn){
+  document.querySelectorAll('.rtab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function handleSubmit(){
+  document.getElementById('form-wrap').style.display='none';
+  const s=document.getElementById('form-success');
+  s.style.display='block';
+}
+function toggleFaq(btn){
+  const item=btn.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+</script>
+</body>
+</html>

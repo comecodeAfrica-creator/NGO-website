@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Peace Alliance Network (PAN) Foundation</title>
+<meta name="description" content="Learn who we are, our vision, mission, core values and history. PAN Foundation is Nigeria's leading peacebuilding network.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green:#1A4D2E; --green-deep:#0f2e1a; --green-mid:#255e3a; --green-light:#2e7048;
+  --gold:#C9882A; --gold-light:#dba048; --gold-pale:#e8c07a;
+  --ivory:#F5F0E8; --ivory-dark:#ede7d8;
+  --charcoal:#2C2C2C; --charcoal-light:#555;
+  --sage:#EAF0E6; --sage-mid:#d4e0cc;
+  --white:#ffffff;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'DM Sans',system-ui,sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);color:var(--charcoal);background:var(--ivory);overflow-x:hidden}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--ivory)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:72px;transition:all .4s ease}
+nav.scrolled{background:rgba(26,77,46,.97);backdrop-filter:blur(12px);box-shadow:0 2px 30px rgba(0,0,0,.2)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-icon{width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;font-size:15px;color:var(--green-deep);flex-shrink:0}
+.nav-logo-text .brand{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--white);letter-spacing:.3px}
+.nav-logo-text .sub{font-size:10px;color:var(--gold-pale);letter-spacing:1.5px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:13.5px;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-pale)}
+.nav-cta{background:var(--gold);color:var(--green-deep);padding:10px 22px;border-radius:100px;font-weight:600;font-size:13px;text-decoration:none;transition:all .25s}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+.nav-bg{background:rgba(26,77,46,.97)} /* always on for inner pages */
+
+/* HERO */
+.page-hero{position:relative;padding:140px 5% 100px;background:var(--green-deep);overflow:hidden;min-height:480px;display:flex;align-items:center}
+.page-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 80% 50%,rgba(201,136,42,.1) 0%,transparent 60%),linear-gradient(135deg,#0a1f10 0%,#1A4D2E 50%,#0f2e1a 100%)}
+.page-hero-texture{position:absolute;inset:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E")}
+.page-hero-dec{position:absolute;right:8%;top:50%;transform:translateY(-50%);width:320px;height:320px;border-radius:50%;border:1px solid rgba(201,136,42,.12);display:flex;align-items:center;justify-content:center}
+.page-hero-dec::before{content:'';position:absolute;width:220px;height:220px;border-radius:50%;border:1px solid rgba(201,136,42,.18)}
+.page-hero-dec-inner{font-size:5rem;opacity:.35}
+.page-hero-content{position:relative;z-index:2;max-width:680px}
+.page-breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;animation:fadeUp .7s ease both}
+.page-breadcrumb a,.page-breadcrumb span{font-size:12px;color:rgba(255,255,255,.45);text-decoration:none;letter-spacing:.5px}
+.page-breadcrumb a:hover{color:var(--gold-pale)}
+.page-breadcrumb .sep{color:rgba(255,255,255,.2)}
+.page-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(201,136,42,.15);border:1px solid rgba(201,136,42,.3);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold-pale);margin-bottom:20px;animation:fadeUp .7s ease .1s both}
+.page-title{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:18px;animation:fadeUp .7s ease .2s both}
+.page-title em{font-style:italic;color:var(--gold)}
+.page-subtitle{font-size:1.05rem;line-height:1.8;color:rgba(255,255,255,.65);max-width:560px;animation:fadeUp .7s ease .3s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* SECTION UTIL */
+.container{max-width:1200px;margin:0 auto;padding:0 5%}
+.section-label{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.section-label::before{content:'';display:block;width:24px;height:1.5px;background:var(--gold)}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+/* ── WHO WE ARE ── */
+#who{padding:100px 0;background:var(--ivory)}
+.who-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.who-text .section-label{margin-bottom:20px}
+.who-heading{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;color:var(--green-deep);line-height:1.2;margin-bottom:20px}
+.who-heading em{font-style:italic;color:var(--gold)}
+.who-body{font-size:.97rem;line-height:1.9;color:var(--charcoal-light);margin-bottom:16px}
+.who-body strong{color:var(--green);font-weight:600}
+.who-quote{margin-top:32px;padding:24px 28px;border-left:3px solid var(--gold);background:linear-gradient(135deg,rgba(201,136,42,.06),rgba(234,240,230,.4));border-radius:0 12px 12px 0}
+.who-quote blockquote{font-family:var(--font-display);font-size:1.1rem;font-style:italic;color:var(--green-deep);line-height:1.6}
+.who-quote cite{display:block;margin-top:10px;font-size:12px;font-style:normal;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+
+.who-visual{position:relative}
+.who-main-img{height:460px;border-radius:24px;background:linear-gradient(140deg,var(--green) 0%,var(--green-mid) 40%,var(--green-deep) 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.who-main-img::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(201,136,42,.2) 0%,transparent 60%)}
+.who-main-icon{font-size:5rem;opacity:.5;position:relative;z-index:1}
+.who-float-1{position:absolute;top:-20px;right:-20px;background:var(--gold);border-radius:20px;padding:20px 24px;box-shadow:0 16px 50px rgba(0,0,0,.15);z-index:2}
+.who-float-1 .fn{font-family:var(--font-display);font-size:1.8rem;font-weight:900;color:var(--green-deep);line-height:1}
+.who-float-1 .fl{font-size:11px;font-weight:600;color:rgba(26,77,46,.7);margin-top:3px}
+.who-float-2{position:absolute;bottom:-24px;left:-24px;background:var(--white);border-radius:20px;padding:20px 24px;box-shadow:0 16px 50px rgba(0,0,0,.1);z-index:2;border:1px solid var(--sage-mid)}
+.who-float-2 .fn{font-family:var(--font-display);font-size:1.8rem;font-weight:900;color:var(--green);line-height:1}
+.who-float-2 .fl{font-size:11px;font-weight:600;color:var(--charcoal-light);margin-top:3px}
+
+/* ── VISION MISSION ── */
+#vm{padding:100px 0;background:var(--green-deep);position:relative;overflow:hidden}
+#vm::before{content:'PAN';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-display);font-size:28vw;font-weight:900;color:rgba(255,255,255,.02);pointer-events:none;white-space:nowrap}
+.vm-header{text-align:center;margin-bottom:70px;position:relative;z-index:1}
+.vm-header .section-label{justify-content:center;color:var(--gold-pale)}
+.vm-header .section-label::before{background:var(--gold-pale)}
+.vm-header h2{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:white;line-height:1.2}
+.vm-header h2 em{font-style:italic;color:var(--gold)}
+
+.vm-cards{display:grid;grid-template-columns:1fr 1fr;gap:28px;position:relative;z-index:1;margin-bottom:60px}
+.vm-card{border-radius:24px;padding:48px 44px;border:1px solid rgba(255,255,255,.09);transition:border-color .3s,transform .3s}
+.vm-card:hover{border-color:rgba(201,136,42,.35);transform:translateY(-4px)}
+.vm-card-vision{background:rgba(201,136,42,.07)}
+.vm-card-mission{background:rgba(255,255,255,.03)}
+.vm-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,136,42,.15);border:1px solid rgba(201,136,42,.25);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold-pale);margin-bottom:20px}
+.vm-icon-big{font-size:2.8rem;margin-bottom:16px}
+.vm-card-title{font-family:var(--font-display);font-size:1.05rem;font-style:italic;font-weight:400;color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:16px;border-left:2px solid rgba(201,136,42,.4);padding-left:18px}
+.vm-card-body{font-size:.9rem;line-height:1.85;color:rgba(255,255,255,.55)}
+
+/* ── VALUES ── */
+#values{padding:100px 0;background:var(--sage);position:relative}
+.values-header{text-align:center;margin-bottom:60px}
+.values-heading{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;color:var(--green-deep);line-height:1.2}
+.values-heading em{font-style:italic;color:var(--gold)}
+.values-body{font-size:.95rem;line-height:1.75;color:var(--charcoal-light);max-width:500px;margin:12px auto 0;text-align:center}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.value-card{background:white;border-radius:20px;padding:36px 30px;border:1px solid var(--sage-mid);transition:all .35s;cursor:default}
+.value-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(26,77,46,.1);border-color:var(--green)}
+.value-card-top{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.value-icon{width:48px;height:48px;border-radius:14px;background:var(--sage);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;transition:background .3s}
+.value-card:hover .value-icon{background:var(--green);filter:brightness(0) invert(1) saturate(0)}
+.value-num{font-family:var(--font-display);font-size:.8rem;font-weight:700;color:rgba(26,77,46,.25);letter-spacing:1px}
+.value-name{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--green-deep);line-height:1.2}
+.value-desc{font-size:.875rem;line-height:1.75;color:var(--charcoal-light)}
+
+/* ── HISTORY TIMELINE ── */
+#history{padding:100px 0;background:var(--ivory)}
+.history-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:70px}
+.history-text .section-label{margin-bottom:16px}
+.history-heading{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;color:var(--green-deep);line-height:1.2}
+.history-heading em{font-style:italic;color:var(--gold)}
+.history-body{font-size:.95rem;line-height:1.85;color:var(--charcoal-light);margin-top:16px}
+.history-stat-row{display:flex;gap:32px;flex-wrap:wrap}
+.hs{text-align:center}
+.hs-num{font-family:var(--font-display);font-size:2.4rem;font-weight:900;color:var(--green);line-height:1}
+.hs-label{font-size:12px;color:var(--charcoal-light);margin-top:4px;letter-spacing:.5px}
+
+.timeline{position:relative;padding-left:40px}
+.timeline::before{content:'';position:absolute;left:12px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),var(--sage-mid))}
+.timeline-item{position:relative;margin-bottom:44px;padding-left:24px}
+.timeline-item::before{content:'';position:absolute;left:-36px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--gold);border:3px solid var(--ivory);box-shadow:0 0 0 2px var(--gold)}
+.timeline-year{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.timeline-heading{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--green-deep);margin-bottom:6px}
+.timeline-desc{font-size:.875rem;line-height:1.75;color:var(--charcoal-light)}
+
+/* ── LEADERSHIP ── */
+#leadership{padding:100px 0;background:var(--green);position:relative;overflow:hidden}
+#leadership::before{content:'';position:absolute;bottom:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,.03)}
+.leadership-header{text-align:center;margin-bottom:60px}
+.leadership-header .section-label{justify-content:center;color:var(--gold-pale)}
+.leadership-header .section-label::before{background:var(--gold-pale)}
+.leadership-heading{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,2.6rem);font-weight:700;color:white;line-height:1.2}
+.leadership-heading em{font-style:italic;color:var(--gold)}
+.leadership-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.leader-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:32px 28px;text-align:center;transition:all .35s}
+.leader-card:hover{background:rgba(255,255,255,.09);transform:translateY(-5px);border-color:rgba(201,136,42,.3)}
+.leader-avatar{width:80px;height:80px;border-radius:50%;margin:0 auto 16px;background:rgba(201,136,42,.2);border:2px solid rgba(201,136,42,.3);display:flex;align-items:center;justify-content:center;font-size:2rem}
+.leader-name{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:white;margin-bottom:4px}
+.leader-role{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.leader-bio{font-size:.825rem;line-height:1.75;color:rgba(255,255,255,.55)}
+
+/* FOOTER */
+footer{background:var(--green-deep);padding:60px 0 0}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;padding-bottom:48px}
+.footer-logo-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.fl-icon{width:44px;height:44px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;font-size:15px;color:var(--green-deep)}
+.fl-brand{font-family:var(--font-display);font-size:15px;font-weight:700;color:white}
+.fl-sub{font-size:10px;color:var(--gold-pale);letter-spacing:1.5px;text-transform:uppercase}
+.footer-tagline{font-size:.85rem;line-height:1.75;color:rgba(255,255,255,.45);max-width:280px;margin-bottom:20px}
+.footer-social{display:flex;gap:8px}
+.sb{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;color:white;font-size:.9rem;transition:all .25s}
+.sb:hover{background:var(--gold);border-color:var(--gold);color:var(--green-deep)}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{color:rgba(255,255,255,.45);text-decoration:none;font-size:13.5px;transition:color .2s}
+.footer-links a:hover{color:var(--gold-pale)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom-left{font-size:12px;color:rgba(255,255,255,.3)}
+.footer-bottom-right{display:flex;gap:20px}
+.footer-bottom-right a{font-size:12px;color:rgba(255,255,255,.3);text-decoration:none}
+.footer-bottom-right a:hover{color:var(--gold-pale)}
+
+/* FLOATING CTA */
+.floating-cta{position:fixed;bottom:28px;right:28px;z-index:900;background:var(--gold);color:var(--green-deep);padding:13px 24px;border-radius:100px;font-size:13px;font-weight:700;text-decoration:none;box-shadow:0 8px 30px rgba(201,136,42,.5);display:flex;align-items:center;gap:7px;transition:all .3s;animation:floatIn .8s ease 1s both}
+.floating-cta:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(201,136,42,.6)}
+@keyframes floatIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:900px){
+  .who-inner,.vm-cards,.history-header,.values-grid,.leadership-grid,.footer-inner{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .who-float-1,.who-float-2{display:none}
+  .page-hero-dec{display:none}
+  .history-stat-row{justify-content:center}
+}
+@media(max-width:600px){
+  .values-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<a href="pan-foundation.html#donate" class="floating-cta">♥ Donate</a>
+
+<nav id="main-nav" class="nav-bg">
+  <a href="pan-foundation.html" class="nav-logo">
+    <div class="nav-logo-icon">PAN</div>
+    <div class="nav-logo-text">
+      <div class="brand">Peace Alliance Network</div>
+      <div class="sub">PAN Foundation</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html" class="active">About Us</a></li>
+    <li><a href="what-we-do.html">What We Do</a></li>
+    <li><a href="get-involved.html">Get Involved</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="pan-foundation.html#donate" class="nav-cta">Donate</a>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-texture"></div>
+  <div class="page-hero-dec"><div class="page-hero-dec-inner">🕊️</div></div>
+  <div class="page-hero-content">
+    <div class="page-breadcrumb">
+      <a href="pan-foundation.html">Home</a>
+      <span class="sep">/</span>
+      <span>About Us</span>
+    </div>
+    <div class="page-eyebrow">Our Story</div>
+    <h1 class="page-title">We Are <em>Nigeria's</em><br>Peacebuilders</h1>
+    <p class="page-subtitle">A value-based organization committed to stopping violent conflict, empowering communities, and building a Nigeria where peace endures irrespective of tongue, tribe, or religion.</p>
+  </div>
+</section>
+
+<!-- WHO WE ARE -->
+<section id="who">
+  <div class="container">
+    <div class="who-inner">
+      <div class="who-text">
+        <div class="section-label reveal">Who We Are</div>
+        <h2 class="who-heading reveal d1">More Than an NGO —<br><em>A Movement</em></h2>
+        <p class="who-body reveal d2">The <strong>Peace Alliance Network (PAN) Foundation</strong> is a value-based peacebuilding organization rooted in Nigeria's rich and diverse cultural landscape. We exist because we believe that ordinary Nigerians hold extraordinary power to build peace — from their streets, markets, mosques, churches, and community halls.</p>
+        <p class="who-body reveal d3">We work directly with <strong>victims of violent conflict</strong>, bringing together voices from every corner of society to make change that endures the test of time. We do not stand on the sidelines of Nigeria's story — we are active participants in shaping a more just and peaceful future.</p>
+        <p class="who-body reveal d4">Our approach is community-led, culturally sensitive, and deeply human. We engage all members of the human family — regardless of faith, tribe, or background — as contributors to building a culture of peace in Nigeria and beyond.</p>
+        <div class="who-quote reveal d5">
+          <blockquote>"Peace is not the absence of conflict, but the presence of justice and the courage to pursue it together."</blockquote>
+          <cite>— PAN Foundation Founding Principle</cite>
+        </div>
+      </div>
+      <div class="who-visual reveal d2">
+        <div class="who-main-img">
+          <div class="who-main-icon">🌍</div>
+        </div>
+        <div class="who-float-1">
+          <div class="fn">2009</div>
+          <div class="fl">Year Founded</div>
+        </div>
+        <div class="who-float-2">
+          <div class="fn">19</div>
+          <div class="fl">States Active</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION & MISSION -->
+<section id="vm">
+  <div class="container">
+    <div class="vm-header">
+      <div class="section-label reveal">Our Direction</div>
+      <h2 class="reveal d1">Vision & <em>Mission</em></h2>
+    </div>
+    <div class="vm-cards">
+      <div class="vm-card vm-card-vision reveal">
+        <div class="vm-badge">🔭 Our Vision</div>
+        <div class="vm-card-title">"A society where peace, justice, and human rights are maintained, irrespective of tongue, tribe and religion."</div>
+        <p class="vm-card-body">We imagine a Nigeria — and a world — where the accidents of birth never determine whether you live in peace or in fear. Every community dialogue, every youth we reintegrate, every conflict we help resolve moves us one step closer to that horizon. We are not naive about the scale of the challenge — we are resolute about meeting it.</p>
+      </div>
+      <div class="vm-card vm-card-mission reveal d2">
+        <div class="vm-badge">🎯 Our Mission</div>
+        <div class="vm-card-title">"To mobilize a societal network of peacebuilders, advocating for policies and practices that promote sustainable peace, justice, and human rights."</div>
+        <p class="vm-card-body">We build networks — not silos. Connecting communities, governments, faith leaders, and civil society organizations to create systemic change that outlasts any single intervention. Our mission is to ensure that peacebuilding becomes a permanent feature of Nigerian public life, not an emergency response.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section id="values">
+  <div class="container">
+    <div class="values-header">
+      <div class="section-label reveal" style="justify-content:center">Our Foundation</div>
+      <h2 class="values-heading reveal d1">The Values That <em>Guide Us</em></h2>
+      <p class="values-body reveal d2">Six principles that are non-negotiable in everything we do — from how we run our office to how we engage communities in conflict zones.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-card-top">
+          <div class="value-icon">🕊️</div>
+          <div><div class="value-num">01</div><div class="value-name">Peace & Non-Violence</div></div>
+        </div>
+        <p class="value-desc">We believe in the transformative power of non-violent approaches to conflict. Every strategy, every intervention, every conversation is grounded in the absolute rejection of violence as a tool for change.</p>
+      </div>
+      <div class="value-card reveal d1">
+        <div class="value-card-top">
+          <div class="value-icon">⚖️</div>
+          <div><div class="value-num">02</div><div class="value-name">Justice & Equality</div></div>
+        </div>
+        <p class="value-desc">Sustainable peace cannot exist without justice. We advocate for equal rights and equitable treatment for all Nigerians, particularly those historically marginalized in peacebuilding processes.</p>
+      </div>
+      <div class="value-card reveal d2">
+        <div class="value-card-top">
+          <div class="value-icon">💎</div>
+          <div><div class="value-num">03</div><div class="value-name">Integrity & Transparency</div></div>
+        </div>
+        <p class="value-desc">We are what we say we are. We keep our promises to communities, donors, and partners. Our finances, decisions, and operations are open to scrutiny — because trust is everything in peacebuilding.</p>
+      </div>
+      <div class="value-card reveal d1">
+        <div class="value-card-top">
+          <div class="value-icon">🌈</div>
+          <div><div class="value-num">04</div><div class="value-name">Inclusiveness & Diversity</div></div>
+        </div>
+        <p class="value-desc">Nigeria's diversity is its strength, not its weakness. We actively include women, youth, the elderly, all faith traditions, and all ethnic groups in our peacebuilding processes — because exclusion breeds resentment.</p>
+      </div>
+      <div class="value-card reveal d2">
+        <div class="value-card-top">
+          <div class="value-icon">💪</div>
+          <div><div class="value-num">05</div><div class="value-name">Community Empowerment</div></div>
+        </div>
+        <p class="value-desc">We don't bring peace to communities — we help communities build their own. Our role is to equip, support, and amplify local peacebuilders, not to replace or override them.</p>
+      </div>
+      <div class="value-card reveal d3">
+        <div class="value-card-top">
+          <div class="value-icon">📋</div>
+          <div><div class="value-num">06</div><div class="value-name">Accountability</div></div>
+        </div>
+        <p class="value-desc">We hold ourselves to the highest standards of organizational accountability — to the communities we serve, the donors who support us, the government that regulates us, and the mission that drives us.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY TIMELINE -->
+<section id="history">
+  <div class="container">
+    <div class="history-header">
+      <div class="history-text">
+        <div class="section-label reveal">Our Journey</div>
+        <h2 class="history-heading reveal d1">A Decade of <em>Building Peace</em></h2>
+        <p class="history-body reveal d2">From a small coalition of committed Nigerians in 2009 to a nationwide network spanning 19 states, our growth mirrors the growing demand for peace in Nigeria's communities.</p>
+        <div class="history-stat-row reveal d3" style="margin-top:32px">
+          <div class="hs"><div class="hs-num" data-count="15">0</div><div class="hs-label">Years Active</div></div>
+          <div class="hs"><div class="hs-num" data-count="19">0</div><div class="hs-label">States</div></div>
+          <div class="hs"><div class="hs-num" data-count="5000" data-suffix="+">0</div><div class="hs-label">Lives Touched</div></div>
+        </div>
+      </div>
+      <div class="reveal d2"></div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <div class="timeline-year">2009 — Founding</div>
+        <div class="timeline-heading">The Peace Alliance Network is Born</div>
+        <p class="timeline-desc">A coalition of civil society leaders, faith leaders, and community activists come together in Abuja with a shared conviction: Nigeria deserves better than cycles of violence. PAN Foundation is formally established with a mandate for community peacebuilding.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2011 — First Field Programs</div>
+        <div class="timeline-heading">Grassroots Peacebuilding Launches in Jos</div>
+        <p class="timeline-desc">PAN deploys its first field teams to Plateau State following intercommunal violence, facilitating dialogue between community leaders and training local peacebuilders. 12 communities participate in the inaugural program.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2014 — Expanding Northeast</div>
+        <div class="timeline-heading">Conflict Victims Support Program Launched</div>
+        <p class="timeline-desc">As violence escalates in the northeast, PAN expands its mandate to include psychosocial support for conflict victims in Borno and Adamawa states, partnering with international organizations to scale its reach.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2017 — Youth Focus</div>
+        <div class="timeline-heading">Youth Reintegration Program Established</div>
+        <p class="timeline-desc">Recognizing the critical role of youth in both perpetuating and preventing conflict, PAN launches a dedicated Youth Reintegration Program — providing skills, mentorship, and pathways back to community life for young people affected by violence.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2020 – Present</div>
+        <div class="timeline-heading">Nationwide Network — 19 States & Growing</div>
+        <p class="timeline-desc">PAN's network now spans 19 Nigerian states, with over 200 trained local peacebuilders, 10+ international partners, and a growing reputation as one of Nigeria's most effective grassroots peacebuilding organizations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership">
+  <div class="container">
+    <div class="leadership-header">
+      <div class="section-label reveal" style="justify-content:center">Our People</div>
+      <h2 class="leadership-heading reveal d1">The <em>Team</em> Behind the Mission</h2>
+    </div>
+    <div class="leadership-grid">
+      <div class="leader-card reveal">
+        <div class="leader-avatar">👨‍💼</div>
+        <div class="leader-name">Alhaji Musa Abdullahi</div>
+        <div class="leader-role">Executive Director</div>
+        <p class="leader-bio">25 years in peacebuilding and conflict transformation across West Africa. Former advisor to the National Peace Committee. Fluent in Hausa, Yoruba, Pidgin, and English.</p>
+      </div>
+      <div class="leader-card reveal d1">
+        <div class="leader-avatar">👩‍💼</div>
+        <div class="leader-name">Dr. Amaka Okafor</div>
+        <div class="leader-role">Director of Programs</div>
+        <p class="leader-bio">PhD in Conflict Resolution from University of Ibadan. Leads PAN's field operations across 19 states. A specialist in gender-sensitive peacebuilding and community trauma healing.</p>
+      </div>
+      <div class="leader-card reveal d2">
+        <div class="leader-avatar">👨‍🏫</div>
+        <div class="leader-name">Pastor James Danladi</div>
+        <div class="leader-role">Director, Faith & Dialogue</div>
+        <p class="leader-bio">An ordained pastor and Islamic scholar who has spent 18 years building bridges between faith communities in Nigeria's Middle Belt. A living example of the inter-faith harmony PAN champions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo-row">
+          <div class="fl-icon">PAN</div>
+          <div><div class="fl-brand">Peace Alliance Network</div><div class="fl-sub">PAN Foundation — Nigeria</div></div>
+        </div>
+        <p class="footer-tagline">Building a culture of peace across Nigeria and beyond — community by community, voice by voice.</p>
+        <div class="footer-social">
+          <a href="#" class="sb">𝕏</a><a href="#" class="sb">f</a><a href="#" class="sb">📷</a><a href="#" class="sb">in</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Pages</div>
+        <ul class="footer-links">
+          <li><a href="pan-foundation.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Take Action</div>
+        <ul class="footer-links">
+          <li><a href="get-involved.html">Volunteer</a></li>
+          <li><a href="pan-foundation.html#donate">Donate</a></li>
+          <li><a href="get-involved.html#partner">Partner With Us</a></li>
+          <li><a href="contact.html">Get in Touch</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">© 2025 Peace Alliance Network (PAN) Foundation. All rights reserved.</div>
+      <div class="footer-bottom-right"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Annual Report</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:.1});
+reveals.forEach(el=>io.observe(el));
+
+const counters = document.querySelectorAll('[data-count]');
+const co = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){
+  const el=e.target,target=+el.dataset.count,suffix=el.dataset.suffix||'',dur=1800,steps=60,inc=target/steps;
+  let cur=0;const t=setInterval(()=>{cur+=inc;if(cur>=target){cur=target;clearInterval(t)}el.textContent=Math.floor(cur).toLocaleString()+suffix},dur/steps);
+  co.unobserve(e.target)}})},{threshold:.3});
+counters.forEach(el=>co.observe(el));
+</script>
+</body>
+</html>

@@ -4,813 +4,541 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Peace Alliance Network (PAN) Foundation — Building Peace in Nigeria</title>
-<meta name="description" content="PAN Foundation mobilizes peacebuilders across Nigeria, advocating for sustainable peace, justice, and human rights.">
+<meta name="description" content="PAN Foundation mobilizes peacebuilders across Nigeria, advocating for sustainable peace, justice, and human rights for all communities.">
+<meta property="og:title" content="Peace Alliance Network — PAN Foundation Nigeria">
+<meta property="og:description" content="Building a culture of peace across Nigeria — community by community, voice by voice.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --green: #1A4D2E;
-    --green-deep: #0f2e1a;
-    --green-mid: #255e3a;
-    --green-light: #2e7048;
-    --gold: #C9882A;
-    --gold-light: #dba048;
-    --gold-pale: #e8c07a;
-    --ivory: #F5F0E8;
-    --ivory-dark: #ede7d8;
-    --charcoal: #2C2C2C;
-    --charcoal-light: #444;
-    --sage: #EAF0E6;
-    --sage-mid: #d4e0cc;
-    --white: #ffffff;
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-serif: 'DM Serif Display', Georgia, serif;
-    --font-body: 'DM Sans', system-ui, sans-serif;
-  }
+/* ── TOKENS ── */
+:root {
+  --green:      #1A4D2E;
+  --green-deep: #0f2e1a;
+  --green-mid:  #255e3a;
+  --green-lgt:  #2e7048;
+  --gold:       #C9882A;
+  --gold-lgt:   #dba048;
+  --gold-pale:  #e8c07a;
+  --ivory:      #F5F0E8;
+  --ivory-dk:   #ede7d8;
+  --charcoal:   #2C2C2C;
+  --charcoal-l: #555;
+  --sage:       #EAF0E6;
+  --sage-mid:   #d4e0cc;
+  --fd: 'Playfair Display', Georgia, serif;
+  --fb: 'DM Sans', system-ui, sans-serif;
+}
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box }
+html { scroll-behavior:smooth; font-size:16px }
+body { font-family:var(--fb); color:var(--charcoal); background:var(--ivory); overflow-x:hidden }
+::-webkit-scrollbar { width:4px }
+::-webkit-scrollbar-thumb { background:var(--gold); border-radius:2px }
+img { max-width:100%; display:block }
 
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  height:72px; padding:0 5%;
+  display:flex; align-items:center; justify-content:space-between;
+  transition:background .4s, box-shadow .4s;
+}
+nav.solid {
+  background:rgba(15,46,26,.97);
+  backdrop-filter:blur(14px);
+  box-shadow:0 2px 24px rgba(0,0,0,.2);
+}
+.nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none }
+.nav-logo-icon {
+  width:44px; height:44px; border-radius:50%; background:var(--gold);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--fd); font-weight:900; font-size:15px; color:var(--green-deep); flex-shrink:0
+}
+.nav-logo-text .brand { font-family:var(--fd); font-weight:700; font-size:15px; color:#fff; letter-spacing:.3px }
+.nav-logo-text .sub   { font-size:10px; color:var(--gold-pale); letter-spacing:1.5px; text-transform:uppercase }
+.nav-links { display:flex; align-items:center; gap:32px; list-style:none }
+.nav-links a { color:rgba(255,255,255,.78); text-decoration:none; font-size:13.5px; font-weight:500; transition:color .2s }
+.nav-links a:hover { color:var(--gold-pale) }
+.nav-cta {
+  background:var(--gold); color:var(--green-deep); padding:10px 22px;
+  border-radius:100px; font-weight:700; font-size:13px; text-decoration:none; transition:all .25s
+}
+.nav-cta:hover { background:var(--gold-lgt); transform:translateY(-1px) }
+.nav-mob { display:none; background:none; border:none; cursor:pointer; color:#fff; padding:4px }
+.nav-mob svg { width:22px; height:22px; display:block }
 
-  html { scroll-behavior: smooth; font-size: 16px; }
+/* Mobile drawer */
+.mob-drawer {
+  position:fixed; inset:0; background:var(--green-deep); z-index:999;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px;
+  opacity:0; pointer-events:none; transition:opacity .3s;
+}
+.mob-drawer.open { opacity:1; pointer-events:all }
+.mob-drawer a { font-family:var(--fd); font-size:1.8rem; font-weight:700; color:#fff; text-decoration:none; transition:color .2s }
+.mob-drawer a:hover { color:var(--gold) }
+.mob-drawer .mob-close { position:absolute; top:24px; right:5%; background:none; border:none; cursor:pointer; color:#fff }
+.mob-drawer .mob-close svg { width:28px; height:28px }
 
-  body {
-    font-family: var(--font-body);
-    color: var(--charcoal);
-    background: var(--ivory);
-    overflow-x: hidden;
-  }
+/* Floating donate */
+.float-donate {
+  position:fixed; bottom:28px; right:28px; z-index:900;
+  display:flex; align-items:center; gap:8px;
+  background:var(--gold); color:var(--green-deep);
+  padding:13px 24px; border-radius:100px;
+  font-size:13px; font-weight:700; text-decoration:none;
+  box-shadow:0 8px 28px rgba(201,136,42,.45);
+  transition:all .3s; animation:floatUp .8s ease 2s both
+}
+.float-donate svg { width:15px; height:15px }
+.float-donate:hover { transform:translateY(-3px); box-shadow:0 14px 36px rgba(201,136,42,.55) }
+@keyframes floatUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
 
-  /* ── SCROLLBAR ── */
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--ivory); }
-  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+/* ── UTILITIES ── */
+.container { max-width:1200px; margin:0 auto; padding:0 5% }
+.sec-label {
+  display:inline-flex; align-items:center; gap:10px;
+  font-size:11px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold); margin-bottom:14px
+}
+.sec-label::before { content:''; display:block; width:24px; height:1.5px; background:var(--gold) }
+.reveal { opacity:0; transform:translateY(32px); transition:opacity .7s ease, transform .7s ease }
+.reveal.in { opacity:1; transform:translateY(0) }
+.d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s}
+@keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    padding: 0 5%;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 72px;
-    transition: all 0.4s ease;
-  }
-  nav.scrolled {
-    background: rgba(26,77,46,0.97);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 2px 30px rgba(0,0,0,0.2);
-  }
-  .nav-logo {
-    display: flex; align-items: center; gap: 12px;
-    text-decoration: none;
-  }
-  .nav-logo-icon {
-    width: 44px; height: 44px;
-    background: var(--gold);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-display);
-    font-weight: 900; font-size: 16px;
-    color: var(--green-deep);
-    letter-spacing: -0.5px;
-    flex-shrink: 0;
-  }
-  .nav-logo-text { line-height: 1.1; }
-  .nav-logo-text .brand { font-family: var(--font-display); font-weight: 700; font-size: 15px; color: var(--white); letter-spacing: 0.3px; }
-  .nav-logo-text .sub { font-size: 10px; color: var(--gold-pale); letter-spacing: 1.5px; text-transform: uppercase; }
-  .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
-  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 13.5px; font-weight: 500; letter-spacing: 0.3px; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--gold-pale); }
-  .nav-cta {
-    background: var(--gold); color: var(--green-deep);
-    padding: 10px 22px; border-radius: 100px;
-    font-weight: 600; font-size: 13px; letter-spacing: 0.3px;
-    text-decoration: none; transition: all 0.25s;
-  }
-  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(201,136,42,0.4); }
-  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-  .nav-hamburger span { width: 24px; height: 2px; background: white; transition: all 0.3s; }
+/* ── HERO ── */
+#hero {
+  position:relative; min-height:100vh;
+  display:flex; align-items:center; overflow:hidden;
+  background:var(--green-deep);
+}
+.hero-bg {
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 65% 40%, rgba(201,136,42,.1) 0%, transparent 55%),
+    linear-gradient(135deg, #071a0c 0%, #1A4D2E 45%, #0f2e1a 100%);
+}
+.hero-pattern {
+  position:absolute; inset:0; opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-visual-side {
+  position:absolute; right:0; top:0; bottom:0; width:50%; pointer-events:none
+}
+.hero-visual-side::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(90deg, var(--green-deep) 0%, rgba(15,46,26,.55) 35%, transparent 70%);
+}
+.hero-visual-inner {
+  width:100%; height:100%;
+  background:linear-gradient(160deg, #1e5c38 0%, #2e7048 35%, #152e20 100%);
+  display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden
+}
+.hero-visual-inner::before {
+  content:''; position:absolute; width:320px; height:320px; border-radius:50%;
+  border:1px solid rgba(201,136,42,.15); top:50%; left:50%; transform:translate(-50%,-50%);
+  animation:ringPulse 4s ease-in-out infinite
+}
+.hero-visual-inner::after {
+  content:''; position:absolute; width:200px; height:200px; border-radius:50%;
+  border:1px solid rgba(201,136,42,.25); top:50%; left:50%; transform:translate(-50%,-50%);
+  animation:ringPulse 4s ease-in-out infinite .8s
+}
+@keyframes ringPulse { 0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.5} 50%{transform:translate(-50%,-50%) scale(1.08);opacity:1} }
+.hero-visual-icon { position:relative; z-index:1; opacity:.22; color:#fff }
+.hero-visual-icon svg { width:140px; height:140px }
 
-  /* ── HERO ── */
-  #hero {
-    position: relative; min-height: 100vh;
-    display: flex; align-items: center;
-    overflow: hidden;
-    background: var(--green-deep);
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background: 
-      radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201,136,42,0.12) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 80% at 20% 80%, rgba(26,77,46,0.8) 0%, transparent 50%),
-      linear-gradient(135deg, #0a1f10 0%, #1A4D2E 40%, #0f2e1a 100%);
-  }
-  .hero-texture {
-    position: absolute; inset: 0; opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-  .hero-image-side {
-    position: absolute; right: 0; top: 0; bottom: 0; width: 52%;
-    overflow: hidden;
-  }
-  .hero-image-side img, .hero-image-side .img-placeholder {
-    width: 100%; height: 100%; object-fit: cover;
-  }
-  .hero-image-side .img-placeholder {
-    background: linear-gradient(160deg, #1e5c38 0%, #2e7048 30%, #1A4D2E 60%, #0f2e1a 100%);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .hero-image-side::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(90deg, var(--green-deep) 0%, rgba(15,46,26,0.7) 40%, transparent 70%);
-  }
-  .hero-image-visual {
-    width: 100%; height: 100%;
-    background: 
-      linear-gradient(160deg, rgba(201,136,42,0.15) 0%, transparent 40%),
-      linear-gradient(200deg, #1e5c38 0%, #2e7048 40%, #152e20 100%);
-    display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-  }
-  .hero-image-visual::before {
-    content: '';
-    position: absolute; width: 300px; height: 300px; border-radius: 50%;
-    border: 1px solid rgba(201,136,42,0.2);
-    top: 20%; left: 20%;
-    animation: pulse-ring 3s ease-in-out infinite;
-  }
-  .hero-image-visual::after {
-    content: '';
-    position: absolute; width: 200px; height: 200px; border-radius: 50%;
-    border: 1px solid rgba(201,136,42,0.3);
-    top: 30%; left: 30%;
-    animation: pulse-ring 3s ease-in-out infinite 1s;
-  }
-  @keyframes pulse-ring {
-    0%, 100% { transform: scale(1); opacity: 0.5; }
-    50% { transform: scale(1.1); opacity: 1; }
-  }
-  .hero-dove {
-    position: relative; z-index: 1;
-    display: flex; flex-direction: column; align-items: center; gap: 20px;
-  }
-  .hero-dove svg { width: 140px; height: 140px; opacity: 0.6; }
+.hero-content { position:relative; z-index:2; padding:0 5%; max-width:680px; padding-top:72px }
+.hero-pill {
+  display:inline-flex; align-items:center; gap:9px;
+  background:rgba(201,136,42,.14); border:1px solid rgba(201,136,42,.28);
+  border-radius:100px; padding:5px 15px;
+  font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--gold-pale);
+  margin-bottom:26px; animation:fadeUp .8s ease both
+}
+.pill-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); animation:blink 2s ease infinite }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+.hero-h {
+  font-family:var(--fd); font-size:clamp(2.8rem,6vw,5.2rem); font-weight:900; line-height:1.02;
+  color:#fff; margin-bottom:22px; animation:fadeUp .8s ease .15s both
+}
+.hero-h em { font-style:italic; color:var(--gold) }
+.hero-p {
+  font-size:1.08rem; line-height:1.8; color:rgba(255,255,255,.68); max-width:520px;
+  margin-bottom:40px; animation:fadeUp .8s ease .3s both
+}
+.hero-btns { display:flex; align-items:center; gap:14px; flex-wrap:wrap; animation:fadeUp .8s ease .45s both }
+.btn-gold {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--gold); color:var(--green-deep); padding:15px 34px; border-radius:100px;
+  font-weight:700; font-size:14px; text-decoration:none; transition:all .3s;
+  box-shadow:0 8px 28px rgba(201,136,42,.4)
+}
+.btn-gold:hover { transform:translateY(-2px); box-shadow:0 14px 38px rgba(201,136,42,.5); background:var(--gold-lgt) }
+.btn-ghost {
+  display:inline-flex; align-items:center; gap:8px;
+  border:1.5px solid rgba(255,255,255,.28); color:#fff; padding:14px 30px;
+  border-radius:100px; font-size:14px; font-weight:500; text-decoration:none; transition:all .3s
+}
+.btn-ghost:hover { border-color:rgba(255,255,255,.65); background:rgba(255,255,255,.07) }
+.btn-gold svg,.btn-ghost svg { width:16px; height:16px; flex-shrink:0 }
 
-  .hero-content {
-    position: relative; z-index: 2;
-    padding: 0 5%; max-width: 700px;
-    padding-top: 72px;
-  }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: rgba(201,136,42,0.15);
-    border: 1px solid rgba(201,136,42,0.3);
-    border-radius: 100px; padding: 6px 16px;
-    font-size: 11px; font-weight: 600; letter-spacing: 2px;
-    text-transform: uppercase; color: var(--gold-pale);
-    margin-bottom: 28px;
-    animation: fadeUp 0.8s ease both;
-  }
-  .hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: blink 2s ease infinite; }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-  
-  .hero-headline {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    font-weight: 900; line-height: 1.0;
-    color: var(--white); margin-bottom: 24px;
-    animation: fadeUp 0.8s ease 0.15s both;
-  }
-  .hero-headline em { font-style: italic; color: var(--gold); }
-  .hero-headline .line-accent { display: block; position: relative; }
+.hero-stats {
+  position:absolute; bottom:0; left:0; right:0; z-index:3;
+  display:flex; background:rgba(255,255,255,.04); backdrop-filter:blur(12px);
+  border-top:1px solid rgba(255,255,255,.08)
+}
+.hstat {
+  flex:1; padding:20px 28px; text-align:center;
+  border-right:1px solid rgba(255,255,255,.08)
+}
+.hstat:last-child { border-right:none }
+.hstat-n { font-family:var(--fd); font-size:1.75rem; font-weight:700; color:var(--gold); line-height:1 }
+.hstat-l { font-size:10.5px; letter-spacing:1px; color:rgba(255,255,255,.45); text-transform:uppercase; margin-top:5px }
+.hero-scroll { position:absolute; bottom:80px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; animation:fadeUp 1s ease 1s both }
+.hero-scroll span { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.35) }
+.scroll-bar { width:1px; height:44px; background:linear-gradient(to bottom, rgba(255,255,255,.4), transparent); animation:scrollAnim 2s ease-in-out infinite }
+@keyframes scrollAnim { 0%,100%{height:44px;opacity:1} 50%{height:24px;opacity:.4} }
 
-  .hero-body {
-    font-size: 1.1rem; line-height: 1.75;
-    color: rgba(255,255,255,0.7); max-width: 520px;
-    margin-bottom: 44px;
-    animation: fadeUp 0.8s ease 0.3s both;
-  }
-  .hero-actions {
-    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-    animation: fadeUp 0.8s ease 0.45s both;
-  }
-  .btn-primary {
-    background: var(--gold); color: var(--green-deep);
-    padding: 16px 36px; border-radius: 100px;
-    font-weight: 700; font-size: 14px; letter-spacing: 0.5px;
-    text-decoration: none; transition: all 0.3s;
-    box-shadow: 0 8px 30px rgba(201,136,42,0.4);
-    display: inline-flex; align-items: center; gap: 8px;
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(201,136,42,0.5); background: var(--gold-light); }
-  .btn-outline {
-    border: 1.5px solid rgba(255,255,255,0.3); color: var(--white);
-    padding: 15px 32px; border-radius: 100px;
-    font-weight: 500; font-size: 14px;
-    text-decoration: none; transition: all 0.3s;
-    display: inline-flex; align-items: center; gap: 8px;
-  }
-  .btn-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); }
+/* ── MISSION ── */
+#mission { padding:100px 0; background:var(--ivory) }
+.mission-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center }
+.mission-heading {
+  font-family:var(--fd); font-size:clamp(2rem,3.5vw,2.8rem); font-weight:700;
+  color:var(--green-deep); line-height:1.2; margin-bottom:18px
+}
+.mission-heading em { font-style:italic; color:var(--gold) }
+.mission-body { font-size:.97rem; line-height:1.9; color:var(--charcoal-l); margin-bottom:16px }
+.mission-body strong { color:var(--green); font-weight:600 }
+.values-chips { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:28px }
+.chip {
+  display:flex; align-items:center; gap:9px; padding:11px 15px;
+  border-radius:10px; background:var(--sage); border:1px solid var(--sage-mid);
+  font-size:13px; font-weight:500; color:var(--green); transition:all .25s; cursor:default
+}
+.chip:hover { background:var(--green); color:#fff; transform:translateX(4px) }
+.chip-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); flex-shrink:0 }
+.mission-visual { position:relative }
+.mv-stack { position:relative; height:420px }
+.mv-card {
+  position:absolute; border-radius:20px; overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.12); display:flex; align-items:center; justify-content:center
+}
+.mvc-1 { width:74%; height:280px; top:0; left:0; background:linear-gradient(135deg,var(--green) 0%,var(--green-lgt) 100%) }
+.mvc-2 { width:54%; height:200px; bottom:0; right:0; background:var(--gold) }
+.mvc-3 { width:38%; height:130px; top:48%; right:8%; transform:translateY(-50%); background:var(--charcoal) }
+.mvc-inner { padding:24px; color:#fff; text-align:center }
+.mvc-inner .icon { width:36px; height:36px; margin:0 auto 10px; opacity:.8 }
+.mvc-inner .icon svg { width:100%; height:100% }
+.mvc-title { font-family:var(--fd); font-size:1rem; font-weight:700; line-height:1.3 }
+.mvc-sub { font-size:.72rem; opacity:.65; margin-top:5px }
+.mvc-2 .mvc-inner { color:var(--green-deep) }
+.mvc-3 .mvc-inner { color:rgba(255,255,255,.8) }
 
-  .hero-scroll-indicator {
-    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
-    animation: fadeUp 1s ease 1s both;
-  }
-  .hero-scroll-indicator span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); }
-  .scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent); animation: scroll-pulse 2s ease-in-out infinite; }
-  @keyframes scroll-pulse { 0%,100%{height:50px;opacity:1} 50%{height:30px;opacity:0.4} }
+/* ── IMPACT ── */
+#impact { padding:100px 0; background:var(--green); position:relative; overflow:hidden }
+#impact::before {
+  content:''; position:absolute; top:-120px; right:-120px; width:500px; height:500px;
+  border-radius:50%; background:rgba(201,136,42,.05); pointer-events:none
+}
+.impact-header { text-align:center; margin-bottom:64px; position:relative; z-index:1 }
+.impact-header .sec-label { justify-content:center; color:var(--gold-pale) }
+.impact-header .sec-label::before { background:var(--gold-pale) }
+.impact-h { font-family:var(--fd); font-size:clamp(2rem,4vw,2.9rem); font-weight:700; color:#fff; line-height:1.2 }
+.impact-h em { font-style:italic; color:var(--gold) }
+.impact-grid {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+  background:rgba(255,255,255,.08); border-radius:20px; overflow:hidden;
+  margin-bottom:70px; position:relative; z-index:1
+}
+.istat { background:rgba(255,255,255,.04); padding:44px 28px; text-align:center; transition:background .3s }
+.istat:hover { background:rgba(255,255,255,.09) }
+.istat-n { font-family:var(--fd); font-size:2.8rem; font-weight:900; color:var(--gold); line-height:1; margin-bottom:8px }
+.istat-l { font-size:12.5px; color:rgba(255,255,255,.55); letter-spacing:.5px }
+.istat-s { font-size:10.5px; color:rgba(255,255,255,.3); margin-top:5px }
+.impact-story { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; position:relative; z-index:1 }
+.impact-story-text h3 { font-family:var(--fd); font-size:1.9rem; font-weight:700; color:#fff; line-height:1.3; margin-bottom:14px }
+.impact-story-text h3 em { font-style:italic; color:var(--gold) }
+.impact-story-text p { font-size:.93rem; line-height:1.85; color:rgba(255,255,255,.6) }
+.impact-blocks { display:grid; grid-template-columns:1fr 1fr; gap:12px }
+.ib {
+  border-radius:16px; padding:26px 20px; text-align:center; transition:transform .3s;
+  border:1px solid rgba(255,255,255,.08)
+}
+.ib:hover { transform:translateY(-4px) }
+.ib-1 { background:rgba(201,136,42,.12); border-color:rgba(201,136,42,.18); grid-row:span 2; display:flex; flex-direction:column; justify-content:center }
+.ib-2,.ib-3 { background:rgba(255,255,255,.04) }
+.ib-icon { color:var(--gold); margin:0 auto 10px }
+.ib-icon svg { width:28px; height:28px }
+.ib-n { font-family:var(--fd); font-size:1.7rem; font-weight:700; color:var(--gold) }
+.ib-l { font-size:11.5px; color:rgba(255,255,255,.5); margin-top:4px }
 
-  .hero-stats-bar {
-    position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
-    background: rgba(255,255,255,0.04); backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    display: flex; align-items: center;
-  }
-  .hero-stat {
-    flex: 1; padding: 20px 32px;
-    border-right: 1px solid rgba(255,255,255,0.08);
-    text-align: center;
-  }
-  .hero-stat:last-child { border-right: none; }
-  .hero-stat-num { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--gold); line-height: 1; }
-  .hero-stat-label { font-size: 11px; letter-spacing: 1px; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-top: 4px; }
+/* ── WHAT WE DO (homepage preview) ── */
+#work { padding:100px 0; background:var(--ivory) }
+.work-header { margin-bottom:56px }
+.work-h { font-family:var(--fd); font-size:clamp(2rem,3.5vw,2.8rem); font-weight:700; color:var(--green-deep); line-height:1.2; max-width:560px; margin-bottom:14px }
+.work-h em { font-style:italic; color:var(--gold) }
+.work-p { font-size:.95rem; line-height:1.8; color:var(--charcoal-l); max-width:520px }
+.work-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px }
+.work-card {
+  border-radius:20px; background:#fff; border:1px solid var(--sage-mid); overflow:hidden;
+  transition:all .4s cubic-bezier(.4,0,.2,1)
+}
+.work-card:hover { transform:translateY(-7px); box-shadow:0 22px 56px rgba(26,77,46,.11); border-color:var(--green) }
+.wc-top { height:170px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden }
+.wc-1 .wc-top { background:linear-gradient(135deg,#1A4D2E,#2e7048) }
+.wc-2 .wc-top { background:linear-gradient(135deg,#8B5E0A,#C9882A) }
+.wc-3 .wc-top { background:linear-gradient(135deg,#1e3060,#2e5aad) }
+.wc-top-icon { color:rgba(255,255,255,.55) }
+.wc-top-icon svg { width:60px; height:60px }
+.wc-body { padding:26px }
+.wc-tag {
+  display:inline-block; padding:3px 11px; border-radius:100px; background:var(--sage);
+  font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--green); margin-bottom:10px
+}
+.wc-title { font-family:var(--fd); font-size:1.15rem; font-weight:700; color:var(--green-deep); margin-bottom:9px; line-height:1.3 }
+.wc-desc { font-size:.865rem; line-height:1.75; color:var(--charcoal-l); margin-bottom:18px }
+.wc-link { display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:600; color:var(--green); text-decoration:none; transition:gap .2s }
+.wc-link svg { width:14px; height:14px }
+.wc-link:hover { gap:10px }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+/* ── VISION MISSION ── */
+#vm { padding:100px 0; background:var(--green-deep); position:relative; overflow:hidden }
+#vm::before {
+  content:'PEACE'; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  font-family:var(--fd); font-size:22vw; font-weight:900; color:rgba(255,255,255,.02);
+  pointer-events:none; white-space:nowrap; letter-spacing:-.02em
+}
+.vm-header { text-align:center; margin-bottom:60px; position:relative; z-index:1 }
+.vm-header .sec-label { justify-content:center; color:var(--gold-pale) }
+.vm-header .sec-label::before { background:var(--gold-pale) }
+.vm-h { font-family:var(--fd); font-size:clamp(2rem,4vw,2.9rem); font-weight:700; color:#fff; line-height:1.2 }
+.vm-h em { font-style:italic; color:var(--gold) }
+.vm-grid { display:grid; grid-template-columns:1fr 1fr; gap:26px; position:relative; z-index:1 }
+.vm-card { border-radius:24px; padding:46px 42px; border:1px solid rgba(255,255,255,.08); transition:border-color .3s, transform .3s }
+.vm-card:hover { border-color:rgba(201,136,42,.3); transform:translateY(-4px) }
+.vm-v { background:rgba(201,136,42,.06) }
+.vm-m { background:rgba(255,255,255,.03) }
+.vm-card-icon {
+  width:50px; height:50px; border-radius:14px; background:rgba(201,136,42,.14);
+  border:1px solid rgba(201,136,42,.2); display:flex; align-items:center; justify-content:center;
+  color:var(--gold); margin-bottom:18px
+}
+.vm-card-icon svg { width:24px; height:24px }
+.vm-badge { font-size:10px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold); margin-bottom:13px }
+.vm-quote { font-family:var(--fd); font-size:1rem; font-style:italic; color:rgba(255,255,255,.85); line-height:1.7; margin-bottom:14px; padding-left:16px; border-left:2px solid rgba(201,136,42,.38) }
+.vm-text { font-size:.875rem; line-height:1.85; color:rgba(255,255,255,.5) }
 
-  /* ── SECTION COMMON ── */
-  section { position: relative; }
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
-  .section-label {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
-    text-transform: uppercase; color: var(--gold);
-    margin-bottom: 16px;
-  }
-  .section-label::before {
-    content: ''; display: block;
-    width: 24px; height: 1.5px; background: var(--gold);
-  }
+/* ── STORIES ── */
+#stories { padding:100px 0; background:var(--ivory) }
+.stories-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:44px; flex-wrap:wrap; gap:20px }
+.stories-h { font-family:var(--fd); font-size:clamp(2rem,3.5vw,2.8rem); font-weight:700; color:var(--green-deep); max-width:480px; line-height:1.2 }
+.stories-h em { font-style:italic; color:var(--gold) }
+.slider-btns { display:flex; gap:8px }
+.slider-btn {
+  width:42px; height:42px; border-radius:50%; border:1.5px solid var(--sage-mid); background:#fff;
+  cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .25s
+}
+.slider-btn svg { width:16px; height:16px }
+.slider-btn:hover { background:var(--green); border-color:var(--green); color:#fff }
+.stories-wrap { overflow:hidden }
+.stories-track { display:flex; gap:22px; transition:transform .5s cubic-bezier(.4,0,.2,1) }
+.story-card {
+  flex:0 0 calc(33.33% - 15px); border-radius:20px; background:#fff; border:1px solid var(--sage-mid);
+  overflow:hidden; transition:all .35s
+}
+.story-card:hover { transform:translateY(-6px); box-shadow:0 20px 48px rgba(26,77,46,.1) }
+.sc-img { height:190px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden }
+.sc-1 .sc-img { background:linear-gradient(135deg,#1A4D2E,#2e7048) }
+.sc-2 .sc-img { background:linear-gradient(135deg,#6b4c10,#C9882A) }
+.sc-3 .sc-img { background:linear-gradient(135deg,#2c1a4d,#5c3ab5) }
+.sc-img-icon { color:rgba(255,255,255,.3) }
+.sc-img-icon svg { width:64px; height:64px }
+.sc-badge {
+  position:absolute; top:14px; left:14px; background:rgba(255,255,255,.14); backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.18); border-radius:100px; padding:4px 12px;
+  font-size:10px; font-weight:600; color:#fff; letter-spacing:.8px
+}
+.sc-body { padding:24px }
+.sc-state { font-size:10.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); margin-bottom:8px }
+.sc-title { font-family:var(--fd); font-size:1.05rem; font-weight:700; color:var(--green-deep); margin-bottom:9px; line-height:1.35 }
+.sc-text { font-size:.85rem; line-height:1.75; color:var(--charcoal-l) }
+.sc-foot { padding:0 24px 22px; display:flex; align-items:center; gap:11px }
+.sc-avatar { width:34px; height:34px; border-radius:50%; background:var(--sage); flex-shrink:0; overflow:hidden; display:flex; align-items:center; justify-content:center; color:var(--green) }
+.sc-avatar svg { width:18px; height:18px }
+.sc-name { font-size:13px; font-weight:600; color:var(--charcoal) }
+.sc-role { font-size:11px; color:var(--charcoal-l) }
 
-  /* ── MISSION STATEMENT ── */
-  #mission {
-    background: var(--ivory); padding: 100px 0 80px;
-    overflow: hidden;
-  }
-  .mission-inner {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-  }
-  .mission-visual {
-    position: relative;
-  }
-  .mission-card-stack {
-    position: relative; height: 420px;
-  }
-  .mcard {
-    position: absolute; border-radius: 20px; overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-  }
-  .mcard-1 {
-    width: 75%; height: 280px; top: 0; left: 0;
-    background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .mcard-2 {
-    width: 55%; height: 200px; bottom: 0; right: 0;
-    background: var(--gold);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .mcard-3 {
-    width: 40%; height: 140px; top: 50%; right: 5%; transform: translateY(-50%);
-    background: var(--charcoal);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .mcard-inner { padding: 28px; color: white; text-align: center; }
-  .mcard-icon { font-size: 2.5rem; margin-bottom: 12px; }
-  .mcard-text { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; line-height: 1.3; }
-  .mcard-sub { font-size: 0.75rem; opacity: 0.7; margin-top: 6px; }
-  .mcard-2 .mcard-inner { color: var(--green-deep); }
+/* ── TRUST ── */
+#trust { padding:100px 0; background:var(--sage) }
+.trust-header { text-align:center; margin-bottom:56px }
+.trust-h { font-family:var(--fd); font-size:clamp(2rem,3.5vw,2.6rem); font-weight:700; color:var(--green-deep); line-height:1.2 }
+.trust-h em { font-style:italic; color:var(--gold) }
+.trust-p { font-size:.93rem; line-height:1.75; color:var(--charcoal-l); max-width:500px; margin:12px auto 0; text-align:center }
+.trust-bars { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-bottom:56px }
+.tb { background:#fff; border-radius:16px; padding:26px; border:1px solid var(--sage-mid) }
+.tb-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px }
+.tb-label { font-weight:600; font-size:14px; color:var(--charcoal) }
+.tb-pct { font-family:var(--fd); font-weight:700; font-size:1.15rem; color:var(--green) }
+.tb-track { height:7px; background:var(--sage); border-radius:100px; overflow:hidden }
+.tb-fill { height:100%; border-radius:100px; background:linear-gradient(90deg,var(--green),var(--green-lgt)); width:0; transition:width 1.6s cubic-bezier(.4,0,.2,1) }
+.tb-fill.gold { background:linear-gradient(90deg,#a86e1a,var(--gold)) }
+.tb-sub { font-size:11.5px; color:var(--charcoal-l); margin-top:7px }
+.partners-row { margin-top:48px }
+.partners-lbl { text-align:center; font-size:10.5px; letter-spacing:2px; text-transform:uppercase; color:var(--charcoal-l); margin-bottom:24px }
+.partners-logos { display:flex; justify-content:center; align-items:center; gap:32px; flex-wrap:wrap }
+.partner-badge {
+  padding:13px 20px; border-radius:11px; background:#fff; border:1px solid var(--sage-mid);
+  font-family:var(--fd); font-weight:700; font-size:13px; color:var(--charcoal); opacity:.55; transition:opacity .25s
+}
+.partner-badge:hover { opacity:1 }
 
-  .mission-text { }
-  .mission-heading {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 3.5vw, 2.8rem);
-    font-weight: 700; line-height: 1.2;
-    color: var(--green-deep); margin-bottom: 20px;
-  }
-  .mission-heading em { font-style: italic; color: var(--gold); }
-  .mission-body { font-size: 1rem; line-height: 1.8; color: var(--charcoal-light); margin-bottom: 32px; }
-  
-  .values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 36px; }
-  .value-chip {
-    display: flex; align-items: center; gap: 10px;
-    padding: 12px 16px; border-radius: 10px;
-    background: var(--sage); border: 1px solid var(--sage-mid);
-    font-size: 13px; font-weight: 500; color: var(--green);
-    transition: all 0.25s;
-  }
-  .value-chip:hover { background: var(--green); color: white; transform: translateX(4px); }
-  .value-chip-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+/* ── GET INVOLVED TEASER ── */
+#get-involved { padding:100px 0; background:var(--ivory) }
+.gi-header { text-align:center; margin-bottom:56px }
+.gi-h { font-family:var(--fd); font-size:clamp(2rem,3.5vw,2.8rem); font-weight:700; color:var(--green-deep); line-height:1.2 }
+.gi-h em { font-style:italic; color:var(--gold) }
+.gi-p { font-size:.93rem; color:var(--charcoal-l); line-height:1.75; max-width:480px; margin:12px auto 0 }
+.gi-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:22px }
+.gi-card { border-radius:24px; padding:42px 34px; position:relative; overflow:hidden; transition:all .35s }
+.gi-card:hover { transform:translateY(-7px); box-shadow:0 22px 56px rgba(0,0,0,.12) }
+.gi-card::before { content:''; position:absolute; width:180px; height:180px; border-radius:50%; background:rgba(255,255,255,.05); top:-60px; right:-60px; pointer-events:none }
+.gic-v { background:var(--green) }
+.gic-d { background:var(--gold) }
+.gic-p { background:var(--charcoal) }
+.gi-icon { color:rgba(255,255,255,.6); margin-bottom:18px; position:relative; z-index:1 }
+.gi-icon svg { width:34px; height:34px }
+.gic-d .gi-icon { color:rgba(26,77,46,.5) }
+.gi-card-title { font-family:var(--fd); font-size:1.45rem; font-weight:700; color:#fff; margin-bottom:11px; position:relative; z-index:1; line-height:1.2 }
+.gic-d .gi-card-title { color:var(--green-deep) }
+.gi-card-body { font-size:.87rem; line-height:1.75; color:rgba(255,255,255,.65); margin-bottom:26px; position:relative; z-index:1 }
+.gic-d .gi-card-body { color:rgba(26,77,46,.65) }
+.gi-btn {
+  display:inline-flex; align-items:center; gap:7px; padding:11px 22px; border-radius:100px;
+  font-size:13px; font-weight:600; text-decoration:none; transition:all .25s; position:relative; z-index:1
+}
+.gi-btn svg { width:14px; height:14px }
+.gic-v .gi-btn { background:rgba(255,255,255,.14); color:#fff; border:1px solid rgba(255,255,255,.2) }
+.gic-v .gi-btn:hover { background:#fff; color:var(--green) }
+.gic-d .gi-btn { background:var(--green-deep); color:#fff }
+.gic-d .gi-btn:hover { background:var(--green) }
+.gic-p .gi-btn { background:rgba(255,255,255,.1); color:#fff; border:1px solid rgba(255,255,255,.15) }
+.gic-p .gi-btn:hover { background:#fff; color:var(--charcoal) }
 
-  /* ── IMPACT NUMBERS ── */
-  #impact {
-    background: var(--green);
-    padding: 100px 0;
-    position: relative; overflow: hidden;
-  }
-  #impact::before {
-    content: '';
-    position: absolute; top: -100px; right: -100px;
-    width: 500px; height: 500px; border-radius: 50%;
-    background: rgba(201,136,42,0.06);
-    pointer-events: none;
-  }
-  .impact-header { text-align: center; margin-bottom: 70px; }
-  .impact-header .section-label { color: var(--gold-pale); justify-content: center; }
-  .impact-header .section-label::before { background: var(--gold-pale); }
-  .impact-heading {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
-    color: var(--white); line-height: 1.2;
-  }
-  .impact-heading em { font-style: italic; color: var(--gold); }
+/* ── DONATE TEASER ── */
+#donate-teaser { padding:100px 0; background:var(--green-deep); position:relative; overflow:hidden }
+#donate-teaser::before {
+  content:''; position:absolute; top:-80px; right:-80px; width:400px; height:400px;
+  border-radius:50%; background:rgba(201,136,42,.06); pointer-events:none
+}
+.dt-inner { max-width:760px; margin:0 auto; text-align:center; position:relative; z-index:1 }
+.dt-inner .sec-label { justify-content:center; color:var(--gold-pale) }
+.dt-inner .sec-label::before { background:var(--gold-pale) }
+.dt-h { font-family:var(--fd); font-size:clamp(2rem,4vw,3rem); font-weight:700; color:#fff; line-height:1.2; margin-bottom:14px }
+.dt-h em { font-style:italic; color:var(--gold) }
+.dt-p { font-size:.97rem; line-height:1.8; color:rgba(255,255,255,.6); margin-bottom:44px }
+.dt-tiers { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:14px }
+.dt-tier {
+  padding:12px 20px; border-radius:100px; border:1.5px solid rgba(255,255,255,.14);
+  background:transparent; color:rgba(255,255,255,.65); font-size:14px; font-weight:600;
+  cursor:default; transition:all .25s
+}
+.dt-tier:hover,.dt-tier.highlight { background:rgba(201,136,42,.18); border-color:rgba(201,136,42,.35); color:var(--gold-pale) }
+.dt-tier-lbl { display:block; font-size:10px; font-weight:400; opacity:.6; margin-top:2px }
+.dt-cta { display:inline-flex; align-items:center; gap:9px; background:var(--gold); color:var(--green-deep); padding:16px 38px; border-radius:100px; font-size:15px; font-weight:700; text-decoration:none; transition:all .3s; box-shadow:0 8px 28px rgba(201,136,42,.4); margin-top:28px }
+.dt-cta svg { width:17px; height:17px }
+.dt-cta:hover { background:var(--gold-lgt); transform:translateY(-2px); box-shadow:0 14px 38px rgba(201,136,42,.5) }
+.dt-trust { display:flex; justify-content:center; gap:22px; margin-top:22px; flex-wrap:wrap }
+.dt-trust-item { display:flex; align-items:center; gap:6px; font-size:11.5px; color:rgba(255,255,255,.38) }
+.dt-trust-item svg { width:13px; height:13px; color:rgba(255,255,255,.4) }
 
-  .impact-stats {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-    background: rgba(255,255,255,0.08); border-radius: 20px; overflow: hidden;
-    margin-bottom: 70px;
-  }
-  .impact-stat {
-    background: rgba(255,255,255,0.04);
-    padding: 48px 32px; text-align: center;
-    transition: background 0.3s;
-  }
-  .impact-stat:hover { background: rgba(255,255,255,0.08); }
-  .impact-stat-num {
-    font-family: var(--font-display); font-size: 3rem; font-weight: 900;
-    color: var(--gold); line-height: 1; margin-bottom: 8px;
-  }
-  .impact-stat-label { font-size: 13px; color: rgba(255,255,255,0.6); letter-spacing: 0.5px; }
-  .impact-stat-sub { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 6px; }
+/* ── FOOTER ── */
+footer { background:var(--green-deep); padding:72px 0 0 }
+.ft-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:44px; padding-bottom:56px }
+.ft-brand {}
+.ft-logo-row { display:flex; align-items:center; gap:12px; margin-bottom:16px }
+.ft-logo-icon { width:44px; height:44px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; font-family:var(--fd); font-weight:900; font-size:15px; color:var(--green-deep) }
+.ft-brand-name { font-family:var(--fd); font-size:15px; font-weight:700; color:#fff }
+.ft-brand-sub { font-size:10px; color:var(--gold-pale); letter-spacing:1.5px; text-transform:uppercase }
+.ft-tagline { font-size:.84rem; line-height:1.8; color:rgba(255,255,255,.4); max-width:270px; margin-bottom:22px }
+.ft-social { display:flex; gap:8px }
+.soc { width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:rgba(255,255,255,.55); transition:all .25s }
+.soc svg { width:14px; height:14px }
+.soc:hover { background:var(--gold); border-color:var(--gold); color:var(--green-deep) }
+.ft-col-title { font-size:10px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold); margin-bottom:18px }
+.ft-links { list-style:none; display:flex; flex-direction:column; gap:10px }
+.ft-links a { color:rgba(255,255,255,.4); text-decoration:none; font-size:13.5px; transition:color .2s }
+.ft-links a:hover { color:var(--gold-pale) }
+.ft-newsletter p { font-size:.83rem; color:rgba(255,255,255,.45); line-height:1.7; margin-bottom:14px }
+.ft-nl-form { display:flex; flex-direction:column; gap:9px }
+.ft-nl-input {
+  padding:11px 15px; border-radius:9px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+  color:#fff; font-size:13px; font-family:var(--fb); outline:none; transition:border-color .2s
+}
+.ft-nl-input::placeholder { color:rgba(255,255,255,.28) }
+.ft-nl-input:focus { border-color:var(--gold) }
+.ft-nl-btn {
+  padding:11px 18px; border-radius:9px; background:var(--gold); border:none; cursor:pointer;
+  font-size:13px; font-weight:700; color:var(--green-deep); font-family:var(--fb); transition:all .25s
+}
+.ft-nl-btn:hover { background:var(--gold-lgt) }
+.ft-bottom {
+  border-top:1px solid rgba(255,255,255,.07); padding:22px 0;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px
+}
+.ft-copy { font-size:12px; color:rgba(255,255,255,.25) }
+.ft-legal { display:flex; gap:20px }
+.ft-legal a { font-size:12px; color:rgba(255,255,255,.25); text-decoration:none; transition:color .2s }
+.ft-legal a:hover { color:var(--gold-pale) }
 
-  .impact-story {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-  }
-  .impact-story-text { color: white; }
-  .impact-story-text h3 { font-family: var(--font-display); font-size: 1.9rem; font-weight: 700; line-height: 1.3; margin-bottom: 16px; }
-  .impact-story-text p { font-size: 0.95rem; line-height: 1.8; color: rgba(255,255,255,0.65); }
-
-  .impact-visual {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-  }
-  .impact-block {
-    border-radius: 16px; padding: 28px 20px; text-align: center;
-    transition: transform 0.3s;
-  }
-  .impact-block:hover { transform: translateY(-4px); }
-  .impact-block:nth-child(1) { background: rgba(201,136,42,0.15); border: 1px solid rgba(201,136,42,0.2); grid-row: span 2; display: flex; flex-direction: column; justify-content: center; }
-  .impact-block:nth-child(2) { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); }
-  .impact-block:nth-child(3) { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); }
-  .ib-icon { font-size: 2rem; margin-bottom: 12px; }
-  .ib-num { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--gold); }
-  .ib-label { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 4px; }
-
-  /* ── WHAT WE DO ── */
-  #what-we-do { background: var(--ivory); padding: 100px 0; }
-  .wwd-header { margin-bottom: 60px; }
-  .wwd-heading {
-    font-family: var(--font-display); font-size: clamp(2rem,3.5vw,2.8rem);
-    font-weight: 700; color: var(--green-deep); line-height: 1.2;
-    max-width: 600px; margin-bottom: 16px;
-  }
-  .wwd-heading em { font-style: italic; color: var(--gold); }
-  .wwd-body { font-size: 0.95rem; line-height: 1.8; color: var(--charcoal-light); max-width: 540px; }
-
-  .programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .program-card {
-    border-radius: 20px; overflow: hidden;
-    background: white; border: 1px solid var(--sage-mid);
-    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
-    cursor: pointer;
-  }
-  .program-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(26,77,46,0.12); border-color: var(--green); }
-  .program-card-top {
-    height: 180px; position: relative; overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .pc-1 .program-card-top { background: linear-gradient(135deg, #1A4D2E, #2e7048); }
-  .pc-2 .program-card-top { background: linear-gradient(135deg, #8B5E0A, #C9882A); }
-  .pc-3 .program-card-top { background: linear-gradient(135deg, #1e3a5f, #2e5fa5); }
-  .program-card-top-icon { font-size: 3.5rem; opacity: 0.9; }
-  .program-card-top::after {
-    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-    height: 60px;
-    background: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
-  }
-  .program-card-body { padding: 28px; }
-  .program-card-tag {
-    display: inline-block; padding: 4px 12px; border-radius: 100px;
-    font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
-    background: var(--sage); color: var(--green); margin-bottom: 12px;
-  }
-  .program-card-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--green-deep); margin-bottom: 10px; line-height: 1.3; }
-  .program-card-desc { font-size: 0.875rem; line-height: 1.7; color: var(--charcoal-light); margin-bottom: 20px; }
-  .program-card-link {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 13px; font-weight: 600; color: var(--green);
-    text-decoration: none; transition: gap 0.2s;
-  }
-  .program-card-link:hover { gap: 10px; }
-
-  /* ── VISION/MISSION ── */
-  #vision-mission {
-    background: var(--green-deep);
-    padding: 100px 0; overflow: hidden;
-    position: relative;
-  }
-  #vision-mission::before {
-    content: 'PEACE';
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-    font-family: var(--font-display); font-size: 20vw; font-weight: 900;
-    color: rgba(255,255,255,0.02); pointer-events: none; white-space: nowrap;
-    letter-spacing: -0.02em;
-  }
-  .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; position: relative; z-index: 1; }
-  .vm-card {
-    border-radius: 24px; padding: 50px 44px;
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: border-color 0.3s;
-  }
-  .vm-card:hover { border-color: rgba(201,136,42,0.4); }
-  .vm-card-v { background: rgba(201,136,42,0.06); }
-  .vm-card-m { background: rgba(255,255,255,0.03); }
-  .vm-icon { font-size: 2.5rem; margin-bottom: 20px; }
-  .vm-label { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-  .vm-heading { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: white; line-height: 1.3; margin-bottom: 16px; }
-  .vm-body { font-size: 0.9rem; line-height: 1.85; color: rgba(255,255,255,0.6); }
-
-  /* ── STORIES ── */
-  #stories { background: var(--ivory); padding: 100px 0; }
-  .stories-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; flex-wrap: wrap; gap: 20px; }
-  .stories-heading { font-family: var(--font-display); font-size: clamp(2rem,3.5vw,2.8rem); font-weight: 700; color: var(--green-deep); max-width: 500px; line-height: 1.2; }
-  .stories-heading em { font-style: italic; color: var(--gold); }
-  .stories-nav { display: flex; gap: 8px; }
-  .story-nav-btn {
-    width: 44px; height: 44px; border-radius: 50%;
-    border: 1.5px solid var(--sage-mid); background: white; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem; transition: all 0.25s;
-  }
-  .story-nav-btn:hover { background: var(--green); border-color: var(--green); color: white; }
-  .story-nav-btn.active { background: var(--gold); border-color: var(--gold); color: var(--green-deep); }
-
-  .stories-track-wrap { overflow: hidden; }
-  .stories-track { display: flex; gap: 24px; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
-  .story-card {
-    flex: 0 0 calc(33.33% - 16px); border-radius: 20px; overflow: hidden;
-    background: white; border: 1px solid var(--sage-mid);
-    transition: all 0.35s;
-  }
-  .story-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(26,77,46,0.1); }
-  .story-card-img {
-    height: 200px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 3rem; position: relative; overflow: hidden;
-  }
-  .sc-1 .story-card-img { background: linear-gradient(135deg, #1A4D2E, #2e7048); }
-  .sc-2 .story-card-img { background: linear-gradient(135deg, #6b4c10, #C9882A); }
-  .sc-3 .story-card-img { background: linear-gradient(135deg, #2c1a4d, #5c3ab5); }
-  .story-card-quote {
-    position: absolute; top: 16px; left: 16px;
-    background: rgba(255,255,255,0.15); backdrop-filter: blur(10px);
-    border-radius: 100px; padding: 5px 12px;
-    font-size: 11px; color: white; letter-spacing: 1px;
-  }
-  .story-card-body { padding: 28px; }
-  .story-card-state { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-  .story-card-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--green-deep); margin-bottom: 10px; line-height: 1.35; }
-  .story-card-text { font-size: 0.85rem; line-height: 1.75; color: var(--charcoal-light); }
-  .story-card-footer { padding: 0 28px 24px; display: flex; align-items: center; gap: 12px; }
-  .story-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
-  .sa-1 { background: rgba(26,77,46,0.1); }
-  .sa-2 { background: rgba(201,136,42,0.1); }
-  .sa-3 { background: rgba(92,58,181,0.1); }
-  .story-author-name { font-size: 13px; font-weight: 600; color: var(--charcoal); }
-  .story-author-role { font-size: 11px; color: var(--charcoal-light); }
-
-  /* ── TRUST ── */
-  #trust { background: var(--sage); padding: 100px 0; }
-  .trust-header { text-align: center; margin-bottom: 60px; }
-  .trust-heading { font-family: var(--font-display); font-size: clamp(2rem,3.5vw,2.6rem); font-weight: 700; color: var(--green-deep); line-height: 1.2; }
-  .trust-heading em { font-style: italic; color: var(--gold); }
-  .trust-body { font-size: 0.95rem; line-height: 1.75; color: var(--charcoal-light); max-width: 520px; margin: 12px auto 0; text-align: center; }
-
-  .trust-bars { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 60px; }
-  .trust-bar-item { background: white; border-radius: 16px; padding: 28px; border: 1px solid var(--sage-mid); }
-  .tb-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
-  .tb-label { font-weight: 600; font-size: 14px; color: var(--charcoal); }
-  .tb-pct { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; color: var(--green); }
-  .tb-track { height: 8px; background: var(--sage); border-radius: 100px; overflow: hidden; }
-  .tb-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--green), var(--green-light)); transition: width 1.5s cubic-bezier(0.4,0,0.2,1); }
-  .tb-fill.gold { background: linear-gradient(90deg, #a86e1a, var(--gold)); }
-  .tb-sub { font-size: 12px; color: var(--charcoal-light); margin-top: 8px; }
-
-  .partners-row { margin-top: 60px; }
-  .partners-label { text-align: center; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--charcoal-light); margin-bottom: 28px; }
-  .partners-logos { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; }
-  .partner-badge {
-    padding: 16px 24px; border-radius: 12px; background: white;
-    border: 1px solid var(--sage-mid);
-    font-family: var(--font-display); font-weight: 700; font-size: 14px;
-    color: var(--charcoal); opacity: 0.6; transition: opacity 0.25s;
-  }
-  .partner-badge:hover { opacity: 1; }
-
-  /* ── GET INVOLVED ── */
-  #get-involved { background: var(--ivory); padding: 100px 0; }
-  .gi-header { text-align: center; margin-bottom: 60px; }
-  .gi-heading { font-family: var(--font-display); font-size: clamp(2rem,3.5vw,2.8rem); font-weight: 700; color: var(--green-deep); line-height: 1.2; }
-  .gi-heading em { font-style: italic; color: var(--gold); }
-  .gi-body { font-size: 0.95rem; color: var(--charcoal-light); line-height: 1.75; max-width: 500px; margin: 12px auto 0; }
-
-  .gi-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .gi-card {
-    border-radius: 24px; padding: 44px 36px;
-    position: relative; overflow: hidden; cursor: pointer;
-    transition: transform 0.35s, box-shadow 0.35s;
-  }
-  .gi-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.12); }
-  .gi-card-v { background: var(--green); }
-  .gi-card-d { background: var(--gold); }
-  .gi-card-p { background: var(--charcoal); }
-  .gi-card::before {
-    content: ''; position: absolute;
-    width: 200px; height: 200px; border-radius: 50%;
-    background: rgba(255,255,255,0.05);
-    top: -60px; right: -60px;
-    pointer-events: none;
-  }
-  .gi-card-icon { font-size: 2.5rem; margin-bottom: 20px; position: relative; z-index: 1; }
-  .gi-card-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 12px; position: relative; z-index: 1; line-height: 1.2; }
-  .gi-card-d .gi-card-title { color: var(--green-deep); }
-  .gi-card-body { font-size: 0.875rem; line-height: 1.75; color: rgba(255,255,255,0.7); margin-bottom: 28px; position: relative; z-index: 1; }
-  .gi-card-d .gi-card-body { color: rgba(26,77,46,0.7); }
-  .gi-card-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 12px 24px; border-radius: 100px;
-    font-size: 13px; font-weight: 600;
-    text-decoration: none; transition: all 0.25s;
-    position: relative; z-index: 1;
-  }
-  .gi-card-v .gi-card-btn { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.2); }
-  .gi-card-v .gi-card-btn:hover { background: white; color: var(--green); }
-  .gi-card-d .gi-card-btn { background: var(--green-deep); color: white; }
-  .gi-card-d .gi-card-btn:hover { background: var(--green); }
-  .gi-card-p .gi-card-btn { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.15); }
-  .gi-card-p .gi-card-btn:hover { background: white; color: var(--charcoal); }
-
-  /* ── DONATION ── */
-  #donate { background: var(--green-deep); padding: 100px 0; }
-  .donate-inner { max-width: 700px; margin: 0 auto; text-align: center; }
-  .donate-label { color: var(--gold-pale); }
-  .donate-label::before { background: var(--gold-pale); }
-  .donate-heading { font-family: var(--font-display); font-size: clamp(2rem,4vw,3rem); font-weight: 700; color: white; line-height: 1.2; margin-bottom: 12px; }
-  .donate-heading em { font-style: italic; color: var(--gold); }
-  .donate-body { font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 40px; }
-
-  .donate-tiers { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
-  .donate-tier {
-    padding: 14px 24px; border-radius: 100px;
-    border: 1.5px solid rgba(255,255,255,0.15);
-    background: transparent; color: rgba(255,255,255,0.7);
-    font-size: 15px; font-weight: 600; cursor: pointer;
-    transition: all 0.25s;
-  }
-  .donate-tier:hover, .donate-tier.active {
-    background: var(--gold); border-color: var(--gold); color: var(--green-deep);
-  }
-  .donate-tier-label { font-size: 11px; display: block; font-weight: 400; opacity: 0.7; margin-top: 2px; }
-
-  .donate-custom { display: flex; gap: 12px; justify-content: center; margin-bottom: 32px; }
-  .donate-custom input {
-    background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.15);
-    border-radius: 100px; padding: 14px 24px;
-    font-size: 15px; color: white; outline: none;
-    width: 200px; text-align: center;
-    font-family: var(--font-body);
-    transition: border-color 0.25s;
-  }
-  .donate-custom input::placeholder { color: rgba(255,255,255,0.35); }
-  .donate-custom input:focus { border-color: var(--gold); }
-  .donate-submit {
-    background: var(--gold); color: var(--green-deep);
-    padding: 14px 36px; border-radius: 100px;
-    font-weight: 700; font-size: 14px; border: none; cursor: pointer;
-    transition: all 0.3s; font-family: var(--font-body);
-  }
-  .donate-submit:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 8px 30px rgba(201,136,42,0.4); }
-
-  .donate-trust-row { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
-  .donate-trust-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: rgba(255,255,255,0.4); }
-  .donate-trust-item span { font-size: 1rem; }
-
-  /* ── ABOUT SECTION ── */
-  #about { background: var(--sage); padding: 100px 0; }
-  .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .about-text .section-label { margin-bottom: 20px; }
-  .about-heading { font-family: var(--font-display); font-size: clamp(2rem,3.5vw,2.8rem); font-weight: 700; color: var(--green-deep); line-height: 1.2; margin-bottom: 20px; }
-  .about-heading em { font-style: italic; color: var(--gold); }
-  .about-body { font-size: 0.95rem; line-height: 1.85; color: var(--charcoal-light); margin-bottom: 16px; }
-  .about-body strong { color: var(--green); }
-
-  .about-visual { position: relative; }
-  .about-main-block {
-    border-radius: 24px; overflow: hidden; height: 400px;
-    background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 50%, var(--green-deep) 100%);
-    display: flex; align-items: center; justify-content: center;
-    position: relative;
-  }
-  .about-main-block::after {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(circle at 70% 30%, rgba(201,136,42,0.25) 0%, transparent 60%);
-  }
-  .about-float-card {
-    position: absolute; bottom: -28px; left: -28px;
-    background: var(--gold); border-radius: 20px; padding: 24px 28px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-    z-index: 1;
-  }
-  .afc-num { font-family: var(--font-display); font-size: 2rem; font-weight: 900; color: var(--green-deep); line-height: 1; }
-  .afc-label { font-size: 12px; font-weight: 500; color: rgba(26,77,46,0.7); margin-top: 4px; }
-
-  .about-big-icon { font-size: 5rem; position: relative; z-index: 1; opacity: 0.7; }
-
-  /* ── CONTACT ── */
-  #contact { background: var(--ivory); padding: 100px 0; }
-  .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-  .contact-text .section-label { margin-bottom: 20px; }
-  .contact-heading { font-family: var(--font-display); font-size: clamp(1.8rem,3vw,2.5rem); font-weight: 700; color: var(--green-deep); margin-bottom: 16px; line-height: 1.2; }
-  .contact-heading em { font-style: italic; color: var(--gold); }
-  .contact-body { font-size: 0.95rem; line-height: 1.8; color: var(--charcoal-light); margin-bottom: 36px; }
-
-  .contact-info { display: flex; flex-direction: column; gap: 20px; }
-  .ci-item { display: flex; align-items: flex-start; gap: 16px; }
-  .ci-icon {
-    width: 44px; height: 44px; border-radius: 12px;
-    background: var(--sage); border: 1px solid var(--sage-mid);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem; flex-shrink: 0;
-  }
-  .ci-text-label { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 2px; }
-  .ci-text-val { font-size: 0.9rem; color: var(--charcoal); }
-
-  .contact-form { background: white; border-radius: 24px; padding: 44px; border: 1px solid var(--sage-mid); }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
-  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
-  .form-group label { font-size: 12px; font-weight: 600; color: var(--charcoal); letter-spacing: 0.3px; }
-  .form-group input, .form-group select, .form-group textarea {
-    padding: 12px 16px; border-radius: 10px;
-    border: 1.5px solid var(--sage-mid); outline: none;
-    font-size: 14px; font-family: var(--font-body); color: var(--charcoal);
-    background: var(--ivory); transition: border-color 0.2s;
-  }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-    border-color: var(--green);
-  }
-  .form-group textarea { height: 100px; resize: none; }
-  .form-submit {
-    width: 100%; padding: 15px; border-radius: 100px;
-    background: var(--green); color: white; border: none; cursor: pointer;
-    font-size: 14px; font-weight: 700; font-family: var(--font-body);
-    transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px;
-  }
-  .form-submit:hover { background: var(--green-mid); transform: translateY(-1px); box-shadow: 0 8px 30px rgba(26,77,46,0.3); }
-
-  /* ── FOOTER ── */
-  footer { background: var(--green-deep); padding: 80px 0 0; }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 60px; }
-  .footer-brand .footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-  .footer-logo-icon {
-    width: 48px; height: 48px; border-radius: 50%; background: var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-display); font-weight: 900; font-size: 17px;
-    color: var(--green-deep);
-  }
-  .footer-logo-text .brand { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: white; }
-  .footer-logo-text .sub { font-size: 10px; color: var(--gold-pale); letter-spacing: 1.5px; text-transform: uppercase; }
-  .footer-tagline { font-size: 0.875rem; line-height: 1.75; color: rgba(255,255,255,0.5); margin-bottom: 24px; max-width: 280px; }
-  .footer-social { display: flex; gap: 10px; }
-  .social-btn {
-    width: 38px; height: 38px; border-radius: 10px;
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem; text-decoration: none; transition: all 0.25s; color: white;
-  }
-  .social-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--green-deep); }
-
-  .footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13.5px; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--gold-pale); }
-
-  .footer-newsletter { }
-  .footer-newsletter p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 16px; }
-  .newsletter-form { display: flex; flex-direction: column; gap: 10px; }
-  .newsletter-form input {
-    padding: 12px 16px; border-radius: 10px;
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
-    color: white; font-size: 13px; font-family: var(--font-body); outline: none;
-    transition: border-color 0.2s;
-  }
-  .newsletter-form input::placeholder { color: rgba(255,255,255,0.3); }
-  .newsletter-form input:focus { border-color: var(--gold); }
-  .newsletter-form button {
-    padding: 11px 20px; border-radius: 10px;
-    background: var(--gold); border: none; cursor: pointer;
-    font-size: 13px; font-weight: 600; color: var(--green-deep);
-    font-family: var(--font-body); transition: all 0.25s;
-  }
-  .newsletter-form button:hover { background: var(--gold-light); }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.07);
-    padding: 24px 0;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 12px;
-  }
-  .footer-bottom-left { font-size: 12px; color: rgba(255,255,255,0.3); }
-  .footer-bottom-right { display: flex; gap: 24px; }
-  .footer-bottom-right a { font-size: 12px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
-  .footer-bottom-right a:hover { color: var(--gold-pale); }
-
-  /* ── FLOATING CTA ── */
-  .floating-cta {
-    position: fixed; bottom: 28px; right: 28px; z-index: 900;
-    background: var(--gold); color: var(--green-deep);
-    padding: 14px 26px; border-radius: 100px;
-    font-size: 13px; font-weight: 700; letter-spacing: 0.3px;
-    text-decoration: none;
-    box-shadow: 0 8px 30px rgba(201,136,42,0.5);
-    display: flex; align-items: center; gap: 8px;
-    transition: all 0.3s;
-    animation: float-in 0.8s ease 2s both;
-  }
-  .floating-cta:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(201,136,42,0.6); }
-  @keyframes float-in { from { opacity:0; transform: translateY(20px) } to { opacity:1; transform: translateY(0) } }
-
-  /* ── SCROLL REVEAL ── */
-  .reveal {
-    opacity: 0; transform: translateY(40px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
-  .reveal-delay-4 { transition-delay: 0.4s; }
-
-  /* ── MOBILE ── */
-  @media (max-width: 900px) {
-    .hero-image-side { display: none; }
-    .hero-content { max-width: 100%; }
-    .hero-stats-bar { display: none; }
-    .mission-inner, .impact-story, .vm-grid, .gi-cards, .about-inner, .contact-inner, .footer-grid { grid-template-columns: 1fr; }
-    .impact-stats { grid-template-columns: 1fr 1fr; }
-    .programs-grid { grid-template-columns: 1fr; }
-    .stories-track .story-card { flex: 0 0 calc(90% - 16px); }
-    .trust-bars { grid-template-columns: 1fr; }
-    .values-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
-    .mission-card-stack { height: 300px; }
-    .about-float-card { bottom: -20px; left: -10px; }
-    .form-row { grid-template-columns: 1fr; }
-    .donate-tiers { gap: 8px; }
-  }
-
-  @media (max-width: 600px) {
-    .impact-stats { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; }
-    .hero-actions { flex-direction: column; }
-    .btn-primary, .btn-outline { width: 100%; justify-content: center; }
-    .gi-cards { grid-template-columns: 1fr; }
-  }
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .hero-visual-side,.hero-stats,.hero-scroll{display:none}
+  .hero-content{max-width:100%;padding-top:80px}
+  .mission-grid,.impact-story,.vm-grid,.gi-cards{grid-template-columns:1fr}
+  .impact-grid{grid-template-columns:1fr 1fr}
+  .work-grid{grid-template-columns:1fr}
+  .trust-bars{grid-template-columns:1fr}
+  .ft-grid{grid-template-columns:1fr 1fr}
+  .nav-links,.nav-cta{display:none}
+  .nav-mob{display:block}
+  .values-chips{grid-template-columns:1fr}
+  .mv-stack{height:280px}
+}
+@media(max-width:600px){
+  .impact-grid{grid-template-columns:1fr}
+  .ft-grid{grid-template-columns:1fr}
+  .dt-tiers{gap:8px}
+  .hero-btns{flex-direction:column}
+  .btn-gold,.btn-ghost{width:100%;justify-content:center}
+  .stories-track .story-card{flex:0 0 88%}
+}
 </style>
 </head>
 <body>
 
-<!-- FLOATING CTA -->
-<a href="#donate" class="floating-cta">
-  ♥ Donate Now
+<!-- MOBILE DRAWER -->
+<div class="mob-drawer" id="mobDrawer">
+  <button class="mob-close" onclick="closeMenu()" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="about.html" onclick="closeMenu()">About Us</a>
+  <a href="what-we-do.html" onclick="closeMenu()">What We Do</a>
+  <a href="get-involved.html" onclick="closeMenu()">Get Involved</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="donate.html" style="color:var(--gold)" onclick="closeMenu()">Donate Now</a>
+</div>
+
+<!-- FLOATING DONATE -->
+<a href="donate.html" class="float-donate">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+  Donate Now
 </a>
 
-<!-- ── NAV ── -->
+<!-- NAV -->
 <nav id="main-nav">
-  <a href="#" class="nav-logo">
+  <a href="index.html" class="nav-logo">
     <div class="nav-logo-icon">PAN</div>
     <div class="nav-logo-text">
       <div class="brand">Peace Alliance Network</div>
@@ -818,341 +546,249 @@
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="about.html">About</a></li>
-    <li><a href="/what-we-do.html">What We Do</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="what-we-do.html">What We Do</a></li>
     <li><a href="get-involved.html">Get Involved</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <a href="donate.html" class="nav-cta">Donate</a>
-  <div class="nav-hamburger" onclick="this.classList.toggle('open')">
-    <span></span><span></span><span></span>
-  </div>
+  <button class="nav-mob" id="navToggle" onclick="openMenu()" aria-label="Open menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
-  <div class="hero-texture"></div>
-
-  <div class="hero-image-side">
-    <div class="hero-image-visual">
-      <div class="hero-dove">
-        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="100" cy="100" r="95" stroke="rgba(201,136,42,0.15)" stroke-width="1"/>
-          <circle cx="100" cy="100" r="70" stroke="rgba(201,136,42,0.1)" stroke-width="1"/>
-          <!-- Dove shape -->
-          <path d="M100 80 C80 70 55 75 50 90 C45 105 60 115 75 110 C85 107 90 100 100 98 C110 96 125 100 130 92 C138 80 120 65 100 80Z" fill="rgba(245,240,232,0.25)"/>
-          <path d="M100 98 C95 105 88 118 80 125 C75 129 72 126 78 120 C83 115 90 108 100 98Z" fill="rgba(245,240,232,0.2)"/>
-          <!-- Olive branch -->
-          <path d="M78 120 C65 130 50 138 42 145" stroke="rgba(201,136,42,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-          <ellipse cx="60" cy="132" rx="8" ry="5" fill="rgba(46,112,72,0.4)" transform="rotate(-30 60 132)"/>
-          <ellipse cx="50" cy="139" rx="7" ry="4" fill="rgba(46,112,72,0.35)" transform="rotate(-40 50 139)"/>
-        </svg>
-        <div style="font-family: var(--font-display); font-size: 0.9rem; color: rgba(255,255,255,0.35); letter-spacing: 3px; text-transform: uppercase;">Peace • Justice • Unity</div>
+  <div class="hero-pattern"></div>
+  <div class="hero-visual-side">
+    <div class="hero-visual-inner">
+      <div class="hero-visual-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
       </div>
     </div>
   </div>
-
   <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span class="hero-eyebrow-dot"></span>
-      Nigeria's Peacebuilding Network
-    </div>
-    <h1 class="hero-headline">
-      Building a<br><em>Culture of Peace</em><br>
-      <span class="line-accent">Across Nigeria</span>
-    </h1>
-    <p class="hero-body">
-      We mobilize communities, bridge divides, and uplift the voices of those touched by conflict — creating a Nigeria where peace, justice, and human rights endure beyond tongue, tribe, and religion.
-    </p>
-    <div class="hero-actions">
-      <a href="#donate" class="btn-primary">
-        ♥ Support Our Mission
+    <div class="hero-pill"><span class="pill-dot"></span> Nigeria's Peacebuilding Network</div>
+    <h1 class="hero-h">Building a<br><em>Culture of Peace</em><br>Across Nigeria</h1>
+    <p class="hero-p">We mobilize communities, bridge divides, and uplift the voices of those touched by conflict — creating a Nigeria where peace, justice, and human rights endure beyond tongue, tribe, and religion.</p>
+    <div class="hero-btns">
+      <a href="donate.html" class="btn-gold">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Support Our Mission
       </a>
-      <a href="#get-involved" class="btn-outline">
-        Get Involved →
+      <a href="get-involved.html" class="btn-ghost">
+        Get Involved
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>
   </div>
-
-  <div class="hero-stats-bar">
-    <div class="hero-stat">
-      <div class="hero-stat-num" data-count="15">0</div>
-      <div class="hero-stat-label">Years of Peacebuilding</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num" data-count="120" data-suffix="+">0</div>
-      <div class="hero-stat-label">Communities Reached</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num" data-count="5000" data-suffix="+">0</div>
-      <div class="hero-stat-label">Lives Transformed</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num" data-count="19">0</div>
-      <div class="hero-stat-label">States in Nigeria</div>
-    </div>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n" data-count="15">0</div><div class="hstat-l">Years of Peacebuilding</div></div>
+    <div class="hstat"><div class="hstat-n" data-count="120" data-suffix="+">0</div><div class="hstat-l">Communities Reached</div></div>
+    <div class="hstat"><div class="hstat-n" data-count="5000" data-suffix="+">0</div><div class="hstat-l">Lives Transformed</div></div>
+    <div class="hstat"><div class="hstat-n" data-count="19">0</div><div class="hstat-l">States Active</div></div>
   </div>
-
-  <div class="hero-scroll-indicator">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-bar"></div></div>
 </section>
 
-<!-- ── MISSION ── -->
+<!-- MISSION -->
 <section id="mission">
   <div class="container">
-    <div class="mission-inner">
-      <div class="mission-visual reveal">
-        <div class="mission-card-stack">
-          <div class="mcard mcard-1">
-            <div class="mcard-inner">
-              <div class="mcard-icon">🕊️</div>
-              <div class="mcard-text">Stopping Violent Conflict</div>
-              <div class="mcard-sub">Grassroots Peacebuilding</div>
-            </div>
-          </div>
-          <div class="mcard mcard-2">
-            <div class="mcard-inner">
-              <div class="mcard-icon">🤝</div>
-              <div class="mcard-text">Uniting Communities</div>
-              <div class="mcard-sub">Across Nigeria & Beyond</div>
-            </div>
-          </div>
-          <div class="mcard mcard-3">
-            <div class="mcard-inner" style="color:rgba(255,255,255,0.8)">
-              <div style="font-family:var(--font-display);font-size:0.85rem;font-weight:700">Est. Since<br><span style="color:var(--gold);font-size:1.4rem">2009</span></div>
-            </div>
-          </div>
+    <div class="mission-grid">
+      <div>
+        <div class="sec-label reveal">Who We Are</div>
+        <h2 class="mission-heading reveal d1">Committed to <em>Stopping Conflict</em>, Building Just Societies</h2>
+        <p class="mission-body reveal d2">The <strong>Peace Alliance Network (PAN) Foundation</strong> is a value-based peacebuilding organization rooted in Nigeria's rich cultural tapestry. We work tirelessly to strengthen the value of peace, religious harmony, and cultural understanding — engaging all members of the human family as contributors to a lasting culture of peace.</p>
+        <p class="mission-body reveal d3">We work directly with victims of violent conflict, bringing together voices to make change that endures the test of time.</p>
+        <div class="values-chips reveal d4">
+          <div class="chip"><span class="chip-dot"></span>Peace &amp; Non-Violence</div>
+          <div class="chip"><span class="chip-dot"></span>Justice &amp; Equality</div>
+          <div class="chip"><span class="chip-dot"></span>Integrity &amp; Transparency</div>
+          <div class="chip"><span class="chip-dot"></span>Inclusiveness &amp; Diversity</div>
+          <div class="chip"><span class="chip-dot"></span>Community Empowerment</div>
+          <div class="chip"><span class="chip-dot"></span>Accountability</div>
         </div>
       </div>
-
-      <div class="mission-text">
-        <div class="section-label reveal">Who We Are</div>
-        <h2 class="mission-heading reveal reveal-delay-1">
-          Committed to <em>Stopping Conflict</em>, Building Just Societies
-        </h2>
-        <p class="mission-body reveal reveal-delay-2">
-          The Peace Alliance Network (PAN) Foundation is a value-based peacebuilding organization rooted in Nigeria's rich cultural tapestry. We work tirelessly to strengthen the value of peace, religious harmony, and cultural understanding among Nigeria's diverse people — engaging all members of the human family as contributors to a lasting culture of peace.
-        </p>
-        <p class="mission-body reveal reveal-delay-3">
-          We work directly with victims of violent conflict, bringing together voices to make change that endures the test of time.
-        </p>
-
-        <div class="values-grid reveal reveal-delay-4">
-          <div class="value-chip"><span class="value-chip-dot"></span>Peace & Non-Violence</div>
-          <div class="value-chip"><span class="value-chip-dot"></span>Justice & Equality</div>
-          <div class="value-chip"><span class="value-chip-dot"></span>Integrity & Transparency</div>
-          <div class="value-chip"><span class="value-chip-dot"></span>Inclusiveness & Diversity</div>
-          <div class="value-chip"><span class="value-chip-dot"></span>Community Empowerment</div>
-          <div class="value-chip"><span class="value-chip-dot"></span>Accountability</div>
+      <div class="mission-visual reveal d2">
+        <div class="mv-stack">
+          <div class="mv-card mvc-1">
+            <div class="mvc-inner">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="12" y1="12" x2="5.5" y2="17"/><line x1="12" y1="12" x2="18.5" y2="17"/></svg></div>
+              <div class="mvc-title">Stopping Violent Conflict</div>
+              <div class="mvc-sub">Grassroots Peacebuilding</div>
+            </div>
+          </div>
+          <div class="mv-card mvc-2">
+            <div class="mvc-inner">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+              <div class="mvc-title">Uniting Communities</div>
+              <div class="mvc-sub">Across Nigeria &amp; Beyond</div>
+            </div>
+          </div>
+          <div class="mv-card mvc-3">
+            <div class="mvc-inner">
+              <div style="font-family:var(--fd);font-size:.8rem;font-weight:700">Est.<br><span style="color:var(--gold);font-size:1.3rem">2009</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── IMPACT ── -->
+<!-- IMPACT -->
 <section id="impact">
   <div class="container">
     <div class="impact-header">
-      <div class="section-label reveal" style="justify-content:center">Our Impact</div>
-      <h2 class="impact-heading reveal reveal-delay-1">
-        Real Change, <em>Real Numbers</em>
-      </h2>
+      <div class="sec-label reveal">Our Impact</div>
+      <h2 class="impact-h reveal d1">Real Change, <em>Real Numbers</em></h2>
     </div>
-
-    <div class="impact-stats reveal">
-      <div class="impact-stat">
-        <div class="impact-stat-num" data-count="5000" data-suffix="+">0</div>
-        <div class="impact-stat-label">Conflict Victims Supported</div>
-        <div class="impact-stat-sub">Across northern Nigeria</div>
-      </div>
-      <div class="impact-stat">
-        <div class="impact-stat-num" data-count="120" data-suffix="+">0</div>
-        <div class="impact-stat-label">Communities Reached</div>
-        <div class="impact-stat-sub">Grassroots peacebuilding</div>
-      </div>
-      <div class="impact-stat">
-        <div class="impact-stat-num" data-count="800" data-suffix="+">0</div>
-        <div class="impact-stat-label">Youth Reintegrated</div>
-        <div class="impact-stat-sub">Back into society</div>
-      </div>
-      <div class="impact-stat">
-        <div class="impact-stat-num" data-count="19">0</div>
-        <div class="impact-stat-label">States Active</div>
-        <div class="impact-stat-sub">And growing</div>
-      </div>
+    <div class="impact-grid reveal">
+      <div class="istat"><div class="istat-n" data-count="5000" data-suffix="+">0</div><div class="istat-l">Conflict Victims Supported</div><div class="istat-s">Across northern Nigeria</div></div>
+      <div class="istat"><div class="istat-n" data-count="120" data-suffix="+">0</div><div class="istat-l">Communities Reached</div><div class="istat-s">Grassroots peacebuilding</div></div>
+      <div class="istat"><div class="istat-n" data-count="800" data-suffix="+">0</div><div class="istat-l">Youth Reintegrated</div><div class="istat-s">Back into society</div></div>
+      <div class="istat"><div class="istat-n" data-count="19">0</div><div class="istat-l">States Active</div><div class="istat-s">And growing</div></div>
     </div>
-
     <div class="impact-story">
       <div class="impact-story-text reveal">
-        <h3>Where Peacebuilding Meets <em style="font-style:italic;color:var(--gold)">Human Dignity</em></h3>
+        <h3>Where Peacebuilding Meets <em>Human Dignity</em></h3>
         <p>Every statistic represents a family reunited, a young person pulled back from the edge of radicalization, a community that chose dialogue over violence. We don't just count numbers — we count lives changed, futures restored, and hope renewed in places that once knew only conflict.</p>
       </div>
-      <div class="impact-visual reveal reveal-delay-2">
-        <div class="impact-block">
-          <div class="ib-icon">🏘️</div>
-          <div class="ib-num" data-count="47">0</div>
-          <div class="ib-label">Dialogue Sessions Held</div>
+      <div class="impact-blocks reveal d2">
+        <div class="ib ib-1">
+          <div class="ib-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="ib-n" data-count="47">0</div>
+          <div class="ib-l">Dialogue Sessions Held</div>
         </div>
-        <div class="impact-block">
-          <div class="ib-icon">🎓</div>
-          <div class="ib-num" data-count="200" data-suffix="+">0</div>
-          <div class="ib-label">Peacebuilders Trained</div>
+        <div class="ib ib-2">
+          <div class="ib-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+          <div class="ib-n" data-count="200" data-suffix="+">0</div>
+          <div class="ib-l">Peacebuilders Trained</div>
         </div>
-        <div class="impact-block">
-          <div class="ib-icon">🌍</div>
-          <div class="ib-num">10+</div>
-          <div class="ib-label">Partner Organizations</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── WHAT WE DO ── -->
-<section id="what-we-do">
-  <div class="container">
-    <div class="wwd-header">
-      <div class="section-label reveal">What We Do</div>
-      <h2 class="wwd-heading reveal reveal-delay-1">Our <em>Focus Areas</em> for Sustainable Peace</h2>
-      <p class="wwd-body reveal reveal-delay-2">
-        We work across three interconnected pillars — because lasting peace requires addressing the roots of conflict, healing those it has hurt, and rebuilding communities from within.
-      </p>
-    </div>
-    <div class="programs-grid">
-      <div class="program-card pc-1 reveal">
-        <div class="program-card-top">
-          <div class="program-card-top-icon">🏘️</div>
-        </div>
-        <div class="program-card-body">
-          <div class="program-card-tag">Core Program</div>
-          <h3 class="program-card-title">Community Peacebuilding</h3>
-          <p class="program-card-desc">Empowering local communities through grassroots initiatives, inter-faith dialogues, and culturally sensitive conflict resolution. We believe peace grows from within — from neighbors choosing conversation over confrontation.</p>
-          <a href="#contact" class="program-card-link">Learn More →</a>
-        </div>
-      </div>
-      <div class="program-card pc-2 reveal reveal-delay-1">
-        <div class="program-card-top">
-          <div class="program-card-top-icon">💛</div>
-        </div>
-        <div class="program-card-body">
-          <div class="program-card-tag">Core Program</div>
-          <h3 class="program-card-title">Conflict Victims Support</h3>
-          <p class="program-card-desc">Providing psychosocial support, legal aid advocacy, and rehabilitation services to survivors and victims of violent conflict — restoring dignity and hope where trauma once silenced voices.</p>
-          <a href="#contact" class="program-card-link">Learn More →</a>
-        </div>
-      </div>
-      <div class="program-card pc-3 reveal reveal-delay-2">
-        <div class="program-card-top">
-          <div class="program-card-top-icon">🌱</div>
-        </div>
-        <div class="program-card-body">
-          <div class="program-card-tag">Core Program</div>
-          <h3 class="program-card-title">Youth Reintegration</h3>
-          <p class="program-card-desc">Rescuing young people from cycles of radicalization and violence through skills training, mentorship, and community-based reintegration pathways — turning potential threats into peacebuilders.</p>
-          <a href="#contact" class="program-card-link">Learn More →</a>
+        <div class="ib ib-3">
+          <div class="ib-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+          <div class="ib-n">10+</div>
+          <div class="ib-l">Partner Organizations</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── VISION / MISSION ── -->
-<section id="vision-mission">
+<!-- WHAT WE DO PREVIEW -->
+<section id="work">
   <div class="container">
-    <div style="text-align:center;margin-bottom:60px">
-      <div class="section-label reveal" style="justify-content:center;color:var(--gold-pale);">Our Foundation</div>
-      <div style="font-family:var(--font-display);font-size:clamp(2rem,4vw,2.8rem);font-weight:700;color:white;line-height:1.2" class="reveal reveal-delay-1">
-        Vision, Mission & <em style="font-style:italic;color:var(--gold)">Core Values</em>
+    <div class="work-header">
+      <div class="sec-label reveal">What We Do</div>
+      <h2 class="work-h reveal d1">Our <em>Focus Areas</em> for Sustainable Peace</h2>
+      <p class="work-p reveal d2">Three interconnected pillars — because lasting peace requires addressing the roots of conflict, healing those it has hurt, and rebuilding communities from within.</p>
+    </div>
+    <div class="work-grid">
+      <div class="work-card wc-1 reveal">
+        <div class="wc-top"><div class="wc-top-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div></div>
+        <div class="wc-body">
+          <span class="wc-tag">Core Program</span>
+          <h3 class="wc-title">Community Peacebuilding</h3>
+          <p class="wc-desc">Empowering local communities to build peace through grassroots initiatives, inter-faith dialogue, and culturally sensitive conflict resolution.</p>
+          <a href="what-we-do.html" class="wc-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
       </div>
+      <div class="work-card wc-2 reveal d1">
+        <div class="wc-top"><div class="wc-top-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div></div>
+        <div class="wc-body">
+          <span class="wc-tag">Core Program</span>
+          <h3 class="wc-title">Conflict Victims Support</h3>
+          <p class="wc-desc">Providing psychosocial support, legal aid advocacy, and rehabilitation services to survivors and victims of violent conflict.</p>
+          <a href="what-we-do.html" class="wc-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+      <div class="work-card wc-3 reveal d2">
+        <div class="wc-top"><div class="wc-top-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div></div>
+        <div class="wc-body">
+          <span class="wc-tag">Core Program</span>
+          <h3 class="wc-title">Youth Reintegration</h3>
+          <p class="wc-desc">Rescuing young people from cycles of radicalization through skills training, mentorship, and community-based reintegration pathways.</p>
+          <a href="what-we-do.html" class="wc-link">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION / MISSION -->
+<section id="vm">
+  <div class="container">
+    <div class="vm-header">
+      <div class="sec-label reveal">Our Foundation</div>
+      <h2 class="vm-h reveal d1">Vision, Mission &amp; <em>Core Values</em></h2>
     </div>
     <div class="vm-grid">
-      <div class="vm-card vm-card-v reveal">
-        <div class="vm-icon">🔭</div>
-        <div class="vm-label">Our Vision</div>
-        <div class="vm-heading">"A society where peace, justice, and human rights are upheld — irrespective of tongue, tribe, and religion."</div>
-        <div class="vm-body">We imagine a Nigeria — and a world — where the accidents of birth never determine whether you live in peace or in fear. Our work is oriented toward that horizon, one community at a time.</div>
+      <div class="vm-card vm-v reveal">
+        <div class="vm-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <div class="vm-badge">Our Vision</div>
+        <div class="vm-quote">"A society where peace, justice, and human rights are maintained, irrespective of tongue, tribe and religion."</div>
+        <p class="vm-text">We imagine a Nigeria where the accidents of birth never determine whether you live in peace or in fear. Our work is oriented toward that horizon, one community at a time.</p>
       </div>
-      <div class="vm-card vm-card-m reveal reveal-delay-2">
-        <div class="vm-icon">🎯</div>
-        <div class="vm-label">Our Mission</div>
-        <div class="vm-heading">To mobilize a societal network of peacebuilders, advocating for policies and practices that promote sustainable peace, justice, and human rights.</div>
-        <div class="vm-body">We don't work alone. We build networks — connecting communities, governments, faith leaders, and civil society — to create systemic change that outlasts any single intervention.</div>
+      <div class="vm-card vm-m reveal d2">
+        <div class="vm-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="vm-badge">Our Mission</div>
+        <div class="vm-quote">"To mobilize a societal network of peacebuilders, advocating for policies and practices that promote sustainable peace, justice, and human rights."</div>
+        <p class="vm-text">We build networks — not silos. Connecting communities, governments, faith leaders, and civil society to create systemic change that outlasts any single intervention.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── STORIES ── -->
+<!-- STORIES -->
 <section id="stories">
   <div class="container">
     <div class="stories-header">
       <div>
-        <div class="section-label reveal">Stories of Change</div>
-        <h2 class="stories-heading reveal reveal-delay-1">Voices from the <em>Field</em></h2>
+        <div class="sec-label reveal">Stories of Change</div>
+        <h2 class="stories-h reveal d1">Voices from the <em>Field</em></h2>
       </div>
-      <div class="stories-nav">
-        <button class="story-nav-btn active" id="story-prev" onclick="slideStories(-1)">←</button>
-        <button class="story-nav-btn" id="story-next" onclick="slideStories(1)">→</button>
+      <div class="slider-btns">
+        <button class="slider-btn" onclick="slide(-1)" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="slider-btn" onclick="slide(1)" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
       </div>
     </div>
-    <div class="stories-track-wrap">
-      <div class="stories-track" id="stories-track">
+    <div class="stories-wrap">
+      <div class="stories-track" id="storiesTrack">
         <div class="story-card sc-1">
-          <div class="story-card-img">
-            <span>👨‍👩‍👧‍👦</span>
-            <div class="story-card-quote">Community Healing</div>
+          <div class="sc-img"><div class="sc-img-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><div class="sc-badge">Community Healing</div></div>
+          <div class="sc-body">
+            <div class="sc-state">Plateau State</div>
+            <h3 class="sc-title">A Village That Chose Dialogue Over Division</h3>
+            <p class="sc-text">After years of intercommunal tensions, PAN facilitated a week-long peace dialogue. Today they share a marketplace and a future — children who once grew up as strangers now play together.</p>
           </div>
-          <div class="story-card-body">
-            <div class="story-card-state">Plateau State</div>
-            <h3 class="story-card-title">A Village That Chose Dialogue Over Division</h3>
-            <p class="story-card-text">After years of intercommunal tensions, PAN facilitated a week-long peace dialogue between two villages. Today, they share a marketplace and a future — children who once grew up as strangers now play together.</p>
-          </div>
-          <div class="story-card-footer">
-            <div class="story-avatar sa-1">🧑</div>
-            <div>
-              <div class="story-author-name">Aminu Ibrahim</div>
-              <div class="story-author-role">Community Elder, Jos</div>
-            </div>
+          <div class="sc-foot">
+            <div class="sc-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div><div class="sc-name">Aminu Ibrahim</div><div class="sc-role">Community Elder, Jos</div></div>
           </div>
         </div>
         <div class="story-card sc-2">
-          <div class="story-card-img">
-            <span>👩</span>
-            <div class="story-card-quote">Youth Reintegration</div>
+          <div class="sc-img"><div class="sc-img-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="sc-badge">Youth Reintegration</div></div>
+          <div class="sc-body">
+            <div class="sc-state">Borno State</div>
+            <h3 class="sc-title">From Displacement to Dignity — Fatima's Journey</h3>
+            <p class="sc-text">Fatima fled her village at 16. Three years later, PAN's support connected her to skills training and psychosocial care. Today she runs a small business and mentors other displaced women.</p>
           </div>
-          <div class="story-card-body">
-            <div class="story-card-state">Borno State</div>
-            <h3 class="story-card-title">From Displacement to Dignity — Fatima's Journey</h3>
-            <p class="story-card-text">Fatima fled her village at 16. Three years later, PAN's support connected her to skills training and psychosocial care. Today she runs a small business and mentors other displaced women.</p>
-          </div>
-          <div class="story-card-footer">
-            <div class="story-avatar sa-2">👩</div>
-            <div>
-              <div class="story-author-name">Fatima Mohammed</div>
-              <div class="story-author-role">PAN Beneficiary, Maiduguri</div>
-            </div>
+          <div class="sc-foot">
+            <div class="sc-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div><div class="sc-name">Fatima Mohammed</div><div class="sc-role">PAN Beneficiary, Maiduguri</div></div>
           </div>
         </div>
         <div class="story-card sc-3">
-          <div class="story-card-img">
-            <span>🧑‍💼</span>
-            <div class="story-card-quote">Youth Leadership</div>
+          <div class="sc-img"><div class="sc-img-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="sc-badge">Youth Leadership</div></div>
+          <div class="sc-body">
+            <div class="sc-state">Kaduna State</div>
+            <h3 class="sc-title">The Youth Peacebuilder Who Changed His Street</h3>
+            <p class="sc-text">Daniel was on the fringes of gang life at 19. PAN's Youth Reintegration program gave him purpose. Now 24, he leads a youth peace club with over 80 members in his neighborhood.</p>
           </div>
-          <div class="story-card-body">
-            <div class="story-card-state">Kaduna State</div>
-            <h3 class="story-card-title">The Youth Peacebuilder Who Changed His Street</h3>
-            <p class="story-card-text">Daniel was on the fringes of gang life at 19. PAN's Youth Reintegration program gave him purpose. Now 24, he leads a youth peace club with over 80 members in his neighborhood.</p>
-          </div>
-          <div class="story-card-footer">
-            <div class="story-avatar sa-3">🧑</div>
-            <div>
-              <div class="story-author-name">Daniel Eze</div>
-              <div class="story-author-role">Youth Ambassador, Kaduna</div>
-            </div>
+          <div class="sc-foot">
+            <div class="sc-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div><div class="sc-name">Daniel Eze</div><div class="sc-role">Youth Ambassador, Kaduna</div></div>
           </div>
         </div>
       </div>
@@ -1160,69 +796,22 @@
   </div>
 </section>
 
-<!-- ── ABOUT ── -->
-<section id="about">
-  <div class="container">
-    <div class="about-inner">
-      <div class="about-text">
-        <div class="section-label reveal">About PAN</div>
-        <h2 class="about-heading reveal reveal-delay-1">Who We Are — <em>More Than an NGO</em></h2>
-        <p class="about-body reveal reveal-delay-2">
-          The <strong>Peace Alliance Network (PAN) Foundation</strong> was born from the conviction that ordinary Nigerians hold the key to extraordinary peace. We are a value-based, people-driven organization rooted in the belief that sustainable peace is built bottom-up — not handed down.
-        </p>
-        <p class="about-body reveal reveal-delay-3">
-          Operating across Nigeria and beyond, we bring together religious leaders, community elders, youth, women, and civil society in structured dialogue and action — because <strong>peace is everyone's responsibility</strong>.
-        </p>
-        <p class="about-body reveal reveal-delay-4">
-          We are not neutral about peace. We actively advocate for the policies, practices, and cultural shifts needed to make a just society — for all Nigerians, regardless of tongue, tribe, or religion.
-        </p>
-      </div>
-      <div class="about-visual reveal reveal-delay-2">
-        <div class="about-main-block">
-          <div class="about-big-icon">🕊️</div>
-        </div>
-        <div class="about-float-card">
-          <div class="afc-num">15+</div>
-          <div class="afc-label">Years Building Peace</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── TRUST ── -->
+<!-- TRUST -->
 <section id="trust">
   <div class="container">
     <div class="trust-header">
-      <div class="section-label reveal" style="justify-content:center;">Transparency</div>
-      <h2 class="trust-heading reveal reveal-delay-1">Your Trust Is Our <em>Foundation</em></h2>
-      <p class="trust-body reveal reveal-delay-2">We are committed to radical transparency. Every naira and dollar donated goes toward our mission — here's how we use resources.</p>
+      <div class="sec-label reveal" style="justify-content:center">Transparency</div>
+      <h2 class="trust-h reveal d1">Your Trust Is Our <em>Foundation</em></h2>
+      <p class="trust-p reveal d2">We are committed to radical transparency. Every naira donated goes toward our mission — here's exactly how we use it.</p>
     </div>
-    <div class="trust-bars reveal reveal-delay-2">
-      <div class="trust-bar-item">
-        <div class="tb-header"><span class="tb-label">Programs & Field Work</span><span class="tb-pct">78%</span></div>
-        <div class="tb-track"><div class="tb-fill" data-width="78"></div></div>
-        <div class="tb-sub">Direct community programs and field operations</div>
-      </div>
-      <div class="trust-bar-item">
-        <div class="tb-header"><span class="tb-label">Advocacy & Policy</span><span class="tb-pct">12%</span></div>
-        <div class="tb-track"><div class="tb-fill gold" data-width="12"></div></div>
-        <div class="tb-sub">Lobbying, policy papers, and government engagement</div>
-      </div>
-      <div class="trust-bar-item">
-        <div class="tb-header"><span class="tb-label">Capacity Building</span><span class="tb-pct">7%</span></div>
-        <div class="tb-track"><div class="tb-fill" data-width="7"></div></div>
-        <div class="tb-sub">Staff training and organizational development</div>
-      </div>
-      <div class="trust-bar-item">
-        <div class="tb-header"><span class="tb-label">Administration</span><span class="tb-pct">3%</span></div>
-        <div class="tb-track"><div class="tb-fill gold" data-width="3"></div></div>
-        <div class="tb-sub">Overhead and organizational running costs</div>
-      </div>
+    <div class="trust-bars reveal d2">
+      <div class="tb"><div class="tb-top"><span class="tb-label">Programs &amp; Field Work</span><span class="tb-pct">78%</span></div><div class="tb-track"><div class="tb-fill" data-w="78"></div></div><div class="tb-sub">Direct community programs and field operations</div></div>
+      <div class="tb"><div class="tb-top"><span class="tb-label">Advocacy &amp; Policy</span><span class="tb-pct" style="color:var(--gold)">12%</span></div><div class="tb-track"><div class="tb-fill gold" data-w="12"></div></div><div class="tb-sub">Policy papers and government engagement</div></div>
+      <div class="tb"><div class="tb-top"><span class="tb-label">Capacity Building</span><span class="tb-pct">7%</span></div><div class="tb-track"><div class="tb-fill" data-w="7"></div></div><div class="tb-sub">Staff training and organizational development</div></div>
+      <div class="tb"><div class="tb-top"><span class="tb-label">Administration</span><span class="tb-pct" style="color:var(--gold)">3%</span></div><div class="tb-track"><div class="tb-fill gold" data-w="3"></div></div><div class="tb-sub">Overhead and organizational running costs</div></div>
     </div>
-
-    <div class="partners-row reveal">
-      <div class="partners-label">Trusted Partners & Affiliations</div>
+    <div class="partners-row reveal d3">
+      <div class="partners-lbl">Trusted Partners &amp; Affiliations</div>
       <div class="partners-logos">
         <div class="partner-badge">United Nations</div>
         <div class="partner-badge">USAID Nigeria</div>
@@ -1235,335 +824,170 @@
   </div>
 </section>
 
-<!-- ── GET INVOLVED ── -->
+<!-- GET INVOLVED TEASER -->
 <section id="get-involved">
   <div class="container">
     <div class="gi-header">
-      <div class="section-label reveal" style="justify-content:center;">Take Action</div>
-      <h2 class="gi-heading reveal reveal-delay-1">Join the <em>Movement for Peace</em></h2>
-      <p class="gi-body reveal reveal-delay-2">Whether you have time, talent, or treasure — there is a place for you in Nigeria's peace story.</p>
+      <div class="sec-label reveal" style="justify-content:center">Take Action</div>
+      <h2 class="gi-h reveal d1">Join the <em>Movement for Peace</em></h2>
+      <p class="gi-p reveal d2">Whether you have time, talent, or treasure — there is a place for you in Nigeria's peace story.</p>
     </div>
     <div class="gi-cards">
-      <div class="gi-card gi-card-v reveal">
-        <div class="gi-card-icon">🙌</div>
+      <div class="gi-card gic-v reveal">
+        <div class="gi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
         <h3 class="gi-card-title">Volunteer With Us</h3>
-        <p class="gi-card-body">Join our network of committed peacebuilders on the ground. Whether you're a trainer, counselor, artist, or community organizer — your skills are needed.</p>
-        <a href="#contact" class="gi-card-btn">Apply to Volunteer →</a>
+        <p class="gi-card-body">Join our network of committed peacebuilders. Whether you're a trainer, counselor, communicator, or researcher — your skills are needed on the ground.</p>
+        <a href="get-involved.html#volunteer" class="gi-btn">Apply to Volunteer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
-      <div class="gi-card gi-card-d reveal reveal-delay-1">
-        <div class="gi-card-icon">♥</div>
+      <div class="gi-card gic-d reveal d1">
+        <div class="gi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
         <h3 class="gi-card-title">Donate Today</h3>
-        <p class="gi-card-body">Your financial contribution directly funds field programs, peace dialogues, and youth reintegration. Every amount creates real change in Nigerian communities.</p>
-        <a href="#donate" class="gi-card-btn">Make a Donation →</a>
+        <p class="gi-card-body">Your financial contribution directly funds peace dialogues, victim support, and youth reintegration. Every amount creates real change in Nigerian communities.</p>
+        <a href="donate.html" class="gi-btn">Make a Donation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
-      <div class="gi-card gi-card-p reveal reveal-delay-2">
-        <div class="gi-card-icon">🤝</div>
+      <div class="gi-card gic-p reveal d2">
+        <div class="gi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
         <h3 class="gi-card-title">Partner With Us</h3>
         <p class="gi-card-body">Governments, NGOs, corporations, and faith communities — we build strategic partnerships to amplify impact and create systemic change at scale.</p>
-        <a href="#contact" class="gi-card-btn">Explore Partnership →</a>
+        <a href="get-involved.html#partner" class="gi-btn">Explore Partnership <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── DONATION ── -->
-<section id="donate">
+<!-- DONATE TEASER — sends to donate.html -->
+<section id="donate-teaser">
   <div class="container">
-    <div class="donate-inner">
-      <div class="section-label donate-label reveal" style="justify-content:center;">Make a Difference</div>
-      <h2 class="donate-heading reveal reveal-delay-1">
-        Your Generosity <em>Builds Peace</em>
-      </h2>
-      <p class="donate-body reveal reveal-delay-2">
-        A single donation funds a peace dialogue, supports a conflict victim, or keeps a young person out of violence. Choose your impact below.
-      </p>
-
-      <div class="donate-tiers reveal reveal-delay-3">
-        <button class="donate-tier" onclick="selectTier(this, 1000)">
-          ₦1,000 <span class="donate-tier-label">Dialogue materials</span>
-        </button>
-        <button class="donate-tier active" onclick="selectTier(this, 5000)">
-          ₦5,000 <span class="donate-tier-label">Support a youth</span>
-        </button>
-        <button class="donate-tier" onclick="selectTier(this, 10000)">
-          ₦10,000 <span class="donate-tier-label">Fund a session</span>
-        </button>
-        <button class="donate-tier" onclick="selectTier(this, 50000)">
-          ₦50,000 <span class="donate-tier-label">Community program</span>
-        </button>
+    <div class="dt-inner">
+      <div class="sec-label reveal">Make a Difference</div>
+      <h2 class="dt-h reveal d1">Your Generosity <em>Builds Peace</em></h2>
+      <p class="dt-p reveal d2">A single donation funds a peace dialogue, supports a conflict victim, or keeps a young person out of violence. Every naira goes directly to the field.</p>
+      <div class="dt-tiers reveal d2">
+        <div class="dt-tier highlight">₦1,000 <span class="dt-tier-lbl">Dialogue materials</span></div>
+        <div class="dt-tier">₦5,000 <span class="dt-tier-lbl">Support a youth</span></div>
+        <div class="dt-tier">₦10,000 <span class="dt-tier-lbl">Fund a session</span></div>
+        <div class="dt-tier">₦50,000 <span class="dt-tier-lbl">Community program</span></div>
       </div>
-
-      <div class="donate-custom reveal reveal-delay-4">
-        <input type="text" id="donate-amount" placeholder="₦ Enter custom amount" value="5,000">
-        <button class="donate-submit" onclick="handleDonate()">Donate Now ♥</button>
-      </div>
-
-      <div class="donate-trust-row reveal">
-        <div class="donate-trust-item"><span>🔒</span> Secure Payment</div>
-        <div class="donate-trust-item"><span>📋</span> Tax Deductible</div>
-        <div class="donate-trust-item"><span>💚</span> 100% to Programs</div>
-        <div class="donate-trust-item"><span>📊</span> Annual Reports</div>
+      <a href="donate.html" class="dt-cta reveal d3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Donate Now — View Account Details
+      </a>
+      <div class="dt-trust reveal d4">
+        <div class="dt-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Secure Transfer</div>
+        <div class="dt-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg> Receipt Provided</div>
+        <div class="dt-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> 78% Goes to Programs</div>
+        <div class="dt-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Annual Reports</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── CONTACT ── -->
-<section id="contact">
-  <div class="container">
-    <div class="contact-inner">
-      <div class="contact-text">
-        <div class="section-label reveal">Contact Us</div>
-        <h2 class="contact-heading reveal reveal-delay-1">
-          Let's <em>Build Peace</em> Together
-        </h2>
-        <p class="contact-body reveal reveal-delay-2">
-          Whether you have a question, want to collaborate, or are a journalist covering Nigeria's peace story — we'd love to hear from you.
-        </p>
-        <div class="contact-info reveal reveal-delay-3">
-          <div class="ci-item">
-            <div class="ci-icon">📍</div>
-            <div>
-              <div class="ci-text-label">Office</div>
-              <div class="ci-text-val">PAN Foundation, Abuja, Federal Capital Territory, Nigeria</div>
-            </div>
-          </div>
-          <div class="ci-item">
-            <div class="ci-icon">✉️</div>
-            <div>
-              <div class="ci-text-label">Email</div>
-              <div class="ci-text-val">info@peacealliancenetwork.org</div>
-            </div>
-          </div>
-          <div class="ci-item">
-            <div class="ci-icon">📞</div>
-            <div>
-              <div class="ci-text-label">Phone</div>
-              <div class="ci-text-val">+234 (0) 800 PAN PEACE</div>
-            </div>
-          </div>
-          <div class="ci-item">
-            <div class="ci-icon">🌐</div>
-            <div>
-              <div class="ci-text-label">Social Media</div>
-              <div class="ci-text-val">@PANFoundationNG on all platforms</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-form reveal reveal-delay-2">
-        <h3 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--green-deep);margin-bottom:24px;">Send a Message</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" placeholder="Aminu">
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" placeholder="Ibrahim">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="aminu@example.com">
-        </div>
-        <div class="form-group">
-          <label>I'm reaching out about…</label>
-          <select>
-            <option>Volunteering</option>
-            <option>Partnership / Collaboration</option>
-            <option>Donation / Funding</option>
-            <option>Media Inquiry</option>
-            <option>General Enquiry</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Tell us how you'd like to get involved or what you'd like to know…"></textarea>
-        </div>
-        <button class="form-submit">
-          Send Message →
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <div class="footer-logo-icon">PAN</div>
-          <div class="footer-logo-text">
-            <div class="brand">Peace Alliance Network</div>
-            <div class="sub">PAN Foundation — Nigeria</div>
-          </div>
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="ft-logo-row">
+          <div class="ft-logo-icon">PAN</div>
+          <div><div class="ft-brand-name">Peace Alliance Network</div><div class="ft-brand-sub">PAN Foundation — Nigeria</div></div>
         </div>
-        <p class="footer-tagline">
-          Mobilizing peacebuilders across Nigeria and beyond — for a society where peace, justice, and human rights endure irrespective of tongue, tribe, or religion.
-        </p>
-        <div class="footer-social">
-          <a href="#" class="social-btn" title="Twitter/X">𝕏</a>
-          <a href="#" class="social-btn" title="Facebook">f</a>
-          <a href="#" class="social-btn" title="Instagram">📷</a>
-          <a href="#" class="social-btn" title="LinkedIn">in</a>
-          <a href="#" class="social-btn" title="YouTube">▶</a>
+        <p class="ft-tagline">Mobilizing peacebuilders across Nigeria and beyond — for a society where peace, justice, and human rights endure irrespective of tongue, tribe, or religion.</p>
+        <div class="ft-social">
+          <a href="#" class="soc" title="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" class="soc" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" class="soc" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162S8.597 18.325 12 18.325s6.162-2.759 6.162-6.162S15.403 5.838 12 5.838zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#" class="soc" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
         </div>
       </div>
-
       <div>
-        <div class="footer-col-title">Navigation</div>
-        <ul class="footer-links">
-          <li><a href="#about">About PAN</a></li>
-          <li><a href="#mission">Who We Are</a></li>
-          <li><a href="#what-we-do">What We Do</a></li>
-          <li><a href="#vision-mission">Vision & Mission</a></li>
-          <li><a href="#trust">Transparency</a></li>
+        <div class="ft-col-title">Navigation</div>
+        <ul class="ft-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-
       <div>
-        <div class="footer-col-title">Get Involved</div>
-        <ul class="footer-links">
-          <li><a href="#get-involved">Volunteer</a></li>
-          <li><a href="#donate">Donate</a></li>
-          <li><a href="#get-involved">Partner With Us</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#stories">Impact Stories</a></li>
+        <div class="ft-col-title">Take Action</div>
+        <ul class="ft-links">
+          <li><a href="get-involved.html#volunteer">Volunteer</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="get-involved.html#partner">Partner With Us</a></li>
+          <li><a href="contact.html">Get in Touch</a></li>
+          <li><a href="about.html#leadership">Our Team</a></li>
         </ul>
       </div>
-
-      <div class="footer-newsletter">
-        <div class="footer-col-title">Stay Connected</div>
-        <p>Get peace updates, field stories, and impact reports delivered to your inbox.</p>
-        <div class="newsletter-form">
-          <input type="email" placeholder="Your email address">
-          <button>Subscribe →</button>
+      <div class="ft-newsletter">
+        <div class="ft-col-title">Stay Updated</div>
+        <p>Get field stories, impact reports, and peace updates — straight to your inbox.</p>
+        <div class="ft-nl-form">
+          <input class="ft-nl-input" type="email" placeholder="Your email address">
+          <button class="ft-nl-btn">Subscribe</button>
         </div>
       </div>
     </div>
-
-    <div class="footer-bottom">
-      <div class="footer-bottom-left">
-        © 2025 Peace Alliance Network (PAN) Foundation. All rights reserved. RC: XXXXXXX
-      </div>
-      <div class="footer-bottom-right">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Annual Report</a>
-      </div>
+    <div class="ft-bottom">
+      <span class="ft-copy">&copy; 2025 Peace Alliance Network (PAN) Foundation. All rights reserved. RC: XXXXXXX</span>
+      <div class="ft-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Annual Report</a></div>
     </div>
   </div>
 </footer>
 
 <script>
-// ── NAV SCROLL ──
+/* NAV */
 const nav = document.getElementById('main-nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-});
+function setNav() { nav.classList.toggle('solid', scrollY > 40); }
+window.addEventListener('scroll', setNav, { passive: true });
+setNav();
 
-// ── ANIMATED COUNTERS ──
-function animateCounter(el) {
-  const target = parseInt(el.dataset.count);
-  const suffix = el.dataset.suffix || '';
-  const duration = 2000;
-  const steps = 60;
-  const increment = target / steps;
-  let current = 0;
-  const timer = setInterval(() => {
-    current += increment;
-    if (current >= target) { current = target; clearInterval(timer); }
-    el.textContent = Math.floor(current).toLocaleString() + suffix;
-  }, duration / steps);
-}
+function openMenu()  { document.getElementById('mobDrawer').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeMenu() { document.getElementById('mobDrawer').classList.remove('open'); document.body.style.overflow=''; }
 
-// ── SCROLL REVEAL ──
-const reveals = document.querySelectorAll('.reveal');
-const counters = document.querySelectorAll('[data-count]');
-const trustedFills = document.querySelectorAll('.tb-fill');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
+/* SCROLL REVEAL */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
 }, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-reveals.forEach(el => observer.observe(el));
-
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCounter(entry.target);
-      counterObserver.unobserve(entry.target);
-    }
+/* COUNTERS */
+const co = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, target = +el.dataset.count, sfx = el.dataset.suffix || '';
+    let cur = 0; const step = target / 60;
+    const t = setInterval(() => { cur += step; if (cur >= target) { cur = target; clearInterval(t); } el.textContent = Math.floor(cur).toLocaleString() + sfx; }, 30);
+    co.unobserve(el);
   });
+}, { threshold: 0.4 });
+document.querySelectorAll('[data-count]').forEach(el => co.observe(el));
+
+/* PROGRESS BARS */
+const bo = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.style.width = e.target.dataset.w + '%'; bo.unobserve(e.target); } });
 }, { threshold: 0.3 });
+document.querySelectorAll('.tb-fill').forEach(el => { el.style.width = '0'; bo.observe(el); });
 
-counters.forEach(el => counterObserver.observe(el));
-
-// Progress bars
-const barObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const width = entry.target.dataset.width;
-      entry.target.style.width = width + '%';
-      barObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.3 });
-
-trustedFills.forEach(el => {
-  el.style.width = '0%';
-  barObserver.observe(el);
-});
-
-// ── STORIES SLIDER ──
-let slideIndex = 0;
-const track = document.getElementById('stories-track');
-const cards = track.querySelectorAll('.story-card');
-const cardCount = cards.length;
-
-function slideStories(dir) {
-  const container = track.parentElement;
-  const cardWidth = cards[0].offsetWidth + 24;
-  const visible = Math.floor(container.offsetWidth / cardWidth);
-  const maxSlide = cardCount - visible;
-  slideIndex = Math.max(0, Math.min(slideIndex + dir, maxSlide));
-  track.style.transform = `translateX(-${slideIndex * cardWidth}px)`;
-  document.getElementById('story-prev').classList.toggle('active', slideIndex === 0);
-  document.getElementById('story-next').classList.toggle('active', slideIndex === maxSlide);
+/* STORIES SLIDER */
+let sIdx = 0;
+function slide(dir) {
+  const track = document.getElementById('storiesTrack');
+  const cards = track.querySelectorAll('.story-card');
+  const cw = cards[0].offsetWidth + 22;
+  const visible = Math.floor(track.parentElement.offsetWidth / cw);
+  const max = cards.length - visible;
+  sIdx = Math.max(0, Math.min(sIdx + dir, max));
+  track.style.transform = `translateX(-${sIdx * cw}px)`;
 }
 
-// ── DONATION TIERS ──
-function selectTier(btn, amount) {
-  document.querySelectorAll('.donate-tier').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('donate-amount').value = amount.toLocaleString();
-}
-
-function handleDonate() {
-  const amount = document.getElementById('donate-amount').value;
-  alert(`Thank you for your generous heart! 💚\n\nYour donation of ₦${amount} will be processed securely.\n\n— The PAN Foundation Team`);
-}
-
-// ── FORM SUBMIT ──
-document.querySelector('.form-submit').addEventListener('click', function(e) {
-  e.preventDefault();
-  this.textContent = 'Message Sent! ✓';
-  this.style.background = 'var(--gold)';
-  this.style.color = 'var(--green-deep)';
-  setTimeout(() => {
-    this.textContent = 'Send Message →';
-    this.style.background = '';
-    this.style.color = '';
-  }, 3000);
+/* NEWSLETTER */
+document.querySelector('.ft-nl-btn').addEventListener('click', function() {
+  const inp = this.previousElementSibling;
+  if (!inp.value.includes('@')) { inp.style.borderColor = 'var(--gold)'; return; }
+  this.textContent = 'Subscribed!';
+  inp.value = '';
+  setTimeout(() => { this.textContent = 'Subscribe'; }, 3000);
 });
 </script>
 </body>

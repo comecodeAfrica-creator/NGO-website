@@ -120,15 +120,7 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.2)}
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
-  @media (max-width: 768px) {
-  .vol-form {
-    grid-template-columns: 1fr;
-  }
-
-  .form-group.full {
-    grid-column: span 1;
-  }
-  }
+  
 .form-group{display:flex;flex-direction:column;gap:6px}
 .form-group.full{grid-column:span 2}
 .form-group label{font-size:12px;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:.3px}
@@ -228,7 +220,11 @@ footer{background:var(--green-deep);padding:60px 0 0}
   .page-hero-dec{display:none}
   .why-visual{display:none}
   .dw-tiers{grid-template-columns:1fr 1fr}
+  .form-group.full {
+    grid-column: span 1;
+  }
 }
+  
 @media(max-width:600px){
   .vol-roles{grid-template-columns:1fr}
   .partner-types{grid-template-columns:1fr 1fr}

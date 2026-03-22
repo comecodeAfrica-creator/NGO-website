@@ -201,32 +201,100 @@ footer{background:var(--green-deep);padding:60px 0 0}
 .floating-donate:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(201,136,42,.55)}
 @keyframes floatIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 
-@media(max-width:960px){
+@media(max-width:768px){
   .who-grid,.vm-grid,.history-grid,.ft-grid{grid-template-columns:1fr}
   .values-grid{grid-template-columns:1fr 1fr}
   .leadership-grid{grid-template-columns:1fr 1fr}
   .hero-ring,.float-badge{display:none}
   .nav-links,.nav-cta{display:none}
-  .nav-mob-btn{display:block}
+  .nav-mob-btn{display:flex!important}
 }
 @media(max-width:560px){
   .values-grid,.leadership-grid{grid-template-columns:1fr}
   .history-stats{gap:20px}
 }
+
+/* Mobile drawer */
+.nav-mob-btn{display:none;background:none;border:none;cursor:pointer;color:#fff;padding:4px;align-items:center;justify-content:center}
+.nav-mob-btn svg{width:22px;height:22px;display:block}
+.mob-drawer{position:fixed;inset:0;background:var(--green-deep);z-index:1001;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mob-drawer.open{opacity:1;pointer-events:all}
+.mob-drawer .mob-logo{display:flex;align-items:center;gap:10px;margin-bottom:8px;text-decoration:none}
+.mob-drawer .mob-logo-icon{width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;font-size:15px;color:var(--green-deep)}
+.mob-drawer .mob-logo-text{font-family:var(--font-display);font-size:15px;font-weight:700;color:#fff}
+.mob-drawer a{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:#fff;text-decoration:none;transition:color .2s}
+.mob-drawer a:hover{color:var(--gold)}
+.mob-drawer .mob-donate{color:var(--gold) !important}
+.mob-close-btn{position:absolute;top:20px;right:5%;background:rgba(255,255,255,.1);border:none;cursor:pointer;color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.mob-close-btn:hover{background:rgba(255,255,255,.2)}
+.mob-close-btn svg{width:22px;height:22px}
+
+
+/* ── SHARED NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(15,46,26,.97);backdrop-filter:blur(14px);transition:box-shadow .4s}
+nav.scrolled{box-shadow:0 2px 28px rgba(0,0,0,.25)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-icon{width:44px;height:44px;background:#C9882A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:15px;color:#0f2e1a;flex-shrink:0}
+.nav-logo-text .brand{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:15px;color:#fff;letter-spacing:.3px}
+.nav-logo-text .sub{font-size:10px;color:#e8c07a;letter-spacing:1.5px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:13.5px;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#e8c07a}
+.nav-cta{background:#C9882A;color:#0f2e1a;padding:10px 22px;border-radius:100px;font-weight:700;font-size:13px;text-decoration:none;transition:all .25s;white-space:nowrap}
+.nav-cta:hover{background:#dba048;transform:translateY(-1px)}
+.nav-mob-btn{display:none;background:none;border:none;cursor:pointer;color:#fff;padding:6px;align-items:center;justify-content:center;border-radius:8px;transition:background .2s}
+.nav-mob-btn:hover{background:rgba(255,255,255,.1)}
+.nav-mob-btn svg{width:22px;height:22px;display:block}
+/* Mobile Drawer */
+.mob-drawer{position:fixed;inset:0;background:#0f2e1a;z-index:1002;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;opacity:0;pointer-events:none;transition:opacity .3s;padding:80px 5% 40px}
+.mob-drawer.open{opacity:1;pointer-events:all}
+.mob-close-btn{position:fixed;top:16px;right:5%;background:rgba(255,255,255,.1);border:none;cursor:pointer;color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:1003;transition:background .2s}
+.mob-close-btn:hover{background:rgba(255,255,255,.2)}
+.mob-close-btn svg{width:22px;height:22px;display:block}
+.mob-drawer a{font-family:'Playfair Display',Georgia,serif;font-size:1.7rem;font-weight:700;color:#fff;text-decoration:none;transition:color .2s}
+.mob-drawer a:hover{color:#C9882A}
+.mob-drawer .mob-donate-link{color:#C9882A !important;border:1.5px solid rgba(201,136,42,.3);padding:10px 28px;border-radius:100px;margin-top:8px}
+.mob-drawer .mob-donate-link:hover{background:rgba(201,136,42,.15)}
+@media(max-width:900px){.nav-links,.nav-cta{display:none}.nav-mob-btn{display:flex}}
+
+/* ── SHARED FOOTER ── */
+footer{background:#0f2e1a;padding:68px 0 0}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:44px;padding-bottom:52px}
+.ft-logo-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.ft-logo-icon{width:44px;height:44px;border-radius:50%;background:#C9882A;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:15px;color:#0f2e1a}
+.ft-brand-name{font-family:'Playfair Display',Georgia,serif;font-size:15px;font-weight:700;color:#fff}
+.ft-brand-sub{font-size:10px;color:#e8c07a;letter-spacing:1.5px;text-transform:uppercase}
+.ft-tagline{font-size:.84rem;line-height:1.8;color:rgba(255,255,255,.4);max-width:270px;margin-bottom:22px}
+.ft-social{display:flex;gap:8px}
+.ft-soc{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,.55);transition:all .25s}
+.ft-soc svg{width:14px;height:14px}
+.ft-soc:hover{background:#C9882A;border-color:#C9882A;color:#0f2e1a}
+.ft-col-title{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#C9882A;margin-bottom:18px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:13.5px;transition:color .2s}
+.ft-links a:hover{color:#e8c07a}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.07);padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:12px;color:rgba(255,255,255,.25)}
+.ft-legal{display:flex;gap:20px}
+.ft-legal a{font-size:12px;color:rgba(255,255,255,.25);text-decoration:none;transition:color .2s}
+.ft-legal a:hover{color:#e8c07a}
+@media(max-width:760px){.ft-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ft-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
 
 <!-- Mobile Menu -->
-<div class="mob-menu" id="mobMenu">
-  <button class="mob-close" onclick="toggleMenu()">
+<div class="mob-drawer" id="mobDrawer">
+  <button class="mob-close" onclick="closeMenu()">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
-  <a href="index.html" onclick="toggleMenu()">Home</a>
-  <a href="about.html" onclick="toggleMenu()">About Us</a>
-  <a href="what-we-do.html" onclick="toggleMenu()">What We Do</a>
-  <a href="get-involved.html" onclick="toggleMenu()">Get Involved</a>
-  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  <a href="index.html" onclick="openMenu()">Home</a>
+  <a href="about.html" onclick="openMenu()">About Us</a>
+  <a href="what-we-do.html" onclick="openMenu()">What We Do</a>
+  <a href="get-involved.html" onclick="openMenu()">Get Involved</a>
+  <a href="contact.html" onclick="openMenu()">Contact</a>
   <a href="donate.html" style="color:var(--gold)">Donate</a>
 </div>
 
@@ -235,6 +303,21 @@ footer{background:var(--green-deep);padding:60px 0 0}
   Donate Now
 </a>
 
+
+<!-- MOBILE DRAWER -->
+<div class="mob-drawer" id="mobDrawer">
+  <button class="mob-close-btn" onclick="closeMenu()" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="about.html" onclick="closeMenu()">About Us</a>
+  <a href="what-we-do.html" onclick="closeMenu()">What We Do</a>
+  <a href="get-involved.html" onclick="closeMenu()">Get Involved</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="donate.html" class="mob-donate-link" onclick="closeMenu()">Donate Now</a>
+</div>
+
+<!-- NAV -->
 <nav id="main-nav">
   <a href="index.html" class="nav-logo">
     <div class="nav-logo-icon">PAN</div>
@@ -250,7 +333,7 @@ footer{background:var(--green-deep);padding:60px 0 0}
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <a href="donate.html" class="nav-cta">Donate</a>
-  <button class="nav-mob-btn" onclick="toggleMenu()">
+  <button class="nav-mob-btn" onclick="openMenu()" aria-label="Open menu">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
 </nav>
@@ -503,6 +586,8 @@ footer{background:var(--green-deep);padding:60px 0 0}
     </div>
   </div>
 </section>
+
+
 <!-- FOOTER -->
 <footer>
   <div class="container">
@@ -551,10 +636,6 @@ footer{background:var(--green-deep);padding:60px 0 0}
 const nav = document.getElementById('main-nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
 
-function toggleMenu() {
-  document.getElementById('mobMenu').classList.toggle('open');
-}
-
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
 }, { threshold: 0.1 });
@@ -571,6 +652,69 @@ const co = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.3 });
 document.querySelectorAll('[data-count]').forEach(el => co.observe(el));
+
+/* NAV + MOB MENU */
+const _nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => _nav.classList.toggle('scrolled', scrollY > 50), {passive:true});
+
+
+
+/* Newsletter subscription */
+(function() {
+  document.querySelectorAll('.ft-nl-form').forEach(function(form) {
+    var btn = form.querySelector('.ft-nl-btn');
+    var inp = form.querySelector('.ft-nl-input');
+    if (!btn || !inp) return;
+    btn.addEventListener('click', function() {
+      var email = inp.value.trim();
+      if (!email || !email.includes('@')) {
+        inp.style.borderColor = '#C9882A';
+        inp.focus();
+        return;
+      }
+      inp.style.borderColor = '';
+      btn.disabled = true;
+      btn.textContent = 'Subscribing...';
+      var fd = new FormData();
+      fd.set('email', email);
+      fetch('process_newsletter.php', { method: 'POST', body: fd })
+        .then(function(r){ return r.json(); })
+        .then(function(d) {
+          btn.textContent = d.success ? 'Check Your Email!' : (d.message || 'Error');
+          if (d.success) inp.value = '';
+          setTimeout(function(){ btn.disabled=false; btn.textContent='Subscribe'; }, 4000);
+        })
+        .catch(function() {
+          btn.disabled = false;
+          btn.textContent = 'Try Again';
+        });
+    });
+  });
+})();
+
+
+
+
+</script>
+<script>
+/* PAN Foundation — Mobile Navigation */
+function openMenu() {
+  var d = document.getElementById('mobDrawer');
+  var t = document.getElementById('navToggle');
+  if (d) { d.classList.add('open'); }
+  if (t) { t.style.display = 'none'; }
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  var d = document.getElementById('mobDrawer');
+  var t = document.getElementById('navToggle');
+  if (d) { d.classList.remove('open'); }
+  if (t) { t.style.display = ''; }
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeMenu(); }
+});
 </script>
 </body>
 </html>

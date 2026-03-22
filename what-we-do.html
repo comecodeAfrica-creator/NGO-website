@@ -193,13 +193,14 @@ footer{background:var(--green-deep);padding:60px 0 0}
 .floating-cta:hover{transform:translateY(-3px)}
 @keyframes floatIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 
-@media(max-width:900px){
+@media(max-width:768px){
   .approach-inner,.focus-item,.reach-inner,.footer-inner{grid-template-columns:1fr}
   .focus-item{flex-direction:column}
   .focus-item-visual{min-height:220px}
   .how-steps{grid-template-columns:1fr 1fr;gap:32px}
   .how-steps::before{display:none}
-  .nav-links{display:none}
+  .nav-links,.nav-cta{display:none}
+  .nav-mob-btn{display:flex}
   .cta-inner{flex-direction:column;text-align:center}
   .cta-actions{justify-content:center}
   .page-hero-dec{display:none}
@@ -210,12 +211,95 @@ footer{background:var(--green-deep);padding:60px 0 0}
   .how-steps{grid-template-columns:1fr}
   .fi-stat-row{flex-wrap:wrap;gap:16px}
 }
+
+/* Mobile drawer */
+.nav-mob-btn{display:none;background:none;border:none;cursor:pointer;color:#fff;padding:4px;align-items:center;justify-content:center}
+.nav-mob-btn svg{width:22px;height:22px;display:block}
+.mob-drawer{position:fixed;inset:0;background:var(--green-deep);z-index:1001;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mob-drawer.open{opacity:1;pointer-events:all}
+.mob-drawer .mob-logo{display:flex;align-items:center;gap:10px;margin-bottom:8px;text-decoration:none}
+.mob-drawer .mob-logo-icon{width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;font-size:15px;color:var(--green-deep)}
+.mob-drawer .mob-logo-text{font-family:var(--font-display);font-size:15px;font-weight:700;color:#fff}
+.mob-drawer a{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:#fff;text-decoration:none;transition:color .2s}
+.mob-drawer a:hover{color:var(--gold)}
+.mob-drawer .mob-donate{color:var(--gold) !important}
+.mob-close-btn{position:absolute;top:20px;right:5%;background:rgba(255,255,255,.1);border:none;cursor:pointer;color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.mob-close-btn:hover{background:rgba(255,255,255,.2)}
+.mob-close-btn svg{width:22px;height:22px}
+
+
+/* ── SHARED NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(15,46,26,.97);backdrop-filter:blur(14px);transition:box-shadow .4s}
+nav.scrolled{box-shadow:0 2px 28px rgba(0,0,0,.25)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-icon{width:44px;height:44px;background:#C9882A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:15px;color:#0f2e1a;flex-shrink:0}
+.nav-logo-text .brand{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:15px;color:#fff;letter-spacing:.3px}
+.nav-logo-text .sub{font-size:10px;color:#e8c07a;letter-spacing:1.5px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:13.5px;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#e8c07a}
+.nav-cta{background:#C9882A;color:#0f2e1a;padding:10px 22px;border-radius:100px;font-weight:700;font-size:13px;text-decoration:none;transition:all .25s;white-space:nowrap}
+.nav-cta:hover{background:#dba048;transform:translateY(-1px)}
+.nav-mob-btn{display:none;background:none;border:none;cursor:pointer;color:#fff;padding:6px;align-items:center;justify-content:center;border-radius:8px;transition:background .2s}
+.nav-mob-btn:hover{background:rgba(255,255,255,.1)}
+.nav-mob-btn svg{width:22px;height:22px;display:block}
+/* Mobile Drawer */
+.mob-drawer{position:fixed;inset:0;background:#0f2e1a;z-index:1002;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;opacity:0;pointer-events:none;transition:opacity .3s;padding:80px 5% 40px}
+.mob-drawer.open{opacity:1;pointer-events:all}
+.mob-close-btn{position:fixed;top:16px;right:5%;background:rgba(255,255,255,.1);border:none;cursor:pointer;color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:1003;transition:background .2s}
+.mob-close-btn:hover{background:rgba(255,255,255,.2)}
+.mob-close-btn svg{width:22px;height:22px;display:block}
+.mob-drawer a{font-family:'Playfair Display',Georgia,serif;font-size:1.7rem;font-weight:700;color:#fff;text-decoration:none;transition:color .2s}
+.mob-drawer a:hover{color:#C9882A}
+.mob-drawer .mob-donate-link{color:#C9882A !important;border:1.5px solid rgba(201,136,42,.3);padding:10px 28px;border-radius:100px;margin-top:8px}
+.mob-drawer .mob-donate-link:hover{background:rgba(201,136,42,.15)}
+@media(max-width:900px){.nav-links,.nav-cta{display:none}.nav-mob-btn{display:flex}}
+
+/* ── SHARED FOOTER ── */
+footer{background:#0f2e1a;padding:68px 0 0}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:44px;padding-bottom:52px}
+.ft-logo-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.ft-logo-icon{width:44px;height:44px;border-radius:50%;background:#C9882A;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:15px;color:#0f2e1a}
+.ft-brand-name{font-family:'Playfair Display',Georgia,serif;font-size:15px;font-weight:700;color:#fff}
+.ft-brand-sub{font-size:10px;color:#e8c07a;letter-spacing:1.5px;text-transform:uppercase}
+.ft-tagline{font-size:.84rem;line-height:1.8;color:rgba(255,255,255,.4);max-width:270px;margin-bottom:22px}
+.ft-social{display:flex;gap:8px}
+.ft-soc{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,.55);transition:all .25s}
+.ft-soc svg{width:14px;height:14px}
+.ft-soc:hover{background:#C9882A;border-color:#C9882A;color:#0f2e1a}
+.ft-col-title{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#C9882A;margin-bottom:18px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:13.5px;transition:color .2s}
+.ft-links a:hover{color:#e8c07a}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.07);padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:12px;color:rgba(255,255,255,.25)}
+.ft-legal{display:flex;gap:20px}
+.ft-legal a{font-size:12px;color:rgba(255,255,255,.25);text-decoration:none;transition:color .2s}
+.ft-legal a:hover{color:#e8c07a}
+@media(max-width:760px){.ft-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ft-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
 
 <a href="donate.html" class="floating-cta">Donate</a>
 
+
+<!-- MOBILE DRAWER -->
+<div class="mob-drawer" id="mobDrawer">
+  <button class="mob-close-btn" onclick="closeMenu()" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="about.html" onclick="closeMenu()">About Us</a>
+  <a href="what-we-do.html" onclick="closeMenu()">What We Do</a>
+  <a href="get-involved.html" onclick="closeMenu()">Get Involved</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="donate.html" class="mob-donate-link" onclick="closeMenu()">Donate Now</a>
+</div>
+
+<!-- NAV -->
 <nav id="main-nav">
   <a href="index.html" class="nav-logo">
     <div class="nav-logo-icon">PAN</div>
@@ -231,12 +315,15 @@ footer{background:var(--green-deep);padding:60px 0 0}
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <a href="donate.html" class="nav-cta">Donate</a>
+  <button class="nav-mob-btn" onclick="openMenu()" aria-label="Open menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
 </nav>
 
 <section class="page-hero">
   <div class="page-hero-bg"></div>
   <div class="page-hero-texture"></div>
-  <div class="page-hero-dec"><div class="page-hero-dec-inner">🤝</div></div>
+  <div class="page-hero-dec"><div class="page-hero-dec-inner"></div></div>
   <div class="page-hero-content">
     <div class="page-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>What We Do</span></div>
     <div class="page-eyebrow">Our Work</div>
@@ -256,25 +343,25 @@ footer{background:var(--green-deep);padding:60px 0 0}
         <p class="approach-body reveal d3">We work with people who are victims of violent conflict, bringing together voices from every background to make change that endures the test of time. Our approach is evidence-based, trauma-informed, and deeply respectful of Nigerian cultural and religious diversity.</p>
         <div class="approach-pillars reveal d4">
           <div class="pillar">
-            <div class="pillar-icon-wrap">🤝</div>
+            <div class="pillar-icon-wrap"></div>
             <div><div class="pillar-label">Dialogue & Mediation</div><div class="pillar-sub">Structured inter-community and inter-faith processes</div></div>
           </div>
           <div class="pillar">
-            <div class="pillar-icon-wrap">🎓</div>
+            <div class="pillar-icon-wrap"></div>
             <div><div class="pillar-label">Training & Capacity Building</div><div class="pillar-sub">Equipping local peacebuilders with tools and skills</div></div>
           </div>
           <div class="pillar">
-            <div class="pillar-icon-wrap">📢</div>
+            <div class="pillar-icon-wrap"></div>
             <div><div class="pillar-label">Policy Advocacy</div><div class="pillar-sub">Influencing laws, policies, and government action</div></div>
           </div>
           <div class="pillar">
-            <div class="pillar-icon-wrap">💚</div>
+            <div class="pillar-icon-wrap"></div>
             <div><div class="pillar-label">Psychosocial Support</div><div class="pillar-sub">Healing trauma and restoring dignity to conflict victims</div></div>
           </div>
         </div>
       </div>
       <div class="approach-visual reveal d2">
-        <div class="av-main"><div class="av-main-icon">🌍</div></div>
+        <div class="av-main"><div class="av-main-icon"></div></div>
         <div class="av-float"><div class="fn">3</div><div class="fl">Core Focus Areas</div></div>
       </div>
     </div>
@@ -295,7 +382,7 @@ footer{background:var(--green-deep);padding:60px 0 0}
         <div class="focus-item-visual">
           <div class="fi-number">01</div>
           <div class="fi-tag">Core Program</div>
-          <div class="fi-icon">🏘️</div>
+          <div class="fi-icon"></div>
         </div>
         <div class="focus-item-body">
           <div class="fi-eyebrow">Focus Area 01</div>
@@ -319,7 +406,7 @@ footer{background:var(--green-deep);padding:60px 0 0}
         <div class="focus-item-visual" style="order:2">
           <div class="fi-number">02</div>
           <div class="fi-tag">Core Program</div>
-          <div class="fi-icon">💛</div>
+          <div class="fi-icon"></div>
         </div>
         <div class="focus-item-body" style="order:1">
           <div class="fi-eyebrow">Focus Area 02</div>
@@ -342,7 +429,7 @@ footer{background:var(--green-deep);padding:60px 0 0}
         <div class="focus-item-visual">
           <div class="fi-number">03</div>
           <div class="fi-tag">Core Program</div>
-          <div class="fi-icon">🌱</div>
+          <div class="fi-icon"></div>
         </div>
         <div class="focus-item-body">
           <div class="fi-eyebrow">Focus Area 03</div>
@@ -374,22 +461,22 @@ footer{background:var(--green-deep);padding:60px 0 0}
     </div>
     <div class="how-steps">
       <div class="how-step reveal">
-        <div class="hs-circle hs-bg-1" data-num="1">🔍</div>
+        <div class="hs-circle hs-bg-1" data-num="1"></div>
         <div class="how-step-title">Assess & Listen</div>
         <p class="how-step-desc">We begin by listening deeply to communities — mapping conflicts, understanding histories, and identifying local peacebuilding assets that already exist.</p>
       </div>
       <div class="how-step reveal d1">
-        <div class="hs-circle hs-bg-2" data-num="2">🤝</div>
+        <div class="hs-circle hs-bg-2" data-num="2"></div>
         <div class="how-step-title">Convene & Dialogue</div>
         <p class="how-step-desc">We bring together all stakeholders — including those in conflict — in structured, facilitated dialogue processes designed to build trust and shared understanding.</p>
       </div>
       <div class="how-step reveal d2">
-        <div class="hs-circle hs-bg-3" data-num="3">🛠️</div>
+        <div class="hs-circle hs-bg-3" data-num="3"></div>
         <div class="how-step-title">Build Capacity</div>
         <p class="how-step-desc">We train local peacebuilders, establish community peace committees, and equip communities with the tools, skills, and systems to manage conflict independently.</p>
       </div>
       <div class="how-step reveal d3">
-        <div class="hs-circle hs-bg-4" data-num="4">🌱</div>
+        <div class="hs-circle hs-bg-4" data-num="4"></div>
         <div class="how-step-title">Sustain & Advocate</div>
         <p class="how-step-desc">We support communities long-term, advocate for policy changes that address root causes, and document lessons to strengthen Nigeria's broader peacebuilding ecosystem.</p>
       </div>
@@ -453,18 +540,18 @@ footer{background:var(--green-deep);padding:60px 0 0}
 
 <footer>
   <div class="container">
-    <div class="footer-inner">
+    <div class="ft-grid">
       <div>
-        <div class="footer-logo-row">
-          <div class="fl-icon">PAN</div>
-          <div><div class="fl-brand">Peace Alliance Network</div><div class="fl-sub">PAN Foundation</div></div>
+        <div class="ft-logo-row">
+          <div class="ft-logo-icon">PAN</div>
+          <div><div class="ft-brand-name">Peace Alliance Network</div><div class="ft-brand-sub">PAN Foundation</div></div>
         </div>
-        <p class="footer-tagline">Building a culture of peace across Nigeria and beyond — community by community.</p>
-        <div class="footer-social"><a href="#" class="sb">𝕏</a><a href="#" class="sb">f</a><a href="#" class="sb">📷</a><a href="#" class="sb">in</a></div>
+        <p class="ft-tagline">Building a culture of peace across Nigeria and beyond — community by community.</p>
+        <div class="ft-social"><a href="#" class="ft-soc">𝕏</a><a href="#" class="ft-soc">f</a><a href="#" class="ft-soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></a><a href="#" class="ft-soc">in</a></div>
       </div>
       <div>
-        <div class="footer-col-title">Pages</div>
-        <ul class="footer-links">
+        <div class="ft-col-title">Pages</div>
+        <ul class="ft-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="what-we-do.html">What We Do</a></li>
@@ -473,8 +560,8 @@ footer{background:var(--green-deep);padding:60px 0 0}
         </ul>
       </div>
       <div>
-        <div class="footer-col-title">Take Action</div>
-        <ul class="footer-links">
+        <div class="ft-col-title">Take Action</div>
+        <ul class="ft-links">
           <li><a href="get-involved.html">Volunteer</a></li>
           <li><a href="donate.html">Donate</a></li>
           <li><a href="get-involved.html">Partner With Us</a></li>
@@ -482,9 +569,9 @@ footer{background:var(--green-deep);padding:60px 0 0}
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-bottom-left">© 2025 Peace Alliance Network (PAN) Foundation. All rights reserved.</div>
-      <div class="footer-bottom-right"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Annual Report</a></div>
+    <div class="ft-bottom">
+      <div class="ft-copy">© 2025 Peace Alliance Network (PAN) Foundation. All rights reserved.</div>
+      <div class="ft-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Annual Report</a></div>
     </div>
   </div>
 </footer>
@@ -499,6 +586,67 @@ const co=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersect
   let cur=0;const t=setInterval(()=>{cur+=inc;if(cur>=target){cur=target;clearInterval(t)}el.textContent=Math.floor(cur).toLocaleString()+suffix},dur/steps);
   co.unobserve(e.target)}})},{threshold:.3});
 document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+
+/* NAV + MOB MENU */
+const _nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => _nav.classList.toggle('scrolled', scrollY > 50), {passive:true});
+
+/* Newsletter subscription */
+(function() {
+  document.querySelectorAll('.ft-nl-form').forEach(function(form) {
+    var btn = form.querySelector('.ft-nl-btn');
+    var inp = form.querySelector('.ft-nl-input');
+    if (!btn || !inp) return;
+    btn.addEventListener('click', function() {
+      var email = inp.value.trim();
+      if (!email || !email.includes('@')) {
+        inp.style.borderColor = '#C9882A';
+        inp.focus();
+        return;
+      }
+      inp.style.borderColor = '';
+      btn.disabled = true;
+      btn.textContent = 'Subscribing...';
+      var fd = new FormData();
+      fd.set('email', email);
+      fetch('process_newsletter.php', { method: 'POST', body: fd })
+        .then(function(r){ return r.json(); })
+        .then(function(d) {
+          btn.textContent = d.success ? 'Check Your Email!' : (d.message || 'Error');
+          if (d.success) inp.value = '';
+          setTimeout(function(){ btn.disabled=false; btn.textContent='Subscribe'; }, 4000);
+        })
+        .catch(function() {
+          btn.disabled = false;
+          btn.textContent = 'Try Again';
+        });
+    });
+  });
+})();
+
+
+
+
+</script>
+<script>
+/* PAN Foundation — Mobile Navigation */
+function openMenu() {
+  var d = document.getElementById('mobDrawer');
+  var t = document.getElementById('navToggle');
+  if (d) { d.classList.add('open'); }
+  if (t) { t.style.display = 'none'; }
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  var d = document.getElementById('mobDrawer');
+  var t = document.getElementById('navToggle');
+  if (d) { d.classList.remove('open'); }
+  if (t) { t.style.display = ''; }
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeMenu(); }
+});
 </script>
 </body>
 </html>

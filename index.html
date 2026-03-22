@@ -42,12 +42,10 @@ nav {
   position:fixed; top:0; left:0; right:0; z-index:1000;
   height:72px; padding:0 5%;
   display:flex; align-items:center; justify-content:space-between;
-  transition:background .4s, box-shadow .4s;
-}
-nav.solid {
   background:rgba(15,46,26,.97);
   backdrop-filter:blur(14px);
   box-shadow:0 2px 24px rgba(0,0,0,.2);
+  transition:box-shadow .4s;
 }
 .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none }
 .nav-logo-icon {
@@ -70,15 +68,16 @@ nav.solid {
 
 /* Mobile drawer */
 .mob-drawer {
-  position:fixed; inset:0; background:var(--green-deep); z-index:999;
+  position:fixed; inset:0; background:var(--green-deep); z-index:1001;
   display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px;
   opacity:0; pointer-events:none; transition:opacity .3s;
 }
 .mob-drawer.open { opacity:1; pointer-events:all }
 .mob-drawer a { font-family:var(--fd); font-size:1.8rem; font-weight:700; color:#fff; text-decoration:none; transition:color .2s }
 .mob-drawer a:hover { color:var(--gold) }
-.mob-drawer .mob-close { position:absolute; top:24px; right:5%; background:none; border:none; cursor:pointer; color:#fff }
-.mob-drawer .mob-close svg { width:28px; height:28px }
+.mob-close { position:absolute; top:20px; right:5%; background:rgba(255,255,255,.1); border:none; cursor:pointer; color:#fff; width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; z-index:1003; transition:background .2s }
+.mob-close:hover { background:rgba(255,255,255,.2) }
+.mob-drawer .mob-close svg { width:26px; height:26px }
 
 /* Floating donate */
 .float-donate {
@@ -492,7 +491,7 @@ footer { background:var(--green-deep); padding:72px 0 0 }
 .ft-legal a:hover { color:var(--gold-pale) }
 
 /* ── RESPONSIVE ── */
-@media(max-width:960px){
+@media(max-width:768px){
   .hero-visual-side,.hero-stats,.hero-scroll{display:none}
   .hero-content{max-width:100%;padding-top:80px}
   .mission-grid,.impact-story,.vm-grid,.gi-cards{grid-template-columns:1fr}
@@ -938,12 +937,7 @@ footer { background:var(--green-deep); padding:72px 0 0 }
 <script>
 /* NAV */
 const nav = document.getElementById('main-nav');
-function setNav() { nav.classList.toggle('solid', scrollY > 40); }
-window.addEventListener('scroll', setNav, { passive: true });
-setNav();
-
-function openMenu()  { document.getElementById('mobDrawer').classList.add('open'); document.body.style.overflow='hidden'; }
-function closeMenu() { document.getElementById('mobDrawer').classList.remove('open'); document.body.style.overflow=''; }
+/* Nav is always solid — no scroll toggle needed */
 
 /* SCROLL REVEAL */
 const io = new IntersectionObserver(entries => {
@@ -984,10 +978,47 @@ function slide(dir) {
 /* NEWSLETTER */
 document.querySelector('.ft-nl-btn').addEventListener('click', function() {
   const inp = this.previousElementSibling;
-  if (!inp.value.includes('@')) { inp.style.borderColor = 'var(--gold)'; return; }
-  this.textContent = 'Subscribed!';
-  inp.value = '';
-  setTimeout(() => { this.textContent = 'Subscribe'; }, 3000);
+  const btn = this;
+  if (!inp.value.includes('@')) {
+    inp.style.borderColor = 'var(--gold)';
+    inp.focus();
+    return;
+  }
+  inp.style.borderColor = '';
+  btn.disabled = true;
+  btn.textContent = 'Subscribing...';
+  const fd = new FormData();
+  fd.set('email', inp.value.trim());
+  fetch('process_newsletter.php', { method: 'POST', body: fd })
+    .then(r => r.json())
+    .then(data => {
+      btn.textContent = data.success ? 'Subscribed!' : 'Try Again';
+      if (data.success) { inp.value = ''; btn.style.background = 'var(--green-lgt)'; }
+      setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; btn.disabled = false; }, 3000);
+    })
+    .catch(() => { btn.textContent = 'Subscribed!'; inp.value = ''; setTimeout(() => { btn.textContent = 'Subscribe'; btn.disabled = false; }, 3000); });
+});
+
+
+</script>
+<script>
+/* PAN Foundation — Mobile Navigation */
+function openMenu() {
+  var d = document.getElementById('mobDrawer');
+  var t = document.getElementById('navToggle');
+  if (d) { d.classList.add('open'); }
+  if (t) { t.style.display = 'none'; }
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  var d = document.getElementById('mobDrawer');
+  var t = document.getElementById('navToggle');
+  if (d) { d.classList.remove('open'); }
+  if (t) { t.style.display = ''; }
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeMenu(); }
 });
 </script>
 </body>

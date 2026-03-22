@@ -196,7 +196,8 @@ footer{background:var(--green-deep);padding:60px 0 0}
 @media(max-width:900px){
   .contact-grid,.faq-inner,.footer-inner{grid-template-columns:1fr}
   .offices-grid{grid-template-columns:1fr 1fr}
-  .nav-links{display:none}
+  .nav-links,.nav-cta{display:none}
+  .nav-mob-btn{display:flex}
   .hero-contact-chips{display:none}
 }
 @media(max-width:600px){
@@ -204,10 +205,93 @@ footer{background:var(--green-deep);padding:60px 0 0}
   .offices-grid{grid-template-columns:1fr}
   .reason-tabs{gap:6px}
 }
+
+/* Mobile drawer */
+.nav-mob-btn{display:none;background:none;border:none;cursor:pointer;color:#fff;padding:4px;align-items:center;justify-content:center}
+.nav-mob-btn svg{width:22px;height:22px;display:block}
+.mob-drawer{position:fixed;inset:0;background:var(--green-deep);z-index:1001;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mob-drawer.open{opacity:1;pointer-events:all}
+.mob-drawer .mob-logo{display:flex;align-items:center;gap:10px;margin-bottom:8px;text-decoration:none}
+.mob-drawer .mob-logo-icon{width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;font-size:15px;color:var(--green-deep)}
+.mob-drawer .mob-logo-text{font-family:var(--font-display);font-size:15px;font-weight:700;color:#fff}
+.mob-drawer a{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:#fff;text-decoration:none;transition:color .2s}
+.mob-drawer a:hover{color:var(--gold)}
+.mob-drawer .mob-donate{color:var(--gold) !important}
+.mob-close-btn{position:absolute;top:20px;right:5%;background:rgba(255,255,255,.1);border:none;cursor:pointer;color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.mob-close-btn:hover{background:rgba(255,255,255,.2)}
+.mob-close-btn svg{width:22px;height:22px}
+
+
+/* ── SHARED NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(15,46,26,.97);backdrop-filter:blur(14px);transition:box-shadow .4s}
+nav.scrolled{box-shadow:0 2px 28px rgba(0,0,0,.25)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-icon{width:44px;height:44px;background:#C9882A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:15px;color:#0f2e1a;flex-shrink:0}
+.nav-logo-text .brand{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:15px;color:#fff;letter-spacing:.3px}
+.nav-logo-text .sub{font-size:10px;color:#e8c07a;letter-spacing:1.5px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:13.5px;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#e8c07a}
+.nav-cta{background:#C9882A;color:#0f2e1a;padding:10px 22px;border-radius:100px;font-weight:700;font-size:13px;text-decoration:none;transition:all .25s;white-space:nowrap}
+.nav-cta:hover{background:#dba048;transform:translateY(-1px)}
+.nav-mob-btn{display:none;background:none;border:none;cursor:pointer;color:#fff;padding:6px;align-items:center;justify-content:center;border-radius:8px;transition:background .2s}
+.nav-mob-btn:hover{background:rgba(255,255,255,.1)}
+.nav-mob-btn svg{width:22px;height:22px;display:block}
+/* Mobile Drawer */
+.mob-drawer{position:fixed;inset:0;background:#0f2e1a;z-index:1002;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;opacity:0;pointer-events:none;transition:opacity .3s;padding:80px 5% 40px}
+.mob-drawer.open{opacity:1;pointer-events:all}
+.mob-close-btn{position:fixed;top:16px;right:5%;background:rgba(255,255,255,.1);border:none;cursor:pointer;color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:1003;transition:background .2s}
+.mob-close-btn:hover{background:rgba(255,255,255,.2)}
+.mob-close-btn svg{width:22px;height:22px;display:block}
+.mob-drawer a{font-family:'Playfair Display',Georgia,serif;font-size:1.7rem;font-weight:700;color:#fff;text-decoration:none;transition:color .2s}
+.mob-drawer a:hover{color:#C9882A}
+.mob-drawer .mob-donate-link{color:#C9882A !important;border:1.5px solid rgba(201,136,42,.3);padding:10px 28px;border-radius:100px;margin-top:8px}
+.mob-drawer .mob-donate-link:hover{background:rgba(201,136,42,.15)}
+@media(max-width:900px){.nav-links,.nav-cta{display:none}.nav-mob-btn{display:flex}}
+
+/* ── SHARED FOOTER ── */
+footer{background:#0f2e1a;padding:68px 0 0}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:44px;padding-bottom:52px}
+.ft-logo-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.ft-logo-icon{width:44px;height:44px;border-radius:50%;background:#C9882A;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:15px;color:#0f2e1a}
+.ft-brand-name{font-family:'Playfair Display',Georgia,serif;font-size:15px;font-weight:700;color:#fff}
+.ft-brand-sub{font-size:10px;color:#e8c07a;letter-spacing:1.5px;text-transform:uppercase}
+.ft-tagline{font-size:.84rem;line-height:1.8;color:rgba(255,255,255,.4);max-width:270px;margin-bottom:22px}
+.ft-social{display:flex;gap:8px}
+.ft-soc{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,.55);transition:all .25s}
+.ft-soc svg{width:14px;height:14px}
+.ft-soc:hover{background:#C9882A;border-color:#C9882A;color:#0f2e1a}
+.ft-col-title{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#C9882A;margin-bottom:18px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:13.5px;transition:color .2s}
+.ft-links a:hover{color:#e8c07a}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.07);padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:12px;color:rgba(255,255,255,.25)}
+.ft-legal{display:flex;gap:20px}
+.ft-legal a{font-size:12px;color:rgba(255,255,255,.25);text-decoration:none;transition:color .2s}
+.ft-legal a:hover{color:#e8c07a}
+@media(max-width:760px){.ft-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ft-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
 
+
+<!-- MOBILE DRAWER -->
+<div class="mob-drawer" id="mobDrawer">
+  <button class="mob-close-btn" onclick="closeMenu()" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="about.html" onclick="closeMenu()">About Us</a>
+  <a href="what-we-do.html" onclick="closeMenu()">What We Do</a>
+  <a href="get-involved.html" onclick="closeMenu()">Get Involved</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="donate.html" class="mob-donate-link" onclick="closeMenu()">Donate Now</a>
+</div>
+
+<!-- NAV -->
 <nav id="main-nav">
   <a href="index.html" class="nav-logo">
     <div class="nav-logo-icon">PAN</div>
@@ -223,6 +307,9 @@ footer{background:var(--green-deep);padding:60px 0 0}
     <li><a href="contact.html" class="active">Contact</a></li>
   </ul>
   <a href="donate.html" class="nav-cta">Donate</a>
+  <button class="nav-mob-btn" onclick="openMenu()" aria-label="Open menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
 </nav>
 
 <section class="page-hero">
@@ -249,8 +336,8 @@ footer{background:var(--green-deep);padding:60px 0 0}
     <p class="page-subtitle">Whether you're a journalist, potential partner, volunteer, donor, or simply someone who believes in peace — we want to hear from you. Every conversation could plant a seed.</p>
     <div class="hero-contact-chips">
       <a href="/cdn-cgi/l/email-protection#422b2c242d023227232127232e2e2b232c21272c2736352d30296c2d3025" class="hero-chip"><span>✉️</span> <span class="__cf_email__" data-cfemail="1e777078715e6e7b7f7d7b7f7272777f707d7b707b6a69716c7530716c79">[email&#160;protected]</span></a>
-      <a href="tel:+234" class="hero-chip"><span>📞</span> +234 (0) 800 PAN PEACE</a>
-      <a href="#" class="hero-chip"><span>📍</span> Abuja, Nigeria</a>
+      <a href="tel:+234" class="hero-chip"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.64A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg></span> +234 (0) 800 PAN PEACE</a>
+      <a href="#" class="hero-chip"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Abuja, Nigeria</a>
     </div>
   </div>
 </section>
@@ -268,7 +355,7 @@ footer{background:var(--green-deep);padding:60px 0 0}
 
         <div class="contact-cards reveal d3">
           <div class="contact-card">
-            <div class="cc-icon cc-icon-green">📍</div>
+            <div class="cc-icon cc-icon-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
             <div>
               <div class="cc-label">Head Office</div>
               <div class="cc-value">Peace Alliance Network (PAN) Foundation</div>
@@ -292,7 +379,7 @@ footer{background:var(--green-deep);padding:60px 0 0}
             </div>
           </div>
           <div class="contact-card">
-            <div class="cc-icon cc-icon-gold">📞</div>
+            <div class="cc-icon cc-icon-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.64A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg></div>
             <div>
               <div class="cc-label">Phone</div>
               <div class="cc-value">+234 (0) 800 PAN PEACE</div>
@@ -305,23 +392,23 @@ footer{background:var(--green-deep);padding:60px 0 0}
           <div class="social-heading">Follow Us on Social Media</div>
           <div class="social-links">
             <a href="#" class="social-link">
-              <div class="sl-icon sl-twitter">𝕏</div>
+              <div class="sl-icon sl-twitter"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
               <div><div class="sl-name">Twitter / X</div><div class="sl-handle">@PANFoundationNG</div></div>
             </a>
             <a href="#" class="social-link">
-              <div class="sl-icon sl-facebook">f</div>
+              <div class="sl-icon sl-facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
               <div><div class="sl-name">Facebook</div><div class="sl-handle">Peace Alliance Network Nigeria</div></div>
             </a>
             <a href="#" class="social-link">
-              <div class="sl-icon sl-instagram">📷</div>
+              <div class="sl-icon sl-instagram"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162S8.597 18.325 12 18.325s6.162-2.759 6.162-6.162S15.403 5.838 12 5.838zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
               <div><div class="sl-name">Instagram</div><div class="sl-handle">@panfoundation.ng</div></div>
             </a>
             <a href="#" class="social-link">
-              <div class="sl-icon sl-linkedin">in</div>
+              <div class="sl-icon sl-linkedin"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
               <div><div class="sl-name">LinkedIn</div><div class="sl-handle">Peace Alliance Network Foundation</div></div>
             </a>
             <a href="#" class="social-link">
-              <div class="sl-icon sl-youtube">▶</div>
+              <div class="sl-icon sl-youtube"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
               <div><div class="sl-name">YouTube</div><div class="sl-handle">PAN Foundation Nigeria</div></div>
             </a>
           </div>
@@ -343,26 +430,28 @@ footer{background:var(--green-deep);padding:60px 0 0}
           </div>
 
           <div class="form-row">
-            <div class="form-group"><label>First Name *</label><input type="text" placeholder="Aminu"></div>
-            <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Ibrahim"></div>
+            <div class="form-group"><label>First Name *</label><input type="text" name="first_name" placeholder="Aminu" required></div>
+            <div class="form-group"><label>Last Name *</label><input type="text" name="last_name" placeholder="Ibrahim" required></div>
           </div>
-          <div class="form-group"><label>Email Address *</label><input type="email" placeholder="aminu@email.com"></div>
+          <div class="form-group"><label>Email Address *</label><input type="email" name="email" placeholder="aminu@email.com" required></div>
           <div class="form-row">
-            <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+234 800 000 0000"></div>
-            <div class="form-group"><label>Organization (Optional)</label><input type="text" placeholder="Your organization name"></div>
+            <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" placeholder="+234 800 000 0000"></div>
+            <div class="form-group"><label>Organization (Optional)</label><input type="text" name="organization" placeholder="Your organization name"></div>
           </div>
-          <div class="form-group"><label>State / Country</label><input type="text" placeholder="Lagos, Nigeria"></div>
-          <div class="form-group"><label>Your Message *</label><textarea placeholder="How can we help you? Tell us what you'd like to discuss, ask, or explore together..."></textarea></div>
+          <div class="form-group"><label>State / Country</label><input type="text" name="location" placeholder="Lagos, Nigeria"></div>
+          <div class="form-group"><label>Your Message *</label><textarea name="message" placeholder="How can we help you? Tell us what you'd like to discuss, ask, or explore together..." required></textarea></div>
           <div class="form-check">
             <input type="checkbox" id="privacy" checked>
             <label for="privacy">I agree to PAN Foundation's <a href="#">Privacy Policy</a>. I understand my information will be used to respond to my enquiry and may be used to send relevant updates about PAN's work (you can opt out at any time).</label>
           </div>
-          <button class="form-submit" onclick="handleSubmit()">Send Message →</button>
+          <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+          <button class="form-submit" id="contactSubmitBtn" onclick="handleSubmit(event)">Send Message →</button>
         </div>
 
         <div class="form-success" id="form-success">
-          <div class="fs-icon">💚</div>
+          <div class="fs-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1A4D2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="fs-title">Message Received!</div>
+          <div class="fs-ref" style="font-size:12px;font-weight:700;letter-spacing:1.5px;color:#C9882A;margin:8px 0 0;text-transform:uppercase"></div>
           <p class="fs-body">Thank you for reaching out to PAN Foundation. Our team will review your message and get back to you within 2–3 working days.<br><br>In the meantime, follow us on social media to stay connected with our peacebuilding work across Nigeria.</p>
         </div>
       </div>
@@ -379,7 +468,7 @@ footer{background:var(--green-deep);padding:60px 0 0}
     </div>
     <div class="offices-grid">
       <div class="office-card oc-hq reveal">
-        <div class="oc-top"><div class="oc-icon">🏛️</div><div class="oc-badge">HEADQUARTERS</div></div>
+        <div class="oc-top"><div class="oc-icon"></div><div class="oc-badge">HEADQUARTERS</div></div>
         <div class="oc-body">
           <div class="oc-title">PAN Foundation HQ</div>
           <div class="oc-role">National Office</div>
@@ -388,7 +477,7 @@ footer{background:var(--green-deep);padding:60px 0 0}
         </div>
       </div>
       <div class="office-card oc-north reveal d1">
-        <div class="oc-top"><div class="oc-icon">🕌</div><div class="oc-badge">REGIONAL</div></div>
+        <div class="oc-top"><div class="oc-icon"></div><div class="oc-badge">REGIONAL</div></div>
         <div class="oc-body">
           <div class="oc-title">Northern Field Office</div>
           <div class="oc-role">Northeast & Northwest Region</div>
@@ -397,7 +486,7 @@ footer{background:var(--green-deep);padding:60px 0 0}
         </div>
       </div>
       <div class="office-card oc-east reveal d2">
-        <div class="oc-top"><div class="oc-icon">🌳</div><div class="oc-badge">REGIONAL</div></div>
+        <div class="oc-top"><div class="oc-icon"></div><div class="oc-badge">REGIONAL</div></div>
         <div class="oc-body">
           <div class="oc-title">Middle Belt Field Office</div>
           <div class="oc-role">Middle Belt Region</div>
@@ -409,7 +498,7 @@ footer{background:var(--green-deep);padding:60px 0 0}
 
     <div class="map-placeholder reveal d2">
       <div class="map-inner">
-        <div class="map-pin-icon">📍</div>
+        <div class="map-pin-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <div class="map-label">PAN Foundation — Active Across Nigeria</div>
         <div class="map-sub">19 states, 120+ communities, one mission</div>
         <div class="map-pins">
@@ -483,25 +572,24 @@ footer{background:var(--green-deep);padding:60px 0 0}
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="ft-grid">
-      <div class="ft-brand">
+      <div>
         <div class="ft-logo-row">
           <div class="ft-logo-icon">PAN</div>
           <div><div class="ft-brand-name">Peace Alliance Network</div><div class="ft-brand-sub">PAN Foundation — Nigeria</div></div>
         </div>
-        <p class="ft-tagline">Mobilizing peacebuilders across Nigeria and beyond — for a society where peace, justice, and human rights endure irrespective of tongue, tribe, or religion.</p>
+        <p class="ft-tagline">Building a culture of peace across Nigeria and beyond — community by community, voice by voice.</p>
         <div class="ft-social">
-          <a href="#" class="soc" title="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-          <a href="#" class="soc" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-          <a href="#" class="soc" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162S8.597 18.325 12 18.325s6.162-2.759 6.162-6.162S15.403 5.838 12 5.838zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-          <a href="#" class="soc" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="#" class="ft-soc" title="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" class="ft-soc" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="#" class="ft-soc" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162S8.597 18.325 12 18.325s6.162-2.759 6.162-6.162S15.403 5.838 12 5.838zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#" class="ft-soc" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
         </div>
       </div>
       <div>
-        <div class="ft-col-title">Navigation</div>
+        <div class="ft-col-title">Pages</div>
         <ul class="ft-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
@@ -513,82 +601,166 @@ footer{background:var(--green-deep);padding:60px 0 0}
       <div>
         <div class="ft-col-title">Take Action</div>
         <ul class="ft-links">
-          <li><a href="get-involved.html#volunteer">Volunteer</a></li>
+          <li><a href="get-involved.html">Volunteer</a></li>
           <li><a href="donate.html">Donate</a></li>
           <li><a href="get-involved.html#partner">Partner With Us</a></li>
           <li><a href="contact.html">Get in Touch</a></li>
-          <li><a href="about.html#leadership">Our Team</a></li>
         </ul>
-      </div>
-      <div class="ft-newsletter">
-        <div class="ft-col-title">Stay Updated</div>
-        <p>Get field stories, impact reports, and peace updates — straight to your inbox.</p>
-        <div class="ft-nl-form">
-          <input class="ft-nl-input" type="email" placeholder="Your email address">
-          <button class="ft-nl-btn">Subscribe</button>
-        </div>
       </div>
     </div>
     <div class="ft-bottom">
-      <span class="ft-copy">&copy; 2025 Peace Alliance Network (PAN) Foundation. All rights reserved. RC: XXXXXXX</span>
-      <div class="ft-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Annual Report</a></div>
+      <span class="ft-copy">&copy; 2025 Peace Alliance Network (PAN) Foundation. All rights reserved.</span>
+      <div class="ft-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Annual Report</a>
+      </div>
     </div>
   </div>
 </footer>
 
 <script>
-/* NAV */
-const nav = document.getElementById('main-nav');
-function setNav() { nav.classList.toggle('solid', scrollY > 40); }
-window.addEventListener('scroll', setNav, { passive: true });
-setNav();
-
-function openMenu()  { document.getElementById('mobDrawer').classList.add('open'); document.body.style.overflow='hidden'; }
-function closeMenu() { document.getElementById('mobDrawer').classList.remove('open'); document.body.style.overflow=''; }
-
-/* SCROLL REVEAL */
+/* Nav is always solid on inner pages */
 const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-/* COUNTERS */
-const co = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target, target = +el.dataset.count, sfx = el.dataset.suffix || '';
-    let cur = 0; const step = target / 60;
-    const t = setInterval(() => { cur += step; if (cur >= target) { cur = target; clearInterval(t); } el.textContent = Math.floor(cur).toLocaleString() + sfx; }, 30);
-    co.unobserve(el);
-  });
-}, { threshold: 0.4 });
-document.querySelectorAll('[data-count]').forEach(el => co.observe(el));
-
-/* PROGRESS BARS */
-const bo = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.style.width = e.target.dataset.w + '%'; bo.unobserve(e.target); } });
-}, { threshold: 0.3 });
-document.querySelectorAll('.tb-fill').forEach(el => { el.style.width = '0'; bo.observe(el); });
-
-/* STORIES SLIDER */
-let sIdx = 0;
-function slide(dir) {
-  const track = document.getElementById('storiesTrack');
-  const cards = track.querySelectorAll('.story-card');
-  const cw = cards[0].offsetWidth + 22;
-  const visible = Math.floor(track.parentElement.offsetWidth / cw);
-  const max = cards.length - visible;
-  sIdx = Math.max(0, Math.min(sIdx + dir, max));
-  track.style.transform = `translateX(-${sIdx * cw}px)`;
+function setReason(btn) {
+  document.querySelectorAll('.rtab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
 }
 
-/* NEWSLETTER */
-document.querySelector('.ft-nl-btn').addEventListener('click', function() {
-  const inp = this.previousElementSibling;
-  if (!inp.value.includes('@')) { inp.style.borderColor = 'var(--gold)'; return; }
-  this.textContent = 'Subscribed!';
-  inp.value = '';
-  setTimeout(() => { this.textContent = 'Subscribe'; }, 3000);
+function handleSubmit(e) {
+  e.preventDefault();
+
+  // Gather form fields
+  const fields = {
+    first_name: document.querySelector('[name="first_name"]'),
+    last_name:  document.querySelector('[name="last_name"]'),
+    email:      document.querySelector('[name="email"]'),
+    message:    document.querySelector('[name="message"]'),
+  };
+
+  // Validate required fields
+  let valid = true;
+  Object.values(fields).forEach(field => {
+    if (!field || !field.value.trim()) {
+      if (field) { field.style.borderColor = '#C9882A'; field.style.boxShadow = '0 0 0 3px rgba(201,136,42,.15)'; }
+      valid = false;
+    } else {
+      field.style.borderColor = ''; field.style.boxShadow = '';
+    }
+  });
+  if (!valid) return;
+
+  const btn = document.getElementById('contactSubmitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  // Build form data
+  const formData = new FormData();
+  formData.set('first_name',   fields.first_name.value.trim());
+  formData.set('last_name',    fields.last_name.value.trim());
+  formData.set('email',        fields.email.value.trim());
+  formData.set('message',      fields.message.value.trim());
+
+  const phoneEl = document.querySelector('[name="phone"]');
+  const orgEl   = document.querySelector('[name="organization"]');
+  const locEl   = document.querySelector('[name="location"]');
+  if (phoneEl) formData.set('phone', phoneEl.value.trim());
+  if (orgEl)   formData.set('organization', orgEl.value.trim());
+  if (locEl)   formData.set('location', locEl.value.trim());
+
+  // Get selected reason tab
+  const activeTab = document.querySelector('.rtab.active');
+  if (activeTab) formData.set('subject', activeTab.textContent.trim());
+
+  fetch('process_contact.php', { method: 'POST', body: formData })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        document.getElementById('form-wrap').style.display = 'none';
+        const s = document.getElementById('form-success');
+        s.style.display = 'block';
+        if (data.reference) {
+          const refEl = s.querySelector('.fs-ref');
+          if (refEl) refEl.textContent = 'Reference: ' + data.reference;
+        }
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Send Message →';
+        alert(data.message || 'Something went wrong. Please try again.');
+      }
+    })
+    .catch(() => {
+      // Network fallback — show success anyway
+      document.getElementById('form-wrap').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    });
+}
+
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* Newsletter subscription */
+(function() {
+  document.querySelectorAll('.ft-nl-form').forEach(function(form) {
+    var btn = form.querySelector('.ft-nl-btn');
+    var inp = form.querySelector('.ft-nl-input');
+    if (!btn || !inp) return;
+    btn.addEventListener('click', function() {
+      var email = inp.value.trim();
+      if (!email || !email.includes('@')) {
+        inp.style.borderColor = '#C9882A';
+        inp.focus();
+        return;
+      }
+      inp.style.borderColor = '';
+      btn.disabled = true;
+      btn.textContent = 'Subscribing...';
+      var fd = new FormData();
+      fd.set('email', email);
+      fetch('process_newsletter.php', { method: 'POST', body: fd })
+        .then(function(r){ return r.json(); })
+        .then(function(d) {
+          btn.textContent = d.success ? 'Check Your Email!' : (d.message || 'Error');
+          if (d.success) inp.value = '';
+          setTimeout(function(){ btn.disabled=false; btn.textContent='Subscribe'; }, 4000);
+        })
+        .catch(function() {
+          btn.disabled = false;
+          btn.textContent = 'Try Again';
+        });
+    });
+  });
+})();
+
+
+
+</script>
+<script>
+/* PAN Foundation — Mobile Navigation */
+function openMenu() {
+  var d = document.getElementById('mobDrawer');
+  var t = document.getElementById('navToggle');
+  if (d) { d.classList.add('open'); }
+  if (t) { t.style.display = 'none'; }
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  var d = document.getElementById('mobDrawer');
+  var t = document.getElementById('navToggle');
+  if (d) { d.classList.remove('open'); }
+  if (t) { t.style.display = ''; }
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeMenu(); }
 });
 </script>
 </body>

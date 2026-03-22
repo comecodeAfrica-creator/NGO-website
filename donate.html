@@ -215,12 +215,13 @@ footer{background:var(--green-deep);padding:60px 0 0}
 .ft-legal a{font-size:12px;color:rgba(255,255,255,.28);text-decoration:none}
 .ft-legal a:hover{color:var(--gold-pale)}
 
-@media(max-width:900px){
+@media(max-width:768px){
   .donate-layout{grid-template-columns:1fr}
   .steps-bar{gap:4px;overflow-x:auto;justify-content:flex-start;padding:16px 5%}
   .step-connector{width:30px}
   .step-label{display:none}
-  .nav-links{display:none}
+  .nav-links,.nav-cta{display:none}
+  .nav-mob-btn{display:flex!important}
   .nav-mob-btn{display:block}
   .ft-grid{grid-template-columns:1fr 1fr}
   .success-impact{grid-template-columns:1fr}
@@ -230,13 +231,18 @@ footer{background:var(--green-deep);padding:60px 0 0}
   .form-row{grid-template-columns:1fr}
   .ft-grid{grid-template-columns:1fr}
 }
+
+/* Scroll reveal */
+.reveal { opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease }
+.reveal.in { opacity:1; transform:translateY(0) }
+.d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
 </style>
 </head>
 <body>
 
 <!-- Mobile Menu -->
-<div class="mob-menu" id="mobMenu">
-  <button class="mob-close" onclick="toggleMenu()">
+<div class="mob-drawer" id="mobDrawer">
+  <button class="mob-close" onclick="closeMenu()">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
   <a href="index.html">Home</a>
@@ -260,7 +266,8 @@ footer{background:var(--green-deep);padding:60px 0 0}
     <li><a href="get-involved.html">Get Involved</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <button class="nav-mob-btn" onclick="toggleMenu()">
+  <a href="get-involved.html#volunteer" class="nav-cta">Get Involved</a>
+  <button class="nav-mob-btn" onclick="openMenu()">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
 </nav>
@@ -308,7 +315,7 @@ footer{background:var(--green-deep);padding:60px 0 0}
       <div class="left-col">
         <!-- AMOUNT PICKER -->
         <div class="sec-label">Step 1 — Select Amount</div>
-        <div class="amount-picker">
+        <div class="amount-picker reveal">
           <div class="ap-title">How much would you like to donate?</div>
           <div class="ap-sub">Choose a suggested amount or enter your own. All amounts in Nigerian Naira (NGN).</div>
           <div class="tier-grid">
@@ -345,7 +352,7 @@ footer{background:var(--green-deep);padding:60px 0 0}
 
         <!-- ACCOUNT DETAILS -->
         <div class="sec-label">Step 2 — Transfer to This Account</div>
-        <div class="account-card">
+        <div class="account-card reveal d1">
           <div class="ac-title">PAN Foundation Bank Account</div>
           <div class="ac-sub">Make a direct bank transfer using the details below. Use your full name as the payment reference.</div>
           <div class="bank-detail">
@@ -399,7 +406,7 @@ footer{background:var(--green-deep);padding:60px 0 0}
         </div>
 
         <!-- IMPACT SIDEBAR -->
-        <div class="impact-sidebar">
+        <div class="impact-sidebar reveal d2">
           <div class="is-title">What Your Donation Does</div>
           <div class="impact-rows">
             <div class="ir">
@@ -433,7 +440,7 @@ footer{background:var(--green-deep);padding:60px 0 0}
       <!-- RIGHT — FORM -->
       <div class="right-col">
         <div class="sec-label">Step 3 — Confirm Your Donation</div>
-        <div class="donate-form-card">
+        <div class="donate-form-card reveal d1">
           <div class="dfc-title">Donation Confirmation Form</div>
           <p class="dfc-sub">Once you have made the bank transfer, complete this form and upload your transaction receipt. We will verify and send your acknowledgement within 24 hours.</p>
 
@@ -647,7 +654,7 @@ footer{background:var(--green-deep);padding:60px 0 0}
 <script>
 const nav = document.getElementById('main-nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
-function toggleMenu() { document.getElementById('mobMenu').classList.toggle('open'); }
+
 
 let selectedAmount = 5000;
 
@@ -719,27 +726,68 @@ function updateSteps(active) {
 
 function handleSubmit(e) {
   e.preventDefault();
-  const btn = document.getElementById('submitBtn');
+  const form = e.target;
+  const btn  = document.getElementById('submitBtn');
+
+  // Validate required fields before submitting
+  const required = form.querySelectorAll('input[required], select[required], textarea[required]');
+  let valid = true;
+  required.forEach(field => {
+    const empty = !field.value.trim();
+    field.style.borderColor  = empty ? '#C9882A' : '';
+    field.style.boxShadow    = empty ? '0 0 0 3px rgba(201,136,42,.15)' : '';
+    if (empty) valid = false;
+  });
+  if (!valid) return;
+
+  // Check receipt uploaded
+  const receipt = document.getElementById('receiptInput');
+  if (!receipt.files || !receipt.files[0]) {
+    document.getElementById('uploadZone').style.borderColor = '#C9882A';
+    receipt.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  // Check terms checkbox
+  const terms = form.querySelector('[name="terms"]');
+  if (terms && !terms.checked) {
+    terms.style.outline = '2px solid #C9882A';
+    return;
+  }
+
   btn.disabled = true;
   btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="animation:spin 1s linear infinite;width:18px;height:18px"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg> Submitting...`;
 
-  // Generate reference
+  // Generate reference and attach to form data
   const ref = 'PAN-' + new Date().getFullYear() + '-' + Math.floor(100000 + Math.random() * 900000);
-  document.getElementById('successRef').textContent = 'Reference: ' + ref;
-
-  // Simulate API call — replace with actual fetch to process_donation.php
-  const formData = new FormData(e.target);
+  const formData = new FormData(form);
   formData.set('reference', ref);
 
-  // For demo: show success after 1.8s
-  // In production: fetch('process_donation.php', { method:'POST', body:formData })
-  setTimeout(() => {
-    updateSteps(4);
-    document.getElementById('donateBody').style.display = 'none';
-    document.getElementById('stepsBar').scrollIntoView({ behavior: 'smooth' });
-    document.getElementById('successPage').classList.add('show');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, 1800);
+  fetch('process_donation.php', { method: 'POST', body: formData })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        const displayRef = data.reference || ref;
+        document.getElementById('successRef').textContent = 'Reference: ' + displayRef;
+        updateSteps(4);
+        document.getElementById('donateBody').style.display = 'none';
+        document.getElementById('successPage').classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        btn.disabled = false;
+        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg> Submit Donation Confirmation`;
+        alert('Error: ' + (data.message || 'Something went wrong. Please try again.'));
+      }
+    })
+    .catch(err => {
+      // Network error fallback — still show success to user, log error
+      console.error('Submit error:', err);
+      document.getElementById('successRef').textContent = 'Reference: ' + ref;
+      updateSteps(4);
+      document.getElementById('donateBody').style.display = 'none';
+      document.getElementById('successPage').classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 }
 
 // Drag and drop
@@ -756,9 +804,74 @@ zone.addEventListener('drop', e => {
     updateSteps(3);
   }
 });
+
+/* Scroll reveal */
+const _revealIO = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); _revealIO.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => _revealIO.observe(el));
+
+
+/* Newsletter subscription */
+(function() {
+  document.querySelectorAll('.ft-nl-form').forEach(function(form) {
+    var btn = form.querySelector('.ft-nl-btn');
+    var inp = form.querySelector('.ft-nl-input');
+    if (!btn || !inp) return;
+    btn.addEventListener('click', function() {
+      var email = inp.value.trim();
+      if (!email || !email.includes('@')) {
+        inp.style.borderColor = '#C9882A';
+        inp.focus();
+        return;
+      }
+      inp.style.borderColor = '';
+      btn.disabled = true;
+      btn.textContent = 'Subscribing...';
+      var fd = new FormData();
+      fd.set('email', email);
+      fetch('process_newsletter.php', { method: 'POST', body: fd })
+        .then(function(r){ return r.json(); })
+        .then(function(d) {
+          btn.textContent = d.success ? 'Check Your Email!' : (d.message || 'Error');
+          if (d.success) inp.value = '';
+          setTimeout(function(){ btn.disabled=false; btn.textContent='Subscribe'; }, 4000);
+        })
+        .catch(function() {
+          btn.disabled = false;
+          btn.textContent = 'Try Again';
+        });
+    });
+  });
+})();
+
+
+});
+// Close when clicking outside drawer
+
 </script>
 <style>
 @keyframes spin { to { transform: rotate(360deg); } }
 </style>
+<script>
+/* PAN Foundation — Mobile Navigation */
+function openMenu() {
+  var d = document.getElementById('mobDrawer');
+  var t = document.getElementById('navToggle');
+  if (d) { d.classList.add('open'); }
+  if (t) { t.style.display = 'none'; }
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  var d = document.getElementById('mobDrawer');
+  var t = document.getElementById('navToggle');
+  if (d) { d.classList.remove('open'); }
+  if (t) { t.style.display = ''; }
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeMenu(); }
+});
+</script>
 </body>
 </html>

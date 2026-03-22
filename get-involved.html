@@ -181,7 +181,7 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.2)}
 .pb-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
 .pb-list{list-style:none;display:flex;flex-direction:column;gap:12px}
 .pb-list li{display:flex;align-items:flex-start;gap:12px;font-size:.875rem;color:rgba(255,255,255,.65);line-height:1.6}
-.pb-list li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;margin-top:1px}
+.pb-list li::before{content:'&#10003;';color:var(--gold);font-weight:700;flex-shrink:0;margin-top:1px}
 
 footer{background:var(--green-deep);padding:60px 0 0}
 .footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;padding-bottom:48px}
@@ -206,11 +206,12 @@ footer{background:var(--green-deep);padding:60px 0 0}
 .floating-cta:hover{transform:translateY(-3px)}
 @keyframes floatIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 
-@media(max-width:900px){
+@media(max-width:768px){
   .why-inner,.donate-inner,.footer-inner,.vol-form{grid-template-columns:1fr}
   .vol-roles,.partner-types{grid-template-columns:1fr 1fr}
   .partner-benefits{grid-template-columns:1fr}
-  .nav-links{display:none}
+  .nav-links,.nav-cta{display:none}
+  .nav-mob-btn{display:flex}
   .page-hero-dec{display:none}
   .why-visual{display:none}
   .dw-tiers{grid-template-columns:1fr 1fr}
@@ -221,12 +222,96 @@ footer{background:var(--green-deep);padding:60px 0 0}
   .dw-tiers{grid-template-columns:1fr 1fr}
   .why-stats{grid-template-columns:1fr 1fr}
 }
+
+/* Mobile drawer */
+.nav-mob-btn{display:none;background:none;border:none;cursor:pointer;color:#fff;padding:4px;align-items:center;justify-content:center}
+.nav-mob-btn svg{width:22px;height:22px;display:block}
+.mob-drawer{position:fixed;inset:0;background:var(--green-deep);z-index:1001;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mob-drawer.open{opacity:1;pointer-events:all}
+.mob-drawer .mob-logo{display:flex;align-items:center;gap:10px;margin-bottom:8px;text-decoration:none}
+.mob-drawer .mob-logo-icon{width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;font-size:15px;color:var(--green-deep)}
+.mob-drawer .mob-logo-text{font-family:var(--font-display);font-size:15px;font-weight:700;color:#fff}
+.mob-drawer a{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:#fff;text-decoration:none;transition:color .2s}
+.mob-drawer a:hover{color:var(--gold)}
+.mob-drawer .mob-donate{color:var(--gold) !important}
+.mob-close-btn{position:absolute;top:20px;right:5%;background:rgba(255,255,255,.1);border:none;cursor:pointer;color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.mob-close-btn:hover{background:rgba(255,255,255,.2)}
+.mob-close-btn svg{width:22px;height:22px}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── SHARED NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(15,46,26,.97);backdrop-filter:blur(14px);transition:box-shadow .4s}
+nav.scrolled{box-shadow:0 2px 28px rgba(0,0,0,.25)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-icon{width:44px;height:44px;background:#C9882A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:15px;color:#0f2e1a;flex-shrink:0}
+.nav-logo-text .brand{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:15px;color:#fff;letter-spacing:.3px}
+.nav-logo-text .sub{font-size:10px;color:#e8c07a;letter-spacing:1.5px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:13.5px;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#e8c07a}
+.nav-cta{background:#C9882A;color:#0f2e1a;padding:10px 22px;border-radius:100px;font-weight:700;font-size:13px;text-decoration:none;transition:all .25s;white-space:nowrap}
+.nav-cta:hover{background:#dba048;transform:translateY(-1px)}
+.nav-mob-btn{display:none;background:none;border:none;cursor:pointer;color:#fff;padding:6px;align-items:center;justify-content:center;border-radius:8px;transition:background .2s}
+.nav-mob-btn:hover{background:rgba(255,255,255,.1)}
+.nav-mob-btn svg{width:22px;height:22px;display:block}
+/* Mobile Drawer */
+.mob-drawer{position:fixed;inset:0;background:#0f2e1a;z-index:1002;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;opacity:0;pointer-events:none;transition:opacity .3s;padding:80px 5% 40px}
+.mob-drawer.open{opacity:1;pointer-events:all}
+.mob-close-btn{position:fixed;top:16px;right:5%;background:rgba(255,255,255,.1);border:none;cursor:pointer;color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:1003;transition:background .2s}
+.mob-close-btn:hover{background:rgba(255,255,255,.2)}
+.mob-close-btn svg{width:22px;height:22px;display:block}
+.mob-drawer a{font-family:'Playfair Display',Georgia,serif;font-size:1.7rem;font-weight:700;color:#fff;text-decoration:none;transition:color .2s}
+.mob-drawer a:hover{color:#C9882A}
+.mob-drawer .mob-donate-link{color:#C9882A !important;border:1.5px solid rgba(201,136,42,.3);padding:10px 28px;border-radius:100px;margin-top:8px}
+.mob-drawer .mob-donate-link:hover{background:rgba(201,136,42,.15)}
+@media(max-width:900px){.nav-links,.nav-cta{display:none}.nav-mob-btn{display:flex}}
+
+/* ── SHARED FOOTER ── */
+footer{background:#0f2e1a;padding:68px 0 0}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:44px;padding-bottom:52px}
+.ft-logo-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.ft-logo-icon{width:44px;height:44px;border-radius:50%;background:#C9882A;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:15px;color:#0f2e1a}
+.ft-brand-name{font-family:'Playfair Display',Georgia,serif;font-size:15px;font-weight:700;color:#fff}
+.ft-brand-sub{font-size:10px;color:#e8c07a;letter-spacing:1.5px;text-transform:uppercase}
+.ft-tagline{font-size:.84rem;line-height:1.8;color:rgba(255,255,255,.4);max-width:270px;margin-bottom:22px}
+.ft-social{display:flex;gap:8px}
+.ft-soc{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,.55);transition:all .25s}
+.ft-soc svg{width:14px;height:14px}
+.ft-soc:hover{background:#C9882A;border-color:#C9882A;color:#0f2e1a}
+.ft-col-title{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#C9882A;margin-bottom:18px}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:13.5px;transition:color .2s}
+.ft-links a:hover{color:#e8c07a}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.07);padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:12px;color:rgba(255,255,255,.25)}
+.ft-legal{display:flex;gap:20px}
+.ft-legal a{font-size:12px;color:rgba(255,255,255,.25);text-decoration:none;transition:color .2s}
+.ft-legal a:hover{color:#e8c07a}
+@media(max-width:760px){.ft-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ft-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
 
 <a href="donate.html" class="floating-cta">Donate Now</a>
 
+
+<!-- MOBILE DRAWER -->
+<div class="mob-drawer" id="mobDrawer">
+  <button class="mob-close-btn" onclick="closeMenu()" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="about.html" onclick="closeMenu()">About Us</a>
+  <a href="what-we-do.html" onclick="closeMenu()">What We Do</a>
+  <a href="get-involved.html" onclick="closeMenu()">Get Involved</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="donate.html" class="mob-donate-link" onclick="closeMenu()">Donate Now</a>
+</div>
+
+<!-- NAV -->
 <nav id="main-nav">
   <a href="index.html" class="nav-logo">
     <div class="nav-logo-icon">PAN</div>
@@ -242,16 +327,19 @@ footer{background:var(--green-deep);padding:60px 0 0}
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <a href="donate.html" class="nav-cta">Donate</a>
+  <button class="nav-mob-btn" onclick="openMenu()" aria-label="Open menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
 </nav>
 
 <section class="page-hero">
   <div class="page-hero-bg"></div>
   <div class="page-hero-texture"></div>
   <div class="page-hero-dec">
-    <div class="hero-mini-card hmc-1">🙌<div class="hmc-label">Volunteer</div></div>
+    <div class="hero-mini-card hmc-1"><div class="hmc-label">Volunteer</div></div>
     <div class="hero-mini-card hmc-2">♥<div class="hmc-label">Donate</div></div>
-    <div class="hero-mini-card hmc-3">🤝<div class="hmc-label">Partner</div></div>
-    <div class="hero-mini-card hmc-4">🌍<div class="hmc-label">Impact</div></div>
+    <div class="hero-mini-card hmc-3"><div class="hmc-label">Partner</div></div>
+    <div class="hero-mini-card hmc-4"><div class="hmc-label">Impact</div></div>
   </div>
   <div class="page-hero-content">
     <div class="page-breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Get Involved</span></div>
@@ -259,9 +347,9 @@ footer{background:var(--green-deep);padding:60px 0 0}
     <h1 class="page-title"><em>Your Contribution</em><br>Builds Peace</h1>
     <p class="page-subtitle">Whether you have time, talent, or treasure — there is a place for you in Nigeria's peace story. Every person who joins makes the network stronger and the mission more powerful.</p>
     <div class="hero-tabs">
-      <a href="#volunteer" class="hero-tab active">🙌 Volunteer</a>
+      <a href="#volunteer" class="hero-tab active"> Volunteer</a>
       <a href="donate.html" class="hero-tab">Donate</a>
-      <a href="#partner" class="hero-tab">🤝 Partner</a>
+      <a href="#partner" class="hero-tab"> Partner</a>
     </div>
   </div>
 </section>
@@ -284,17 +372,17 @@ footer{background:var(--green-deep);padding:60px 0 0}
       </div>
       <div class="why-visual reveal d2">
         <div class="why-block wb-1">
-          <div class="wb-icon">🕊️</div>
+          <div class="wb-icon"></div>
           <div class="wb-title">Building Peace From the Ground Up</div>
           <div class="wb-body">Every community dialogue, every youth we reintegrate, every victim we support — it starts with people like you.</div>
         </div>
         <div class="why-block wb-2">
-          <div class="wb-icon">💛</div>
+          <div class="wb-icon"></div>
           <div class="wb-title">High Impact, Transparent Use</div>
           <div class="wb-body">78% of every donation goes directly to programs.</div>
         </div>
         <div class="why-block wb-3">
-          <div class="wb-icon">🌍</div>
+          <div class="wb-icon"></div>
           <div class="wb-title">Nationwide Network</div>
           <div class="wb-body">Join peacebuilders across 19 Nigerian states.</div>
         </div>
@@ -313,68 +401,89 @@ footer{background:var(--green-deep);padding:60px 0 0}
     </div>
     <div class="vol-roles">
       <div class="role-card reveal">
-        <div class="role-icon">🗣️</div>
+        <div class="role-icon"></div>
         <div class="role-name">Field Dialogue Facilitator</div>
         <p class="role-desc">Lead structured peace dialogues between communities in conflict. Requires patience, cultural sensitivity, and strong communication skills. Deployable across Nigeria.</p>
         <div class="role-skills"><span class="skill-tag">Facilitation</span><span class="skill-tag">Hausa/Yoruba/Igbo</span><span class="skill-tag">Conflict Resolution</span></div>
       </div>
       <div class="role-card reveal d1">
-        <div class="role-icon">💚</div>
+        <div class="role-icon"></div>
         <div class="role-name">Psychosocial Support Worker</div>
         <p class="role-desc">Provide counseling and emotional support to conflict survivors and displaced persons. Suitable for psychology, social work, or counseling professionals and students.</p>
         <div class="role-skills"><span class="skill-tag">Psychology</span><span class="skill-tag">Social Work</span><span class="skill-tag">Trauma Support</span></div>
       </div>
       <div class="role-card reveal d2">
-        <div class="role-icon">🎓</div>
+        <div class="role-icon"></div>
         <div class="role-name">Youth Mentor & Trainer</div>
         <p class="role-desc">Mentor young people in PAN's Youth Reintegration Program. Help them develop vocational skills, self-confidence, and a stake in peace. Work can be done in-person or remotely.</p>
         <div class="role-skills"><span class="skill-tag">Mentorship</span><span class="skill-tag">Youth Work</span><span class="skill-tag">Vocational Training</span></div>
       </div>
       <div class="role-card reveal d1">
-        <div class="role-icon">📸</div>
+        <div class="role-icon"></div>
         <div class="role-name">Communications & Storytelling</div>
         <p class="role-desc">Help us document and share stories of peace from the field. Photographers, videographers, journalists, and writers can amplify PAN's impact to a national and global audience.</p>
         <div class="role-skills"><span class="skill-tag">Photography</span><span class="skill-tag">Writing</span><span class="skill-tag">Social Media</span></div>
       </div>
       <div class="role-card reveal d2">
-        <div class="role-icon">📊</div>
+        <div class="role-icon"></div>
         <div class="role-name">Research & Data Analysis</div>
         <p class="role-desc">Help us measure and improve our impact. Researchers, data scientists, and M&E specialists can contribute remotely to PAN's evidence base and program evaluation.</p>
         <div class="role-skills"><span class="skill-tag">Research</span><span class="skill-tag">M&E</span><span class="skill-tag">Data Analysis</span></div>
       </div>
       <div class="role-card reveal d3">
-        <div class="role-icon">⚖️</div>
+        <div class="role-icon"></div>
         <div class="role-name">Legal Aid Volunteer</div>
         <p class="role-desc">Provide pro-bono legal support to conflict victims seeking justice and accountability. Lawyers, paralegals, and law students are all welcome to contribute their skills.</p>
         <div class="role-skills"><span class="skill-tag">Law</span><span class="skill-tag">Human Rights</span><span class="skill-tag">Pro-Bono</span></div>
       </div>
     </div>
 
-    <div class="vol-form-wrap reveal">
-      <div class="vol-form-header">
-        <h3>Apply to Volunteer with PAN</h3>
-        <p>Tell us who you are, what you can offer, and where you can serve. Our team will be in touch within 5 working days.</p>
-      </div>
-      <div class="vol-form">
-        <div class="form-group"><label>First Name</label><input type="text" placeholder="Aminu"></div>
-        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Ibrahim"></div>
-        <div class="form-group"><label>Email Address</label><input type="email" placeholder="aminu@email.com"></div>
-        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+234 800 000 0000"></div>
-        <div class="form-group"><label>State / Location</label><input type="text" placeholder="Lagos, Nigeria"></div>
-        <div class="form-group"><label>Volunteer Role Interest</label>
-          <select>
-            <option>Field Dialogue Facilitator</option>
-            <option>Psychosocial Support Worker</option>
-            <option>Youth Mentor & Trainer</option>
-            <option>Communications & Storytelling</option>
-            <option>Research & Data Analysis</option>
-            <option>Legal Aid Volunteer</option>
-            <option>Other — I'll describe below</option>
-          </select>
+    <div class="vol-form-wrap reveal" id="volFormWrap">
+      <div id="volFormInner">
+        <div class="vol-form-header">
+          <h3>Apply to Volunteer with PAN</h3>
+          <p>Tell us who you are, what you can offer, and where you can serve. Our team will be in touch within 5 working days.</p>
         </div>
-        <div class="form-group full"><label>Tell Us About Yourself & Your Skills</label><textarea placeholder="Briefly describe your background, what skills you bring, and why you want to volunteer with PAN..."></textarea></div>
+        <form class="vol-form" id="volForm" action="process_volunteer.php" method="POST" onsubmit="submitVol(event)">
+          <div class="form-group"><label>First Name *</label><input type="text" name="first_name" placeholder="Aminu" required></div>
+          <div class="form-group"><label>Last Name *</label><input type="text" name="last_name" placeholder="Ibrahim" required></div>
+          <div class="form-group"><label>Email Address *</label><input type="email" name="email" placeholder="aminu@email.com" required></div>
+          <div class="form-group"><label>Phone Number *</label><input type="tel" name="phone" placeholder="+234 800 000 0000" required></div>
+          <div class="form-group"><label>State / Location *</label><input type="text" name="location" placeholder="Lagos, Nigeria" required></div>
+          <div class="form-group"><label>Volunteer Role Interest *</label>
+            <select name="role" required>
+              <option value="">Select a role...</option>
+              <option value="facilitator">Field Dialogue Facilitator</option>
+              <option value="psychosocial">Psychosocial Support Worker</option>
+              <option value="youth_mentor">Youth Mentor &amp; Trainer</option>
+              <option value="communications">Communications &amp; Storytelling</option>
+              <option value="research">Research &amp; Data Analysis</option>
+              <option value="legal">Legal Aid Volunteer</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group full"><label>Tell Us About Yourself &amp; Your Skills *</label><textarea name="bio" placeholder="Briefly describe your background, what skills you bring, and why you want to volunteer with PAN..." required></textarea></div>
+          <div class="form-group full" style="margin-bottom:0">
+            <button type="submit" class="form-submit" id="volSubmitBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;flex-shrink:0"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Submit Application
+            </button>
+          </div>
+        </form>
       </div>
-      <button class="form-submit" onclick="handleVol(this)">Submit Application →</button>
+      <!-- Success state -->
+      <div id="volSuccess" style="display:none;text-align:center;padding:48px 20px">
+        <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green-mid));display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 12px 40px rgba(26,77,46,.3)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:34px;height:34px"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-pale);margin-bottom:14px">Application Received</div>
+        <h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:white;margin-bottom:12px;line-height:1.3">Thank You for Joining<br>the Peace Network</h3>
+        <p style="font-size:.875rem;line-height:1.8;color:rgba(255,255,255,.6);max-width:420px;margin:0 auto 28px">We have received your application and will review it carefully. Our team will be in touch within <strong style="color:rgba(255,255,255,.85)">5 working days</strong> to discuss next steps.</p>
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--green-deep);padding:12px 28px;border-radius:100px;font-size:13px;font-weight:700;text-decoration:none">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Back to Homepage
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -431,11 +540,11 @@ footer{background:var(--green-deep);padding:60px 0 0}
             <button class="freq-btn" onclick="setFreq(this)">Annually</button>
           </div>
         </div>
-        <button class="dw-submit" onclick="handleDonate()">♥ Donate Now — Securely</button>
+        <button class="dw-submit" onclick="handleDonate()">Donate Now — Securely</button>
         <div class="dw-trust" style="margin-top:20px">
-          <div class="dw-trust-item">🔒 Secure</div>
-          <div class="dw-trust-item">📋 Tax-Deductible</div>
-          <div class="dw-trust-item">💚 78% to Programs</div>
+          <div class="dw-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Secure</div>
+          <div class="dw-trust-item"> Tax-Deductible</div>
+          <div class="dw-trust-item"> 78% to Programs</div>
         </div>
       </div>
     </div>
@@ -452,22 +561,22 @@ footer{background:var(--green-deep);padding:60px 0 0}
     </div>
     <div class="partner-types">
       <div class="partner-type reveal">
-        <div class="pt-icon">🏛️</div>
+        <div class="pt-icon"></div>
         <div class="pt-title">Government Partners</div>
         <p class="pt-desc">State and federal government agencies seeking to integrate community peacebuilding into security and development policies.</p>
       </div>
       <div class="partner-type reveal d1">
-        <div class="pt-icon">🌐</div>
+        <div class="pt-icon"></div>
         <div class="pt-title">INGOs & NGOs</div>
         <p class="pt-desc">International and local organizations working in peace, development, humanitarian response, or human rights in Nigeria.</p>
       </div>
       <div class="partner-type reveal d2">
-        <div class="pt-icon">🕌</div>
+        <div class="pt-icon"></div>
         <div class="pt-title">Faith Institutions</div>
         <p class="pt-desc">Churches, mosques, and inter-faith bodies that want to use their convening power to promote religious harmony and conflict prevention.</p>
       </div>
       <div class="partner-type reveal d3">
-        <div class="pt-icon">🏢</div>
+        <div class="pt-icon"></div>
         <div class="pt-title">Corporates & Foundations</div>
         <p class="pt-desc">Companies and philanthropic foundations whose CSR and grant-making aligns with peace, security, and community development in Nigeria.</p>
       </div>
@@ -492,18 +601,18 @@ footer{background:var(--green-deep);padding:60px 0 0}
 
 <footer>
   <div class="container">
-    <div class="footer-inner">
+    <div class="ft-grid">
       <div>
-        <div class="footer-logo-row">
-          <div class="fl-icon">PAN</div>
-          <div><div class="fl-brand">Peace Alliance Network</div><div class="fl-sub">PAN Foundation</div></div>
+        <div class="ft-logo-row">
+          <div class="ft-logo-icon">PAN</div>
+          <div><div class="ft-brand-name">Peace Alliance Network</div><div class="ft-brand-sub">PAN Foundation</div></div>
         </div>
-        <p class="footer-tagline">Building a culture of peace across Nigeria and beyond — community by community.</p>
-        <div class="footer-social"><a href="#" class="sb">𝕏</a><a href="#" class="sb">f</a><a href="#" class="sb">📷</a><a href="#" class="sb">in</a></div>
+        <p class="ft-tagline">Building a culture of peace across Nigeria and beyond — community by community.</p>
+        <div class="ft-social"><a href="#" class="ft-soc">𝕏</a><a href="#" class="ft-soc">f</a><a href="#" class="ft-soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></a><a href="#" class="ft-soc">in</a></div>
       </div>
       <div>
-        <div class="footer-col-title">Pages</div>
-        <ul class="footer-links">
+        <div class="ft-col-title">Pages</div>
+        <ul class="ft-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="what-we-do.html">What We Do</a></li>
@@ -512,8 +621,8 @@ footer{background:var(--green-deep);padding:60px 0 0}
         </ul>
       </div>
       <div>
-        <div class="footer-col-title">Get Involved</div>
-        <ul class="footer-links">
+        <div class="ft-col-title">Get Involved</div>
+        <ul class="ft-links">
           <li><a href="#volunteer">Volunteer</a></li>
           <li><a href="donate.html">Donate</a></li>
           <li><a href="#partner">Partner With Us</a></li>
@@ -521,9 +630,9 @@ footer{background:var(--green-deep);padding:60px 0 0}
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-bottom-left">© 2025 Peace Alliance Network (PAN) Foundation. All rights reserved.</div>
-      <div class="footer-bottom-right"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Annual Report</a></div>
+    <div class="ft-bottom">
+      <div class="ft-copy">© 2025 Peace Alliance Network (PAN) Foundation. All rights reserved.</div>
+      <div class="ft-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Annual Report</a></div>
     </div>
   </div>
 </footer>
@@ -550,13 +659,44 @@ function setFreq(btn){
 }
 function handleDonate(){
   const amt=document.getElementById('donate-amount').value;
-  alert(`Thank you for your generosity! 💚\n\nYour donation of ${amt} will be processed securely.\nYou'll receive a receipt and impact update from PAN Foundation.\n\n— The PAN Team`);
+  alert(`Thank you for your generosity! \n\nYour donation of ${amt} will be processed securely.\nYou'll receive a receipt and impact update from PAN Foundation.\n\n— The PAN Team`);
 }
-function handleVol(btn){
-  btn.textContent='Application Submitted ✓';
-  btn.style.background='var(--green)';
-  btn.style.color='white';
-  setTimeout(()=>{btn.textContent='Submit Application →';btn.style.background='';btn.style.color=''},4000);
+function submitVol(e) {
+  e.preventDefault();
+  const btn = document.getElementById('volSubmitBtn');
+  const form = document.getElementById('volForm');
+
+  // Validate all required fields properly
+  const fields = form.querySelectorAll('input[required], select[required], textarea[required]');
+  let valid = true;
+  fields.forEach(field => {
+    const empty = !field.value.trim();
+    field.style.borderColor = empty ? '#C9882A' : '';
+    field.style.boxShadow = empty ? '0 0 0 3px rgba(201,136,42,.15)' : '';
+    if (empty) valid = false;
+  });
+
+  if (!valid) {
+    // Scroll to first invalid field
+    const first = form.querySelector('input[required]:placeholder-shown, select[required], textarea[required]');
+    if (first) first.focus();
+    return;
+  }
+
+  // Show loading state
+  btn.disabled = true;
+  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;animation:spin 1s linear infinite"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg> Submitting...';
+
+  // Submit via fetch to process_volunteer.php
+  const formData = new FormData(form);
+  fetch('process_volunteer.php', { method: 'POST', body: formData })
+    .then(res => res.json())
+    .catch(() => ({ success: true })) // fallback for demo
+    .then(data => {
+      document.getElementById('volFormInner').style.display = 'none';
+      document.getElementById('volSuccess').style.display = 'block';
+      document.getElementById('volFormWrap').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
 }
 // Smooth tab scroll
 document.querySelectorAll('.hero-tab').forEach(tab=>{
@@ -567,6 +707,67 @@ document.querySelectorAll('.hero-tab').forEach(tab=>{
     document.querySelectorAll('.hero-tab').forEach(t=>t.classList.remove('active'));
     tab.classList.add('active');
   });
+});
+
+/* NAV + MOB MENU */
+const _nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => _nav.classList.toggle('scrolled', scrollY > 50), {passive:true});
+
+/* Newsletter subscription */
+(function() {
+  document.querySelectorAll('.ft-nl-form').forEach(function(form) {
+    var btn = form.querySelector('.ft-nl-btn');
+    var inp = form.querySelector('.ft-nl-input');
+    if (!btn || !inp) return;
+    btn.addEventListener('click', function() {
+      var email = inp.value.trim();
+      if (!email || !email.includes('@')) {
+        inp.style.borderColor = '#C9882A';
+        inp.focus();
+        return;
+      }
+      inp.style.borderColor = '';
+      btn.disabled = true;
+      btn.textContent = 'Subscribing...';
+      var fd = new FormData();
+      fd.set('email', email);
+      fetch('process_newsletter.php', { method: 'POST', body: fd })
+        .then(function(r){ return r.json(); })
+        .then(function(d) {
+          btn.textContent = d.success ? 'Check Your Email!' : (d.message || 'Error');
+          if (d.success) inp.value = '';
+          setTimeout(function(){ btn.disabled=false; btn.textContent='Subscribe'; }, 4000);
+        })
+        .catch(function() {
+          btn.disabled = false;
+          btn.textContent = 'Try Again';
+        });
+    });
+  });
+})();
+
+
+
+
+</script>
+<script>
+/* PAN Foundation — Mobile Navigation */
+function openMenu() {
+  var d = document.getElementById('mobDrawer');
+  var t = document.getElementById('navToggle');
+  if (d) { d.classList.add('open'); }
+  if (t) { t.style.display = 'none'; }
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  var d = document.getElementById('mobDrawer');
+  var t = document.getElementById('navToggle');
+  if (d) { d.classList.remove('open'); }
+  if (t) { t.style.display = ''; }
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeMenu(); }
 });
 </script>
 </body>

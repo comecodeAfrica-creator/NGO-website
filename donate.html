@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Donate — Peace Alliance Network (PAN) Foundation</title>
-<meta name="description" content="Support PAN Foundation's peacebuilding mission in Nigeria. Make a bank transfer and confirm your donation to receive your receipt.">
+<title>Donate — TarabaPeaceInitiative (TPI) Foundation</title>
+<meta name="description" content="Support TPI Foundation's peacebuilding mission in Nigeria. Make a bank transfer and confirm your donation to receive your receipt.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -28,17 +28,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5%;display:flex;a
 nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.25)}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .nav-logo-icon{width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;font-size:15px;color:var(--green-deep)}
+.nav-logo-icon img, .ft-logo-icon img{width:100%;height:100%;object-fit:contain;display:block;}
 .nav-logo-text .brand{font-family:var(--font-display);font-weight:700;font-size:15px;color:#fff}
-.nav-logo-text .sub{font-size:10px;color:var(--gold-pale);letter-spacing:1.5px;text-transform:uppercase}
+.nav-logo-text .sub{font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:13.5px;font-weight:500;transition:color .2s}
-.nav-links a:hover{color:var(--gold-pale)}
+.nav-links a:hover{color:#fff}
 .nav-mob-btn{display:none;background:none;border:none;cursor:pointer;color:white;padding:4px}
 .nav-mob-btn svg{width:22px;height:22px}
 .mob-menu{display:none;position:fixed;inset:0;background:var(--green-deep);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px}
 .mob-menu.open{display:flex}
 .mob-menu a{color:white;text-decoration:none;font-family:var(--font-display);font-size:1.6rem;font-weight:700}
-.mob-menu a:hover{color:var(--gold)}
+.mob-menu a:hover{color:#fff}
 .mob-close{position:absolute;top:24px;right:5%;background:none;border:none;cursor:pointer;color:white}
 .mob-close svg{width:28px;height:28px}
 
@@ -47,9 +48,9 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.25)}
 .donate-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 60%,rgba(201,136,42,.1) 0%,transparent 60%),linear-gradient(135deg,#0a1f10 0%,#1A4D2E 50%,#0f2e1a 100%)}
 .donate-hero-texture{position:absolute;inset:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E")}
 .donate-hero-content{position:relative;z-index:2;max-width:680px}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(201,136,42,.15);border:1px solid rgba(201,136,42,.28);border-radius:100px;padding:5px 15px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold-pale);margin-bottom:20px;animation:fadeUp .7s ease .1s both}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(201,136,42,.15);border:1px solid rgba(201,136,42,.28);border-radius:100px;padding:5px 15px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#fff;margin-bottom:20px;animation:fadeUp .7s ease .1s both}
 .hero-title{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.05;margin-bottom:18px;animation:fadeUp .7s ease .2s both}
-.hero-title em{font-style:italic;color:var(--gold)}
+.hero-title em{font-style:italic;color:#fff}
 .hero-sub{font-size:1.05rem;line-height:1.8;color:rgba(255,255,255,.6);animation:fadeUp .7s ease .3s both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
@@ -58,7 +59,7 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.25)}
 .step-item{display:flex;align-items:center;gap:10px}
 .step-circle{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;border:2px solid var(--sage-mid);color:var(--charcoal-light);transition:all .4s;flex-shrink:0}
 .step-circle.active{background:var(--green);border-color:var(--green);color:#fff}
-.step-circle.done{background:var(--gold);border-color:var(--gold);color:var(--green-deep)}
+.step-circle.done{background:var(--gold);border-color:#fff;color:var(--green-deep)}
 .step-circle.done svg{width:14px;height:14px}
 .step-label{font-size:12px;font-weight:600;color:var(--charcoal-light);transition:color .4s;white-space:nowrap}
 .step-label.active{color:var(--green)}
@@ -72,7 +73,7 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.25)}
 
 /* LEFT — ACCOUNT + IMPACT */
 .left-col{}
-.sec-label{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.sec-label{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#fff;margin-bottom:14px}
 .sec-label::before{content:'';display:block;width:22px;height:1.5px;background:var(--gold)}
 
 /* AMOUNT PICKER */
@@ -105,21 +106,21 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.25)}
 .copy-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:8px;background:var(--sage);border:1px solid var(--sage-mid);cursor:pointer;font-size:12px;font-weight:600;color:var(--green);transition:all .25s;white-space:nowrap;font-family:var(--font-body)}
 .copy-btn svg{width:14px;height:14px;flex-shrink:0}
 .copy-btn:hover{background:var(--green);color:#fff;border-color:var(--green)}
-.copy-btn.copied{background:var(--gold);color:var(--green-deep);border-color:var(--gold)}
+.copy-btn.copied{background:var(--gold);color:var(--green-deep);border-color:#fff}
 .ac-note{margin-top:20px;padding:14px 16px;border-radius:10px;background:rgba(201,136,42,.08);border:1px solid rgba(201,136,42,.2);display:flex;align-items:flex-start;gap:10px}
-.ac-note-icon{width:18px;height:18px;color:var(--gold);flex-shrink:0;margin-top:1px}
+.ac-note-icon{width:18px;height:18px;color:#fff;flex-shrink:0;margin-top:1px}
 .ac-note-icon svg{width:100%;height:100%}
 .ac-note-text{font-size:.825rem;line-height:1.65;color:var(--charcoal-light)}
-.ac-note-text strong{color:var(--gold);font-weight:600}
+.ac-note-text strong{color:#fff;font-weight:600}
 
 /* IMPACT SIDEBAR */
 .impact-sidebar{background:var(--green-deep);border-radius:22px;padding:32px;margin-bottom:28px}
 .is-title{font-family:var(--font-display);font-size:1rem;font-weight:700;color:#fff;margin-bottom:18px}
 .impact-rows{display:flex;flex-direction:column;gap:12px}
 .ir{display:flex;align-items:flex-start;gap:12px}
-.ir-icon{width:36px;height:36px;border-radius:10px;background:rgba(201,136,42,.15);border:1px solid rgba(201,136,42,.2);display:flex;align-items:center;justify-content:center;color:var(--gold);flex-shrink:0}
+.ir-icon{width:36px;height:36px;border-radius:10px;background:rgba(201,136,42,.15);border:1px solid rgba(201,136,42,.2);display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
 .ir-icon svg{width:16px;height:16px}
-.ir-amount{font-size:.85rem;font-weight:700;color:var(--gold)}
+.ir-amount{font-size:.85rem;font-weight:700;color:#fff}
 .ir-desc{font-size:.8rem;color:rgba(255,255,255,.5);margin-top:2px;line-height:1.5}
 
 /* RIGHT — FORM */
@@ -131,7 +132,7 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.25)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
 .fg label{font-size:12px;font-weight:600;color:var(--charcoal);letter-spacing:.3px}
-.fg label span.req{color:var(--gold)}
+.fg label span.req{color:#fff}
 .fg input,.fg select,.fg textarea{padding:12px 16px;border-radius:12px;border:1.5px solid var(--sage-mid);font-size:14px;font-family:var(--font-body);color:var(--charcoal);background:var(--ivory);outline:none;transition:border-color .25s,box-shadow .25s}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(26,77,46,.07)}
 .fg input::placeholder,.fg textarea::placeholder{color:rgba(44,44,44,.3)}
@@ -177,9 +178,9 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.25)}
 .success-anim{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green-mid));display:flex;align-items:center;justify-content:center;margin:0 auto 32px;animation:successPop .6s cubic-bezier(.175,.885,.32,1.275) both;box-shadow:0 16px 50px rgba(26,77,46,.3)}
 .success-anim svg{width:48px;height:48px;color:#fff}
 @keyframes successPop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
-.success-eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.success-eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;margin-bottom:16px}
 .success-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--green-deep);line-height:1.2;margin-bottom:18px}
-.success-title em{font-style:italic;color:var(--gold)}
+.success-title em{font-style:italic;color:#fff}
 .success-body{font-size:1rem;line-height:1.85;color:var(--charcoal-light);max-width:520px;margin-bottom:40px}
 .success-ref{display:inline-block;padding:12px 28px;border-radius:100px;background:var(--sage);border:1px solid var(--sage-mid);font-family:var(--font-display);font-size:.9rem;font-weight:700;color:var(--green-deep);letter-spacing:1px;margin-bottom:40px}
 .success-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
@@ -199,21 +200,21 @@ footer{background:var(--green-deep);padding:60px 0 0}
 .ft-logo-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
 .ft-logo-icon{width:44px;height:44px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;font-size:15px;color:var(--green-deep)}
 .ft-brand{font-family:var(--font-display);font-size:15px;font-weight:700;color:#fff}
-.ft-sub{font-size:10px;color:var(--gold-pale);letter-spacing:1.5px;text-transform:uppercase}
+.ft-sub{font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase}
 .ft-tagline{font-size:.85rem;line-height:1.75;color:rgba(255,255,255,.4);max-width:280px;margin-bottom:20px}
 .ft-social{display:flex;gap:8px}
 .soc-btn{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,.6);transition:all .25s}
 .soc-btn svg{width:15px;height:15px}
-.soc-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--green-deep)}
-.ft-col-title{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.soc-btn:hover{background:var(--gold);border-color:#fff;color:var(--green-deep)}
+.ft-col-title{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#fff;margin-bottom:18px}
 .ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
 .ft-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:13.5px;transition:color .2s}
-.ft-links a:hover{color:var(--gold-pale)}
+.ft-links a:hover{color:#fff}
 .ft-bottom{border-top:1px solid rgba(255,255,255,.07);padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .ft-copy{font-size:12px;color:rgba(255,255,255,.28)}
 .ft-legal{display:flex;gap:20px}
 .ft-legal a{font-size:12px;color:rgba(255,255,255,.28);text-decoration:none}
-.ft-legal a:hover{color:var(--gold-pale)}
+.ft-legal a:hover{color:#fff}
 
 @media(max-width:768px){
   .donate-layout{grid-template-columns:1fr}
@@ -253,11 +254,11 @@ footer{background:var(--green-deep);padding:60px 0 0}
 </div>
 
 <nav id="main-nav">
-  <a href="index.html" class="nav-logo">
-    <div class="nav-logo-icon">PAN</div>
+  <a href="get-involved.html" class="nav-logo">
+    <div class="nav-logo-icon"><img src="image/taraba.png" alt="TarabaPeaceInitiative logo" class="nav-logo-img"></div>
     <div class="nav-logo-text">
-      <div class="brand">Peace Alliance Network</div>
-      <div class="sub">PAN Foundation</div>
+      <div class="brand">TarabaPeaceInitiative</div>
+      <div class="sub">TPI Foundation</div>
     </div>
   </a>
   <ul class="nav-links">
@@ -279,289 +280,25 @@ footer{background:var(--green-deep);padding:60px 0 0}
   <div class="donate-hero-content">
     <div class="hero-eyebrow">Make a Difference</div>
     <h1 class="hero-title">Your Gift <em>Builds Peace</em></h1>
-    <p class="hero-sub">Transfer to our account, upload your receipt, and we'll confirm your donation within 24 hours. Every naira goes directly to peacebuilding in Nigerian communities.</p>
+    <p class="hero-sub">Give instantly via GiveSe: <strong>www.givese.com/donate/tphdi</strong>. Scan the barcode or click the button below; the bank transfer form is currently disabled.</p>
   </div>
 </section>
 
 <!-- STEPS BAR -->
-<div class="steps-bar" id="stepsBar">
-  <div class="step-item">
-    <div class="step-circle active" id="step1c">1</div>
-    <div class="step-label active" id="step1l">Choose Amount</div>
-  </div>
-  <div class="step-connector" id="conn1"></div>
-  <div class="step-item">
-    <div class="step-circle" id="step2c">2</div>
-    <div class="step-label" id="step2l">Transfer Funds</div>
-  </div>
-  <div class="step-connector" id="conn2"></div>
-  <div class="step-item">
-    <div class="step-circle" id="step3c">3</div>
-    <div class="step-label" id="step3l">Upload Receipt</div>
-  </div>
-  <div class="step-connector" id="conn3"></div>
-  <div class="step-item">
-    <div class="step-circle" id="step4c">4</div>
-    <div class="step-label" id="step4l">Confirmation</div>
-  </div>
-</div>
-
-<!-- MAIN DONATE BODY -->
-<div class="donate-body" id="donateBody">
-  <div class="container">
-    <div class="donate-layout">
-
-      <!-- LEFT -->
-      <div class="left-col">
-        <!-- AMOUNT PICKER -->
-        <div class="sec-label">Step 1 — Select Amount</div>
-        <div class="amount-picker reveal">
-          <div class="ap-title">How much would you like to donate?</div>
-          <div class="ap-sub">Choose a suggested amount or enter your own. All amounts in Nigerian Naira (NGN).</div>
-          <div class="tier-grid">
-            <button class="tier-btn" onclick="pickTier(this,'1000')">
-              <span class="tier-amount">₦1,000</span>
-              <span class="tier-desc">Dialogue materials for one community session</span>
-            </button>
-            <button class="tier-btn active" onclick="pickTier(this,'5000')">
-              <span class="tier-amount">₦5,000</span>
-              <span class="tier-desc">Supports one youth for one week of reintegration</span>
-            </button>
-            <button class="tier-btn" onclick="pickTier(this,'10000')">
-              <span class="tier-amount">₦10,000</span>
-              <span class="tier-desc">Funds a full community peace dialogue session</span>
-            </button>
-            <button class="tier-btn" onclick="pickTier(this,'25000')">
-              <span class="tier-amount">₦25,000</span>
-              <span class="tier-desc">Trains one local peacebuilder for the field</span>
-            </button>
-            <button class="tier-btn" onclick="pickTier(this,'50000')">
-              <span class="tier-amount">₦50,000</span>
-              <span class="tier-desc">Runs a full week of community programming</span>
-            </button>
-            <button class="tier-btn" onclick="pickTier(this,'100000')">
-              <span class="tier-amount">₦100,000</span>
-              <span class="tier-desc">Sponsors one field peacebuilder for a full month</span>
-            </button>
-          </div>
-          <div class="custom-row">
-            <div class="custom-prefix">NGN</div>
-            <input type="text" class="custom-input" id="customAmount" placeholder="Enter custom amount" oninput="handleCustom(this)">
-          </div>
-        </div>
-
-        <!-- ACCOUNT DETAILS -->
-        <div class="sec-label">Step 2 — Transfer to This Account</div>
-        <div class="account-card reveal d1">
-          <div class="ac-title">PAN Foundation Bank Account</div>
-          <div class="ac-sub">Make a direct bank transfer using the details below. Use your full name as the payment reference.</div>
-          <div class="bank-detail">
-            <div class="bd-row">
-              <div>
-                <div class="bd-label">Bank Name</div>
-                <div class="bd-value">Zenith Bank Plc</div>
-              </div>
-              <button class="copy-btn" onclick="copyText(this,'Zenith Bank Plc')">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                Copy
-              </button>
-            </div>
-            <div class="bd-row">
-              <div>
-                <div class="bd-label">Account Name</div>
-                <div class="bd-value">Peace Alliance Network Foundation</div>
-              </div>
-              <button class="copy-btn" onclick="copyText(this,'Peace Alliance Network Foundation')">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                Copy
-              </button>
-            </div>
-            <div class="bd-row">
-              <div>
-                <div class="bd-label">Account Number</div>
-                <div class="bd-value bd-accnum">1234567890</div>
-              </div>
-              <button class="copy-btn" id="mainCopyBtn" onclick="copyText(this,'1234567890')">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                Copy
-              </button>
-            </div>
-            <div class="bd-row">
-              <div>
-                <div class="bd-label">Sort Code</div>
-                <div class="bd-value">057 — 150001</div>
-              </div>
-              <button class="copy-btn" onclick="copyText(this,'057150001')">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                Copy
-              </button>
-            </div>
-          </div>
-          <div class="ac-note">
-            <div class="ac-note-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            </div>
-            <p class="ac-note-text"><strong>Important:</strong> Use your full name as the payment narration/reference so we can match your transfer. After completing the transfer, fill the confirmation form on the right and upload your receipt.</p>
-          </div>
-        </div>
-
-        <!-- IMPACT SIDEBAR -->
-        <div class="impact-sidebar reveal d2">
-          <div class="is-title">What Your Donation Does</div>
-          <div class="impact-rows">
-            <div class="ir">
-              <div class="ir-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-              </div>
-              <div><div class="ir-amount">78%</div><div class="ir-desc">Goes directly to field programs and community peacebuilding</div></div>
-            </div>
-            <div class="ir">
-              <div class="ir-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              </div>
-              <div><div class="ir-amount">12%</div><div class="ir-desc">Funds policy advocacy and government engagement</div></div>
-            </div>
-            <div class="ir">
-              <div class="ir-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
-              </div>
-              <div><div class="ir-amount">7%</div><div class="ir-desc">Staff training and organizational capacity building</div></div>
-            </div>
-            <div class="ir">
-              <div class="ir-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-              </div>
-              <div><div class="ir-amount">3%</div><div class="ir-desc">Administration and organizational running costs</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT — FORM -->
-      <div class="right-col">
-        <div class="sec-label">Step 3 — Confirm Your Donation</div>
-        <div class="donate-form-card reveal d1">
-          <div class="dfc-title">Donation Confirmation Form</div>
-          <p class="dfc-sub">Once you have made the bank transfer, complete this form and upload your transaction receipt. We will verify and send your acknowledgement within 24 hours.</p>
-
-          <!-- Amount Confirm Display -->
-          <div class="amount-confirm">
-            <div class="amc-label">Donation Amount</div>
-            <div class="amc-value" id="amtDisplay">₦5,000</div>
-          </div>
-
-          <form id="donateForm" action="process_donation.php" method="POST" enctype="multipart/form-data" onsubmit="handleSubmit(event)">
-            <input type="hidden" name="amount" id="hiddenAmount" value="5000">
-            <input type="hidden" name="csrf_token" value="<?php echo isset($_SESSION['csrf']) ? $_SESSION['csrf'] : 'FORM_TOKEN'; ?>">
-
-            <div class="form-row">
-              <div class="fg">
-                <label>First Name <span class="req">*</span></label>
-                <input type="text" name="first_name" placeholder="Aminu" required>
-              </div>
-              <div class="fg">
-                <label>Last Name <span class="req">*</span></label>
-                <input type="text" name="last_name" placeholder="Ibrahim" required>
-              </div>
-            </div>
-
-            <div class="fg">
-              <label>Email Address <span class="req">*</span></label>
-              <input type="email" name="email" placeholder="aminu@email.com" required>
-            </div>
-
-            <div class="fg">
-              <label>Phone Number <span class="req">*</span></label>
-              <input type="tel" name="phone" placeholder="+234 800 000 0000" required>
-            </div>
-
-            <div class="form-row">
-              <div class="fg">
-                <label>Bank You Transferred From <span class="req">*</span></label>
-                <select name="sender_bank" required>
-                  <option value="">Select your bank</option>
-                  <option>Access Bank</option>
-                  <option>GTBank</option>
-                  <option>First Bank</option>
-                  <option>UBA</option>
-                  <option>Zenith Bank</option>
-                  <option>Opay</option>
-                  <option>Kuda Bank</option>
-                  <option>Palmpay</option>
-                  <option>Union Bank</option>
-                  <option>Stanbic IBTC</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div class="fg">
-                <label>Transaction Reference / ID <span class="req">*</span></label>
-                <input type="text" name="transaction_ref" placeholder="e.g. FBN2025031201234" required>
-              </div>
-            </div>
-
-            <div class="fg">
-              <label>Date &amp; Time of Transfer <span class="req">*</span></label>
-              <input type="datetime-local" name="transfer_date" required>
-            </div>
-
-            <div class="fg">
-              <label>Message / Dedication (Optional)</label>
-              <textarea name="message" placeholder="Leave a message, dedication, or let us know what inspired your donation..."></textarea>
-            </div>
-
-            <!-- RECEIPT UPLOAD -->
-            <div class="fg">
-              <label>Upload Transaction Receipt <span class="req">*</span></label>
-              <div class="upload-zone" id="uploadZone">
-                <input type="file" name="receipt" id="receiptInput" accept=".jpg,.jpeg,.png,.pdf" onchange="handleFile(this)">
-                <div class="uz-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/></svg>
-                </div>
-                <div class="uz-title">Click to upload or drag &amp; drop</div>
-                <div class="uz-sub">JPG, PNG or PDF — max 5MB</div>
-                <div class="uz-preview" id="uzPreview">
-                  <div class="uz-file-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                  </div>
-                  <div class="uz-file-name" id="uzFileName">receipt.jpg</div>
-                  <button type="button" class="uz-remove" onclick="removeFile()">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="terms-check">
-              <input type="checkbox" id="termsChk" name="terms" required>
-              <label for="termsChk">I confirm that I have made the bank transfer of the amount shown above to the PAN Foundation account and the information I have provided is accurate. I agree to PAN Foundation's <a href="#">Privacy Policy</a>.</label>
-            </div>
-
-            <button type="submit" class="submit-btn" id="submitBtn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-              Submit Donation Confirmation
-            </button>
-          </form>
-
-          <div class="trust-row">
-            <div class="tr-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-              Secure Submission
-            </div>
-            <div class="tr-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-              Verified within 24hrs
-            </div>
-            <div class="tr-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              Receipt emailed to you
-            </div>
-          </div>
-        </div>
+<!-- Manual bank transfer flow removed. Please use GiveSe to donate. -->
+<div class="give-se-cta" style="padding:80px 0;background:rgba(15,46,26,.95);color:#fff">
+  <div class="container" style="max-width:960px;margin:0 auto;text-align:center">
+    <div style="max-width:720px;margin:0 auto">
+      <div class="section-label" style="justify-content:center">Donate via GiveSe</div>
+      <h2 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:20px">Support peace instantly with our payment link</h2>
+      <p style="font-size:1rem;line-height:1.8;color:rgba(255,255,255,.75);margin:0 auto 28px;max-width:600px">Use the link below to donate securely to TarabaPeaceInitiative (TPI). You can also scan the barcode with your phone camera or payment app.</p>
+      <a href="https://www.givese.com/donate/tphdi" target="_blank" rel="noopener" class="btn-primary" style="background:#fff;color:#0f2e1a;display:inline-flex;align-items:center;gap:10px;padding:16px 32px;border-radius:100px;font-weight:700;text-decoration:none;">Donate on GiveSe</a>
+      <div style="margin-top:32px;display:flex;justify-content:center">
+        <img src="image/barcode.jpeg" alt="GiveSe payment barcode" style="width:100%;max-width:320px;border-radius:20px;box-shadow:0 18px 40px rgba(0,0,0,.18);">
       </div>
     </div>
   </div>
 </div>
-
 <!-- SUCCESS PAGE -->
 <section class="success-page" id="successPage">
   <div class="success-anim">
@@ -570,10 +307,10 @@ footer{background:var(--green-deep);padding:60px 0 0}
   <div class="success-eyebrow">Thank You — God Bless You</div>
   <h1 class="success-title">Your Donation<br>Has Been <em>Received</em></h1>
   <p class="success-body">
-    Thank you from the entire PAN Foundation family. Your generosity is not just a financial gift — it is a declaration that you believe Nigeria's peace story can be different.<br><br>
+    Thank you from the entire TPI Foundation family. Your generosity is not just a financial gift — it is a declaration that you believe Nigeria's peace story can be different.<br><br>
     We will verify your transfer and send a formal acknowledgement and donation receipt to your email address within <strong>24 hours</strong>.
   </p>
-  <div class="success-ref" id="successRef">Ref: PAN-2025-000000</div>
+  <div class="success-ref" id="successRef">Ref: TPI-2025-000000</div>
   <div style="margin-bottom:40px;max-width:520px">
     <div class="success-impact">
       <div class="si-card">
@@ -614,8 +351,8 @@ footer{background:var(--green-deep);padding:60px 0 0}
     <div class="ft-grid">
       <div>
         <div class="ft-logo-row">
-          <div class="ft-logo-icon">PAN</div>
-          <div><div class="ft-brand">Peace Alliance Network</div><div class="ft-sub">PAN Foundation — Nigeria</div></div>
+          <div class="ft-logo-icon"><img src="image/taraba.png" alt="tarabapeaceinitiative logo" class="footer-logo-img"></div>
+          <div><div class="ft-brand">TarabaPeaceInitiative</div><div class="ft-sub">TPI Foundation — Nigeria</div></div>
         </div>
         <p class="ft-tagline">Building a culture of peace across Nigeria and beyond — community by community, voice by voice.</p>
         <div class="ft-social">
@@ -645,7 +382,7 @@ footer{background:var(--green-deep);padding:60px 0 0}
       </div>
     </div>
     <div class="ft-bottom">
-      <span class="ft-copy">&copy; 2025 Peace Alliance Network (PAN) Foundation. All rights reserved.</span>
+      <span class="ft-copy">&copy; 2025 TarabaPeaceInitiative (TPI) Foundation. All rights reserved.</span>
       <div class="ft-legal"><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Annual Report</a></div>
     </div>
   </div>
@@ -759,7 +496,7 @@ function handleSubmit(e) {
   btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="animation:spin 1s linear infinite;width:18px;height:18px"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg> Submitting...`;
 
   // Generate reference and attach to form data
-  const ref = 'PAN-' + new Date().getFullYear() + '-' + Math.floor(100000 + Math.random() * 900000);
+  const ref = 'TPI-' + new Date().getFullYear() + '-' + Math.floor(100000 + Math.random() * 900000);
   const formData = new FormData(form);
   formData.set('reference', ref);
 
@@ -845,16 +582,12 @@ document.querySelectorAll('.reveal').forEach(el => _revealIO.observe(el));
   });
 })();
 
-
-});
-// Close when clicking outside drawer
-
 </script>
 <style>
 @keyframes spin { to { transform: rotate(360deg); } }
 </style>
 <script>
-/* PAN Foundation — Mobile Navigation */
+/* TPI Foundation — Mobile Navigation */
 function openMenu() {
   var d = document.getElementById('mobDrawer');
   var t = document.getElementById('navToggle');

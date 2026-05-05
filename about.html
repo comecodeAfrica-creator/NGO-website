@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us — Peace Alliance Network (PAN) Foundation</title>
-<meta name="description" content="Learn who we are, our vision, mission, core values and history. PAN Foundation is Nigeria's leading peacebuilding network.">
+<title>About Us — TarabaPeaceInitiative (TPI) Foundation</title>
+<meta name="description" content="Learn who we are, our vision, mission, core values and history. TPI Foundation is Nigeria's leading peacebuilding network.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -28,11 +28,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5%;display:flex;a
 nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.25)}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .nav-logo-icon{width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;font-size:15px;color:var(--green-deep);flex-shrink:0}
+.nav-logo-icon img, .ft-logo-icon img{width:100%;height:100%;object-fit:contain;display:block;}
 .nav-logo-text .brand{font-family:var(--font-display);font-weight:700;font-size:15px;color:#fff;letter-spacing:.3px}
-.nav-logo-text .sub{font-size:10px;color:var(--gold-pale);letter-spacing:1.5px;text-transform:uppercase}
+.nav-logo-text .sub{font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:13.5px;font-weight:500;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--gold-pale)}
+.nav-links a:hover,.nav-links a.active{color:#fff}
 .nav-cta{background:var(--gold);color:var(--green-deep);padding:10px 22px;border-radius:100px;font-weight:600;font-size:13px;text-decoration:none;transition:all .25s}
 .nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
 .nav-mob-btn{display:none;background:none;border:none;cursor:pointer;color:white;padding:4px}
@@ -40,7 +41,7 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.25)}
 .mob-menu{display:none;position:fixed;inset:0;background:var(--green-deep);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px}
 .mob-menu.open{display:flex}
 .mob-menu a{color:white;text-decoration:none;font-family:var(--font-display);font-size:1.6rem;font-weight:700;transition:color .2s}
-.mob-menu a:hover{color:var(--gold)}
+.mob-menu a:hover{color:#fff}
 .mob-close{position:absolute;top:24px;right:5%;background:none;border:none;cursor:pointer;color:white}
 .mob-close svg{width:28px;height:28px}
 
@@ -50,23 +51,23 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.25)}
 .page-hero-texture{position:absolute;inset:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E")}
 .hero-ring{position:absolute;right:8%;top:50%;transform:translateY(-50%);width:340px;height:340px;border-radius:50%;border:1px solid rgba(201,136,42,.12);display:flex;align-items:center;justify-content:center;pointer-events:none}
 .hero-ring::before{content:'';position:absolute;width:230px;height:230px;border-radius:50%;border:1px solid rgba(201,136,42,.18)}
-.hero-ring-icon{width:80px;height:80px;opacity:.2;color:var(--gold)}
+.hero-ring-icon{width:80px;height:80px;opacity:.2;color:#fff}
 .hero-ring-icon svg{width:100%;height:100%}
 .page-hero-content{position:relative;z-index:2;max-width:680px}
 .breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;animation:fadeUp .7s ease both}
 .breadcrumb a,.breadcrumb span{font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;letter-spacing:.5px}
-.breadcrumb a:hover{color:var(--gold-pale)}
+.breadcrumb a:hover{color:#fff}
 .breadcrumb .sep{color:rgba(255,255,255,.18)}
-.page-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(201,136,42,.15);border:1px solid rgba(201,136,42,.28);border-radius:100px;padding:5px 15px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold-pale);margin-bottom:20px;animation:fadeUp .7s ease .1s both}
+.page-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(201,136,42,.15);border:1px solid rgba(201,136,42,.28);border-radius:100px;padding:5px 15px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#fff;margin-bottom:20px;animation:fadeUp .7s ease .1s both}
 .eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
 .page-title{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.05;margin-bottom:18px;animation:fadeUp .7s ease .2s both}
-.page-title em{font-style:italic;color:var(--gold)}
+.page-title em{font-style:italic;color:#fff}
 .page-subtitle{font-size:1.05rem;line-height:1.8;color:rgba(255,255,255,.6);max-width:560px;animation:fadeUp .7s ease .3s both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
 /* UTILS */
 .container{max-width:1200px;margin:0 auto;padding:0 5%}
-.sec-label{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.sec-label{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#fff;margin-bottom:14px}
 .sec-label::before{content:'';display:block;width:24px;height:1.5px;background:var(--gold)}
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
@@ -79,12 +80,12 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.25)}
 .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .who-text .sec-label{margin-bottom:20px}
 .who-h{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;color:var(--green-deep);line-height:1.2;margin-bottom:20px}
-.who-h em{font-style:italic;color:var(--gold)}
+.who-h em{font-style:italic;color:#fff}
 .who-p{font-size:.97rem;line-height:1.9;color:var(--charcoal-light);margin-bottom:16px}
 .who-p strong{color:var(--green);font-weight:600}
 .who-quote{margin-top:32px;padding:24px 28px 24px 24px;border-left:3px solid var(--gold);background:linear-gradient(135deg,rgba(201,136,42,.05),rgba(234,240,230,.3));border-radius:0 14px 14px 0}
 .who-quote blockquote{font-family:var(--font-display);font-size:1.05rem;font-style:italic;color:var(--green-deep);line-height:1.65}
-.who-quote cite{display:block;margin-top:10px;font-size:11px;font-style:normal;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold)}
+.who-quote cite{display:block;margin-top:10px;font-size:11px;font-style:normal;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#fff}
 .who-visual{position:relative}
 .who-img-main{height:460px;border-radius:24px;background:linear-gradient(145deg,var(--green) 0%,var(--green-mid) 45%,var(--green-deep) 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
 .who-img-main::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(201,136,42,.18) 0%,transparent 60%)}
@@ -102,20 +103,20 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.25)}
 
 /* VISION MISSION */
 #vm{padding:100px 0;background:var(--green-deep);position:relative;overflow:hidden}
-#vm::before{content:'PAN';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-display);font-size:28vw;font-weight:900;color:rgba(255,255,255,.02);pointer-events:none;white-space:nowrap;letter-spacing:-.02em}
+#vm::before{content:'TPI';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-display);font-size:28vw;font-weight:900;color:rgba(255,255,255,.02);pointer-events:none;white-space:nowrap;letter-spacing:-.02em}
 .vm-header{text-align:center;margin-bottom:60px;position:relative;z-index:1}
-.vm-header .sec-label{justify-content:center;color:var(--gold-pale)}
+.vm-header .sec-label{justify-content:center;color:#fff}
 .vm-header .sec-label::before{background:var(--gold-pale)}
 .vm-h{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:#fff;line-height:1.2}
-.vm-h em{font-style:italic;color:var(--gold)}
+.vm-h em{font-style:italic;color:#fff}
 .vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;position:relative;z-index:1}
 .vm-card{border-radius:24px;padding:48px 44px;border:1px solid rgba(255,255,255,.08);transition:border-color .3s,transform .3s}
 .vm-card:hover{border-color:rgba(201,136,42,.3);transform:translateY(-4px)}
 .vm-card-v{background:rgba(201,136,42,.06)}
 .vm-card-m{background:rgba(255,255,255,.03)}
-.vm-card-icon{width:52px;height:52px;border-radius:16px;background:rgba(201,136,42,.15);border:1px solid rgba(201,136,42,.2);display:flex;align-items:center;justify-content:center;color:var(--gold);margin-bottom:20px}
+.vm-card-icon{width:52px;height:52px;border-radius:16px;background:rgba(201,136,42,.15);border:1px solid rgba(201,136,42,.2);display:flex;align-items:center;justify-content:center;color:#fff;margin-bottom:20px}
 .vm-card-icon svg{width:26px;height:26px}
-.vm-badge-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.vm-badge-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#fff;margin-bottom:14px}
 .vm-quote{font-family:var(--font-display);font-size:1.05rem;font-style:italic;color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:16px;padding-left:18px;border-left:2px solid rgba(201,136,42,.4)}
 .vm-body{font-size:.875rem;line-height:1.85;color:rgba(255,255,255,.5)}
 
@@ -123,7 +124,7 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.25)}
 #values{padding:100px 0;background:var(--sage)}
 .values-header{text-align:center;margin-bottom:60px}
 .values-h{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;color:var(--green-deep);line-height:1.2}
-.values-h em{font-style:italic;color:var(--gold)}
+.values-h em{font-style:italic;color:#fff}
 .values-p{font-size:.95rem;line-height:1.75;color:var(--charcoal-light);max-width:480px;margin:12px auto 0;text-align:center}
 .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .val-card{background:#fff;border-radius:20px;padding:36px 30px;border:1px solid var(--sage-mid);transition:all .35s;cursor:default}
@@ -141,7 +142,7 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.25)}
 .history-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .history-text .sec-label{margin-bottom:16px}
 .history-h{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;color:var(--green-deep);line-height:1.2}
-.history-h em{font-style:italic;color:var(--gold)}
+.history-h em{font-style:italic;color:#fff}
 .history-p{font-size:.95rem;line-height:1.85;color:var(--charcoal-light);margin-top:16px}
 .history-stats{display:flex;gap:28px;margin-top:32px;flex-wrap:wrap}
 .hstat-num{font-family:var(--font-display);font-size:2.2rem;font-weight:900;color:var(--green);line-height:1}
@@ -150,7 +151,7 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.25)}
 .timeline::before{content:'';position:absolute;left:10px;top:6px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),var(--sage-mid))}
 .tl-item{position:relative;margin-bottom:40px;padding-left:24px}
 .tl-item::before{content:'';position:absolute;left:-34px;top:5px;width:13px;height:13px;border-radius:50%;background:var(--gold);border:3px solid var(--ivory);box-shadow:0 0 0 2px var(--gold)}
-.tl-year{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.tl-year{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;margin-bottom:5px}
 .tl-h{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--green-deep);margin-bottom:6px}
 .tl-p{font-size:.865rem;line-height:1.75;color:var(--charcoal-light)}
 
@@ -158,10 +159,10 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.25)}
 #leadership{padding:100px 0;background:var(--green);position:relative;overflow:hidden}
 #leadership::after{content:'';position:absolute;bottom:-120px;right:-120px;width:440px;height:440px;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
 .leadership-header{text-align:center;margin-bottom:60px}
-.leadership-header .sec-label{justify-content:center;color:var(--gold-pale)}
+.leadership-header .sec-label{justify-content:center;color:#fff}
 .leadership-header .sec-label::before{background:var(--gold-pale)}
 .leadership-h{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,2.6rem);font-weight:700;color:#fff;line-height:1.2}
-.leadership-h em{font-style:italic;color:var(--gold)}
+.leadership-h em{font-style:italic;color:#fff}
 .leadership-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .leader-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:22px;overflow:hidden;transition:all .35s}
 .leader-card:hover{background:rgba(255,255,255,.09);transform:translateY(-6px);border-color:rgba(201,136,42,.3);box-shadow:0 20px 50px rgba(0,0,0,.2)}
@@ -171,7 +172,7 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.25)}
 .leader-photo-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,46,26,.7) 0%,transparent 50%)}
 .leader-body{padding:22px 20px}
 .leader-name{font-family:var(--font-display);font-size:1rem;font-weight:700;color:#fff;margin-bottom:4px;line-height:1.2}
-.leader-role{font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.leader-role{font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:#fff;margin-bottom:10px}
 .leader-bio{font-size:.8rem;line-height:1.7;color:rgba(255,255,255,.5)}
 
 /* FOOTER */
@@ -180,21 +181,21 @@ footer{background:var(--green-deep);padding:60px 0 0}
 .ft-logo-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
 .ft-logo-icon{width:44px;height:44px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;font-size:15px;color:var(--green-deep)}
 .ft-brand{font-family:var(--font-display);font-size:15px;font-weight:700;color:#fff}
-.ft-sub{font-size:10px;color:var(--gold-pale);letter-spacing:1.5px;text-transform:uppercase}
+.ft-sub{font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase}
 .ft-tagline{font-size:.85rem;line-height:1.75;color:rgba(255,255,255,.4);max-width:280px;margin-bottom:20px}
 .ft-social{display:flex;gap:8px}
 .soc-btn{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,.6);transition:all .25s}
 .soc-btn svg{width:15px;height:15px}
-.soc-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--green-deep)}
-.ft-col-title{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.soc-btn:hover{background:var(--gold);border-color:#fff;color:var(--green-deep)}
+.ft-col-title{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#fff;margin-bottom:18px}
 .ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
 .ft-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:13.5px;transition:color .2s}
-.ft-links a:hover{color:var(--gold-pale)}
+.ft-links a:hover{color:#fff}
 .ft-bottom{border-top:1px solid rgba(255,255,255,.07);padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .ft-copy{font-size:12px;color:rgba(255,255,255,.28)}
 .ft-legal{display:flex;gap:20px}
 .ft-legal a{font-size:12px;color:rgba(255,255,255,.28);text-decoration:none;transition:color .2s}
-.ft-legal a:hover{color:var(--gold-pale)}
+.ft-legal a:hover{color:#fff}
 
 .floating-donate{position:fixed;bottom:28px;right:28px;z-index:900;background:var(--gold);color:var(--green-deep);padding:13px 24px;border-radius:100px;font-size:13px;font-weight:700;text-decoration:none;box-shadow:0 8px 30px rgba(201,136,42,.45);display:flex;align-items:center;gap:8px;transition:all .3s;animation:floatIn .8s ease 1.2s both}
 .floating-donate svg{width:16px;height:16px}
@@ -223,8 +224,8 @@ footer{background:var(--green-deep);padding:60px 0 0}
 .mob-drawer .mob-logo-icon{width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;font-size:15px;color:var(--green-deep)}
 .mob-drawer .mob-logo-text{font-family:var(--font-display);font-size:15px;font-weight:700;color:#fff}
 .mob-drawer a{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:#fff;text-decoration:none;transition:color .2s}
-.mob-drawer a:hover{color:var(--gold)}
-.mob-drawer .mob-donate{color:var(--gold) !important}
+.mob-drawer a:hover{color:#fff}
+.mob-drawer .mob-donate{color:#fff !important}
 .mob-close-btn{position:absolute;top:20px;right:5%;background:rgba(255,255,255,.1);border:none;cursor:pointer;color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s}
 .mob-close-btn:hover{background:rgba(255,255,255,.2)}
 .mob-close-btn svg{width:22px;height:22px}
@@ -236,10 +237,10 @@ nav.scrolled{box-shadow:0 2px 28px rgba(0,0,0,.25)}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .nav-logo-icon{width:44px;height:44px;background:#C9882A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:15px;color:#0f2e1a;flex-shrink:0}
 .nav-logo-text .brand{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:15px;color:#fff;letter-spacing:.3px}
-.nav-logo-text .sub{font-size:10px;color:#e8c07a;letter-spacing:1.5px;text-transform:uppercase}
+.nav-logo-text .sub{font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase}
 .nav-links{display:flex;align-items:center;gap:30px;list-style:none}
 .nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:13.5px;font-weight:500;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:#e8c07a}
+.nav-links a:hover,.nav-links a.active{color:#fff}
 .nav-cta{background:#C9882A;color:#0f2e1a;padding:10px 22px;border-radius:100px;font-weight:700;font-size:13px;text-decoration:none;transition:all .25s;white-space:nowrap}
 .nav-cta:hover{background:#dba048;transform:translateY(-1px)}
 .nav-mob-btn{display:none;background:none;border:none;cursor:pointer;color:#fff;padding:6px;align-items:center;justify-content:center;border-radius:8px;transition:background .2s}
@@ -252,8 +253,8 @@ nav.scrolled{box-shadow:0 2px 28px rgba(0,0,0,.25)}
 .mob-close-btn:hover{background:rgba(255,255,255,.2)}
 .mob-close-btn svg{width:22px;height:22px;display:block}
 .mob-drawer a{font-family:'Playfair Display',Georgia,serif;font-size:1.7rem;font-weight:700;color:#fff;text-decoration:none;transition:color .2s}
-.mob-drawer a:hover{color:#C9882A}
-.mob-drawer .mob-donate-link{color:#C9882A !important;border:1.5px solid rgba(201,136,42,.3);padding:10px 28px;border-radius:100px;margin-top:8px}
+.mob-drawer a:hover{color:#fff}
+.mob-drawer .mob-donate-link{color:#fff !important;border:1.5px solid rgba(201,136,42,.3);padding:10px 28px;border-radius:100px;margin-top:8px}
 .mob-drawer .mob-donate-link:hover{background:rgba(201,136,42,.15)}
 @media(max-width:900px){.nav-links,.nav-cta{display:none}.nav-mob-btn{display:flex}}
 
@@ -263,21 +264,21 @@ footer{background:#0f2e1a;padding:68px 0 0}
 .ft-logo-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
 .ft-logo-icon{width:44px;height:44px;border-radius:50%;background:#C9882A;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:15px;color:#0f2e1a}
 .ft-brand-name{font-family:'Playfair Display',Georgia,serif;font-size:15px;font-weight:700;color:#fff}
-.ft-brand-sub{font-size:10px;color:#e8c07a;letter-spacing:1.5px;text-transform:uppercase}
+.ft-brand-sub{font-size:10px;color:#fff;letter-spacing:1.5px;text-transform:uppercase}
 .ft-tagline{font-size:.84rem;line-height:1.8;color:rgba(255,255,255,.4);max-width:270px;margin-bottom:22px}
 .ft-social{display:flex;gap:8px}
 .ft-soc{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,.55);transition:all .25s}
 .ft-soc svg{width:14px;height:14px}
-.ft-soc:hover{background:#C9882A;border-color:#C9882A;color:#0f2e1a}
-.ft-col-title{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#C9882A;margin-bottom:18px}
+.ft-soc:hover{background:#C9882A;border-color:#fff;color:#0f2e1a}
+.ft-col-title{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#fff;margin-bottom:18px}
 .ft-links{list-style:none;display:flex;flex-direction:column;gap:10px}
 .ft-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:13.5px;transition:color .2s}
-.ft-links a:hover{color:#e8c07a}
+.ft-links a:hover{color:#fff}
 .ft-bottom{border-top:1px solid rgba(255,255,255,.07);padding:22px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .ft-copy{font-size:12px;color:rgba(255,255,255,.25)}
 .ft-legal{display:flex;gap:20px}
 .ft-legal a{font-size:12px;color:rgba(255,255,255,.25);text-decoration:none;transition:color .2s}
-.ft-legal a:hover{color:#e8c07a}
+.ft-legal a:hover{color:#fff}
 @media(max-width:760px){.ft-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.ft-grid{grid-template-columns:1fr}}
 
@@ -295,7 +296,7 @@ footer{background:#0f2e1a;padding:68px 0 0}
   <a href="what-we-do.html" onclick="openMenu()">What We Do</a>
   <a href="get-involved.html" onclick="openMenu()">Get Involved</a>
   <a href="contact.html" onclick="openMenu()">Contact</a>
-  <a href="donate.html" style="color:var(--gold)">Donate</a>
+  <a href="donate.html" style="color:#fff">Donate</a>
 </div>
 
 <a href="donate.html" class="floating-donate">
@@ -319,11 +320,11 @@ footer{background:#0f2e1a;padding:68px 0 0}
 
 <!-- NAV -->
 <nav id="main-nav">
-  <a href="index.html" class="nav-logo">
-    <div class="nav-logo-icon">PAN</div>
+  <a href="get-involved.html" class="nav-logo">
+    <div class="nav-logo-icon"><img src="image/taraba.png" alt="tarabapeaceinitiative logo" class="nav-logo-img"></div>
     <div class="nav-logo-text">
-      <div class="brand">Peace Alliance Network</div>
-      <div class="sub">PAN Foundation</div>
+      <div class="brand">TarabaPeaceInitiative</div>
+      <div class="sub">TPI Foundation</div>
     </div>
   </a>
   <ul class="nav-links">
@@ -332,7 +333,7 @@ footer{background:#0f2e1a;padding:68px 0 0}
     <li><a href="get-involved.html">Get Involved</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="donate.html" class="nav-cta">Donate</a>
+  <a href="get-involved.html#volunteer" class="nav-cta">Get Involved</a>
   <button class="nav-mob-btn" onclick="openMenu()" aria-label="Open menu">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
@@ -364,12 +365,12 @@ footer{background:#0f2e1a;padding:68px 0 0}
       <div class="who-text">
         <div class="sec-label reveal">Who We Are</div>
         <h2 class="who-h reveal d1">More Than an NGO —<br><em>A Movement</em></h2>
-        <p class="who-p reveal d2">The <strong>Peace Alliance Network (PAN) Foundation</strong> is a value-based peacebuilding organization rooted in Nigeria's rich and diverse cultural landscape. We exist because we believe ordinary Nigerians hold extraordinary power to build peace — from their streets, markets, mosques, churches, and community halls.</p>
+        <p class="who-p reveal d2">The <strong>TarabaPeaceInitiative (TPI) Foundation</strong> is a value-based peacebuilding organization rooted in Nigeria's rich and diverse cultural landscape. We exist because we believe ordinary Nigerians hold extraordinary power to build peace — from their streets, markets, mosques, churches, and community halls.</p>
         <p class="who-p reveal d3">We work directly with <strong>victims of violent conflict</strong>, bringing together voices from every corner of society to make change that endures. We do not stand on the sidelines of Nigeria's story — we are active participants in shaping a more just and peaceful future.</p>
         <p class="who-p reveal d4">Our approach is community-led, culturally sensitive, and deeply human. We engage all members of the human family — regardless of faith, tribe, or background — as contributors to building a lasting culture of peace.</p>
         <div class="who-quote reveal d5">
           <blockquote>"Peace is not the absence of conflict, but the presence of justice and the courage to pursue it together."</blockquote>
-          <cite>— PAN Foundation Founding Principle</cite>
+          <cite>— TPI Foundation Founding Principle</cite>
         </div>
       </div>
       <div class="who-visual reveal d2">
@@ -383,8 +384,8 @@ footer{background:#0f2e1a;padding:68px 0 0}
           <div class="fb-label">Year Founded</div>
         </div>
         <div class="float-badge float-badge-white">
-          <div class="fb-num">19</div>
-          <div class="fb-label">States Active</div>
+          <div class="fb-num">1</div>
+          <div class="fb-label">State Active</div>
         </div>
       </div>
     </div>
@@ -493,38 +494,38 @@ footer{background:#0f2e1a;padding:68px 0 0}
       <div class="history-text">
         <div class="sec-label reveal">Our Journey</div>
         <h2 class="history-h reveal d1">A Decade of <em>Building Peace</em></h2>
-        <p class="history-p reveal d2">From a small coalition of committed Nigerians in 2009 to a nationwide network spanning 19 states, our growth mirrors the growing demand for peace in Nigeria's communities.</p>
+        <p class="history-p reveal d2">From a small coalition of committed Nigerians in 2009 to a nationwide network spanning 1 state, our growth mirrors the growing demand for peace in Nigeria's communities.</p>
         <div class="history-stats reveal d3">
           <div><div class="hstat-num" data-count="15">0</div><div class="hstat-label">Years Active</div></div>
-          <div><div class="hstat-num" data-count="19">0</div><div class="hstat-label">States</div></div>
+          <div><div class="hstat-num" data-count="1">0</div><div class="hstat-label">State</div></div>
           <div><div class="hstat-num" data-count="5000" data-suffix="+">0</div><div class="hstat-label">Lives Touched</div></div>
         </div>
       </div>
       <div class="timeline reveal d2">
         <div class="tl-item">
           <div class="tl-year">2009 — Founding</div>
-          <div class="tl-h">The Peace Alliance Network is Born</div>
-          <p class="tl-p">A coalition of civil society leaders, faith leaders, and community activists come together in Abuja with a shared conviction: Nigeria deserves better than cycles of violence. PAN Foundation is formally established with a mandate for community peacebuilding.</p>
+          <div class="tl-h">The TarabaPeaceInitiative is Born</div>
+          <p class="tl-p">A coalition of civil society leaders, faith leaders, and community activists come together in Abuja with a shared conviction: Nigeria deserves better than cycles of violence. TPI Foundation is formally established with a mandate for community peacebuilding.</p>
         </div>
         <div class="tl-item">
           <div class="tl-year">2011 — First Field Programs</div>
           <div class="tl-h">Grassroots Peacebuilding Launches in Jos</div>
-          <p class="tl-p">PAN deploys its first field teams to Plateau State following intercommunal violence, facilitating dialogue between community leaders and training local peacebuilders. 12 communities participate in the inaugural program.</p>
+          <p class="tl-p">TPI deploys its first field teams to Plateau State following intercommunal violence, facilitating dialogue between community leaders and training local peacebuilders. 12 communities participate in the inaugural program.</p>
         </div>
         <div class="tl-item">
           <div class="tl-year">2014 — Expanding Northeast</div>
           <div class="tl-h">Conflict Victims Support Program Launched</div>
-          <p class="tl-p">As violence escalates in the northeast, PAN expands its mandate to include psychosocial support for conflict victims in Borno and Adamawa states, partnering with international organizations to scale its reach.</p>
+          <p class="tl-p">As violence escalates in the northeast, TPI expands its mandate to include psychosocial support for conflict victims in Borno and Adamawa states, partnering with international organizations to scale its reach.</p>
         </div>
         <div class="tl-item">
           <div class="tl-year">2017 — Youth Focus</div>
           <div class="tl-h">Youth Reintegration Program Established</div>
-          <p class="tl-p">PAN launches a dedicated Youth Reintegration Program — providing skills, mentorship, and pathways back to community life for young people affected by violence.</p>
+          <p class="tl-p">TPI launches a dedicated Youth Reintegration Program — providing skills, mentorship, and pathways back to community life for young people affected by violence.</p>
         </div>
         <div class="tl-item">
           <div class="tl-year">2020 – Present</div>
-          <div class="tl-h">Nationwide Network — 19 States &amp; Growing</div>
-          <p class="tl-p">PAN's network now spans 19 Nigerian states, with over 200 trained local peacebuilders and a growing reputation as one of Nigeria's most effective grassroots peacebuilding organizations.</p>
+          <div class="tl-h">Nationwide Network — 1 State &amp; Growing</div>
+          <p class="tl-p">TPI's network now spans 1 Nigerian state, with over 200 trained local peacebuilders and a growing reputation as one of Nigeria's most effective grassroots peacebuilding organizations.</p>
         </div>
       </div>
     </div>
@@ -557,8 +558,8 @@ footer{background:#0f2e1a;padding:68px 0 0}
         </div>
         <div class="leader-body">
           <div class="leader-name">Hon Joseph Manga</div>
-          <div class="leader-role">Finance & Administratio</div>
-          <!-- <p class="leader-bio">Leads PAN's field operations across 19 states. Specialist in gender-sensitive peacebuilding and community trauma healing. 18 years field experience.</p> -->
+          <div class="leader-role">Finance & Administration</div>
+          <!-- <p class="leader-bio">Leads TPI's field operations across 19 states. Specialist in gender-sensitive peacebuilding and community trauma healing. 18 years field experience.</p> -->
         </div>
       </div>
       <div class="leader-card reveal d2">
@@ -580,7 +581,7 @@ footer{background:#0f2e1a;padding:68px 0 0}
         <div class="leader-body">
           <div class="leader-name">Chukwu Emmanuel Uche </div>
           <div class="leader-role">Program Manager & Fundraising</div>
-          <!-- <p class="leader-bio">Former youth at-risk counselor who now leads PAN's reintegration programs. MSc Psychology, University of Lagos. 12 years working with young people.</p> -->
+          <!-- <p class="leader-bio">Former youth at-risk counselor who now leads TPI's reintegration programs. MSc Psychology, University of Lagos. 12 years working with young people.</p> -->
         </div>
       </div>
     </div>
@@ -594,8 +595,8 @@ footer{background:#0f2e1a;padding:68px 0 0}
     <div class="ft-grid">
       <div>
         <div class="ft-logo-row">
-          <div class="ft-logo-icon">PAN</div>
-          <div><div class="ft-brand">Peace Alliance Network</div><div class="ft-sub">PAN Foundation — Nigeria</div></div>
+          <div class="ft-logo-icon"><img src="image/taraba.png" alt="TarabaPeaceInitiative logo" class="footer-logo-img"></div>
+          <div><div class="ft-brand">TarabaPeaceInitiative</div><div class="ft-sub">TPI Foundation — Nigeria</div></div>
         </div>
         <p class="ft-tagline">Building a culture of peace across Nigeria and beyond — community by community, voice by voice.</p>
         <div class="ft-social">
@@ -626,7 +627,7 @@ footer{background:#0f2e1a;padding:68px 0 0}
       </div>
     </div>
     <div class="ft-bottom">
-      <span class="ft-copy">&copy; 2025 Peace Alliance Network (PAN) Foundation. All rights reserved.</span>
+      <span class="ft-copy">&copy; 2025 TarabaPeaceInitiative (TPI) Foundation. All rights reserved.</span>
       <div class="ft-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Annual Report</a></div>
     </div>
   </div>
@@ -697,7 +698,7 @@ window.addEventListener('scroll', () => _nav.classList.toggle('scrolled', scroll
 
 </script>
 <script>
-/* PAN Foundation — Mobile Navigation */
+/* TPI Foundation — Mobile Navigation */
 function openMenu() {
   var d = document.getElementById('mobDrawer');
   var t = document.getElementById('navToggle');

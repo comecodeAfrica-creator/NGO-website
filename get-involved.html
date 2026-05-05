@@ -116,7 +116,12 @@ nav.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.2)}
 .vol-form-header{margin-bottom:32px}
 .vol-form-header h3{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:white;margin-bottom:8px}
 .vol-form-header p{font-size:.9rem;color:rgba(255,255,255,.5);line-height:1.7}
-.vol-form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.vol-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+  
 .form-group{display:flex;flex-direction:column;gap:6px}
 .form-group.full{grid-column:span 2}
 .form-group label{font-size:12px;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:.3px}
@@ -216,7 +221,11 @@ footer{background:var(--green-deep);padding:60px 0 0}
   .page-hero-dec{display:none}
   .why-visual{display:none}
   .dw-tiers{grid-template-columns:1fr 1fr}
+  .form-group.full {
+    grid-column: span 1;
+  }
 }
+  
 @media(max-width:600px){
   .vol-roles{grid-template-columns:1fr}
   .partner-types{grid-template-columns:1fr 1fr}
